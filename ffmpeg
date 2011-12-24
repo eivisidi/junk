@@ -1,0 +1,6 @@
+﻿ffmpeg -i hola.flv hola.avi 
+ffmpeg -i hola.flv hola.mp3 (rip audio out of video) 
+ffmpeg -i hola.flv hola.wav (rip audio out of video)
+ffmpeg -i hola.mpg -target ntsc-dv hola.dv 
+ffmpeg -i hola.dv -target ntsc-dvd hola.mpg
+ffmpeg -i hola.mpg -target vcd output vcd.mpg

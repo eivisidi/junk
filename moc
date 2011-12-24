@@ -1,0 +1,15 @@
+﻿mocp
+
+enter (start song)
+space or p (pause)
+n (next track)
+b (previous track)
+tab (switch playlist browsing to filesystem browsing)
+a (add one track to the playlist)
+d (remove track from the playlist)
+C (clear playlist)
+. (increase volume 5%)
+, (decrease volume 5%)
+> (increase volume 1%)
+< (decrease volume 1%)
+q (quit player)

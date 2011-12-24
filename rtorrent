@@ -1,0 +1,12 @@
+﻿cd to where .torrent is
+rtorrent
+enter
+tab
+write beginning of torrent name
+tab
+enter
+up/down 
+ctrl+s 
+ctrl+d (once: “stop”)
+       (twice: “delete”)
+ctrl+q

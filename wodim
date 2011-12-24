@@ -1,0 +1,29 @@
+﻿Step 1: Find your CD/DVD Writer
+wodim –scanbus
+scsibus1:
+1,0,0    100) ‘ATAPI   ‘ ‘iHAS120   6         ‘ ’7L02′ Removable CD-ROM
+1,1,0    101) *
+1,2,0    102) *
+1,3,0    103) *
+1,4,0    104) *
+1,5,0    105) *
+1,6,0    106) *
+1,7,0    107) *
+
+wodim –devices
+wodim: Overview of accessible drives (1 found) :
+————————————————————————-
+0  dev=’/dev/scd0′    rwrw– : ‘ATAPI’ ‘iHAS120   6′
+————————————————————————-
+
+Step 2: Erase your Re-writable CD/DVD
+umount /dev/cdrom
+cdrecord device=1,0,0 blank=fast
+wodim dev=/dev/scd0 blank=fas
+
+Step 3: Burn an ISO image
+wodim -v -dao speed=4 dev=/dev/scd0 /root/projects/debian-500-i386-netinst.iso
+
+Step 4: Create an ISO image and then burn it
+mkisofs -r -o mycdimage.iso  /home/kushalk/mydatadirectory
+wodim -v -dao speed=4 dev=/dev/scd0 mycdimage.iso
