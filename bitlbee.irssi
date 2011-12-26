@@ -1,0 +1,57 @@
+﻿bitlbee:
+sudo vim /etc/bitlbee/bitlbee.conf
+run mode=ForkDaemon
+user=bitlbee
+ZZ
+reboot 
+or 
+/etc/init.d/bitlbee restart
+/etc/rc.d/ bitlbee restart 
+
+
+irssi:
+irssi 
+/connect im.bitlbee.org
+/j #bitlbee
+register 
+/OPER
+password
+account add msn email password
+account on
+save
+
+to log in after exiting:
+/connect im.bitlbee.org
+/j #bitlbee
+identify
+/OPER
+password
+
+basic commands:
+/wc (window close)
+/nick (change nick)
+/whois flor (info)
+/blist (list of online people)
+/m flor como estas? (send message) 
+/clear (clear window)
+/part 
+/leave
+/exit
+/quit
+/server (list servers)
+/window move left
+/window move right
+/help window
+/alias bright window move right (“/bright” executes the command)
+/unalias
+/alias (list of aliases)
+/drop (erase registration)
+blist all (online/offline list)
+/away
+/busy
+/query (private chat)
+/mode vasago i+- (+invisible, -visible again)
+alt + 1, 2, 3.. (change windows)
+
+
+
