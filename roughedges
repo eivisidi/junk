@@ -1,0 +1,45 @@
+cdparanoia:
+cdparanoia -vsQ (for info)
+cdparanoia -B (rip all tracks to current directory)
+
+rcconf:
+sudo rcconf
+unselect portmap, rsyslog
+
+ufw:
+sudo ufw enable
+
+sudo:
+su chmod u+w /etc/sudoers
+vim /etc/sudoers
+vasago ALL=(ALL) ALL (at the end)
+chmod u-w /etc/sudoers
+
+sources list:  
+su vim /etc/apt/sources.list
+change squeeze to testing
+add main contrib non-free 
+keep security in stable
+
+dwm:
+mkdir ~/Builds
+cd Builds
+apt-get build-dep dwm
+apt-get source dwm 
+or
+wget http://dl.suckless.org/dwm/dwm-version.tar.gz
+tar -xvf dwm-version.tar.gz
+cd dwm-version
+cp config.def.h config.h (configure)
+sudo make clean install
+
+configure brightness:
+su
+echo 100 > /proc/acpi/video/GFX0/DD02/brightness
+
+tips:
+merge files: cat file1 >> file2
+shif + insert = mouse middle click
+dmesg | tail
+fdisk -l  
+to execute program: sudo ./truecrypt

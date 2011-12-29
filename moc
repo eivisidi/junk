@@ -1,4 +1,11 @@
-﻿mocp
+﻿mkdir ~/.moc/themes
+cd /usr/share/moc/themes
+cp darkdot_theme ~/.moc/themes
+sudo vim ~/.moc/config
+change to Theme darkdot_theme
+ZZ
+
+mocp
 
 enter (start song)
 space or p (pause)
@@ -13,3 +20,5 @@ C (clear playlist)
 > (increase volume 1%)
 < (decrease volume 1%)
 q (quit player)
+
+

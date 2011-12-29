@@ -1,4 +1,5 @@
-﻿#! /bin/sh
+﻿#sudo chmod 755 ~/.xinitrc 
+#! /bin/sh
 
 feh --bg-scale ~/Pictures/blackcity.png &
 
@@ -37,7 +38,7 @@ WEATHERTEXT=`w3m -dump "http://mobile.weather.gov/port_mp_ns.php?CityName=Juncos
  echo "W:$WEATHERTEXT"
 }
 
-mem() {
+mem(){
 MEMTOTAL=`awk '/MemTotal/{print $2}' < /proc/meminfo`
  MEMCACHED=`awk '/^Cached/{print $2}' < /proc/meminfo`
  MEMBUFFERS=`awk '/Buffers/{print $2}' < /proc/meminfo`

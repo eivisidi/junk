@@ -9,8 +9,9 @@ or
 /etc/rc.d/ bitlbee restart 
 
 
-irssi:
-irssi 
+download zhafte.theme to ~/.irssi
+irssi
+/SET theme zhafte.theme
 /connect im.bitlbee.org
 /j #bitlbee
 register 
@@ -53,5 +54,10 @@ blist all (online/offline list)
 /mode vasago i+- (+invisible, -visible again)
 alt + 1, 2, 3.. (change windows)
 
-
+some channels:
+irc.freenode.net
+irc.oftc.net #suckless
+us.undernet.org
+irc.geekshed.net #jupiterbroadcasting
+irc.twit.tv #twitlive
 
