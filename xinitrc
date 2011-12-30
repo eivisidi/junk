@@ -1,4 +1,5 @@
 ﻿#sudo chmod 755 ~/.xinitrc 
+#xrdb -load ~/.Xdefaults &
 #! /bin/sh
 
 feh --bg-scale ~/Pictures/blackcity.png &
