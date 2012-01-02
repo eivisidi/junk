@@ -1,7 +1,7 @@
 ﻿#sudo chmod 755 ~/.xinitrc 
-#xrdb -merge ~ /.Xresources & (arch)
-#xrdb -load ~/.Xdefaults & (debian)
-#xrdb -load ~/.Xsessions & (debian) 
+#xrdb -merge ~/.Xresources &
+#xrdb -load ~/.Xdefaults &
+#xrdb -load ~/.Xsessions &
 #! /bin/sh
 
 feh --bg-scale ~/Pictures/blackcity.png &
