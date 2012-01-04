@@ -1,74 +1,6 @@
-﻿#1
-URxvt*transparent: true
-URxvt*tintColor: Black
-URxvt*saveLines: 2000
-URxvt*foreground: Mediumpurple
-URxvt*background: Black
-URxvt*font: xft:terminus:pixelsize=16
-URxvt*boldFont: xft:terminus:bold:pixelsize=16
-URxvt*color4: RoyalBlue
-URxvt*color12: RoyalBlue
-URxvt*scrollBar: false
-URxvt*scrollBar_right: false
-URxvt*scrollstyle: rxvt
-
-!-2(foreground),-1(background)
-#2
-URxvt*geometry: 140x50
-URxvt*background:[70]Black
-URxvt*foreground:Mediumpurple
-URxvt.depth: 32
-URxvt*cursorBlink: on
-URxvt*borderLess: false
-URxvt*cursorUnderline: true
-URxvt.visualBell: false
-URxvt*scrollBar: false
-URxvt*scrollTtyOutput: false
-URxvt*scrollTtyKeypress: true
-URxvt*secondaryScroll: true
-URxvt*saveLines: 2000
-
-! TABS
-URxvt.perl-ext-common: tabbed
-URxvt.tabbed.tabbar-fg:-2
-URxvt.tabbed.tabbar-bg:-1
-URxvt.tabbed.tab-fg:-2
-URxvt.tabbed.tab-bg:-1
-
-! COLOR PALETTE
-! black
-URxvt.color0  : #2E2E34343636
-URxvt.color8  : #555557575353
-! red
-URxvt.color1  : #CCCC00000000
-URxvt.color9  : #EFEF29292929
-! green
-URxvt.color2  : #4E4E9A9A0606
-URxvt.color10 : #8A8AE2E23434
-! yellow
-URxvt.color3  : #C4C4A0A00000
-URxvt.color11 : #FCFCE9E94F4F
-! blue
-URxvt.color4  : #34346565A4A4
-URxvt.color12 : #72729F9FCFCF
-! magenta
-URxvt.color5  : #757550507B7B
-URxvt.color13 : #ADAD7F7FA8A8
-! cyan
-URxvt.color6  : #060698209A9A
-URxvt.color14 : #3434E2E2E2E2
-! white
-URxvt.color7  : #D3D3D7D7CFCF
-URxvt.color15 : #EEEEEEEEECEC
-
-! FONTS
-! $ fc-list lists available fonts
-URxvt*font: xft:Terminus:pixelsize=14
-URxvt*boldFont: xft:Terminus:pixelsize=14
-
-#3
-URxvt*geometry: 53x20
-URxvt*font: xft:Terminus:pixelsize=14
+﻿URxvt*geometry: 50x50
+URxvt*font: xft:Terminus:pixelsize=14:antialias=false
+URxvt*boldFont: xft:Terminus:bold:pixelsize=14:antialias=false
 URxvt*depth: 32
 URxvt*background: [85]#000000
 URxvt*foreground: [100]#ffffff
@@ -79,6 +11,9 @@ URxvt*termName: rxvt-unicode
 URxvt.perl-ext-common: default,matcher
 URxvt.urlLauncher: chromium
 URxvt.matcher.button: 1
+URxvt*cursorBlink: on
+URxvt.visualBell: false
+URxvt*secondaryScroll: true
 
 !Pnevma1
 *color0: #2F2E2D
@@ -97,22 +32,4 @@ URxvt.matcher.button: 1
 *color14: #B1E7DD
 *color7: #D0D0D0
 *color15: #EFEFEF
-
-!Pnevma2 - A heavy mod of the original.
-!*color0: #2F2E2D
-!*color8: #4A4845
-!*color1: #C37561
-!*color9: #D19485
-!*color2: #A0A57E
-!*color10: #B6B99D
-!*color3: #D1A375
-!*color11: #DEBC9C
-!*color4: #7985A3
-!*color12: #98A1B9
-!*color5: #AB716D
-!*color13: #BE918E
-!*color6: #98B9B1
-!*color14: #CBE6CB
-!*color7: #D0D0D0
-!*color15: #EFEFEF
 
