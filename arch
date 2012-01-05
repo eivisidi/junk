@@ -1,0 +1,33 @@
+dwm:
+pacman -S base-devel abs dmenu
+abs community/dwm
+cp -r /var/abs/community/dwm ~/dwm
+cd /dwm/dwm
+makepkg -i
+customize:
+makepkg -g>>PKGBUILD
+makepkg -efi
+
+netcfg:
+cd /etc/network.d
+touch mynetwork
+cd examples
+cp wireless-wpa /etc/network.d/mynetwork
+cd ..
+vim mynetwork
+fill info
+ZZ
+DAEMONS=(..net-auto-wireless)
+
+keyboard:
+pacman -S xorg-xlsfonts xorg-xfontsel xorg-xfd xorg-fonts-(100/75)dpi
+setxkbmap us intl
+
+xinitrc:
+xrdb -merge ~/.Xresources &
+xset +fp /usr/share/fonts/local
+xset fp rehash
+reboot
+xfontsel and choose font, submit
+
+
