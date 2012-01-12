@@ -43,3 +43,4 @@ shif + insert = mouse middle click
 dmesg | tail
 fdisk -l  
 to execute program: sudo ./truecrypt
+rcconf(unckeck): atd, rpcbind, portmap, rsync, sudo, rsyslog, exim4
