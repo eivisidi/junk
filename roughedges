@@ -2,10 +2,6 @@ cdparanoia:
 cdparanoia -vsQ (for info)
 cdparanoia -B (rip all tracks to current directory)
 
-rcconf:
-sudo rcconf
-unselect portmap, rsyslog
-
 ufw:
 sudo ufw enable
 
@@ -38,9 +34,14 @@ su
 echo 100 > /proc/acpi/video/GFX0/DD02/brightness
 
 tips:
-merge files: cat file1 >> file2
-shif + insert = mouse middle click
+cat file1 >> file2 (merge files)
+shif+insert (mouse middle click)
 dmesg | tail
 fdisk -l  
-to execute program: sudo ./truecrypt
-rcconf(unckeck): atd, rpcbind, portmap, rsync, sudo, rsyslog, exim4
+sudo ./truecrypt (execute program)
+rcconf: atd, rpcbind, portmap, rsync, sudo, rsyslog, exim4 (uncheck)
+du -a file (file size)
+cp -r directoryfile /etc/whatever (copy all directory and subdirectories to..)
+gphoto2 --auto-detect
+gphoto2 -P (rip all camera photos to current folder)
+
