@@ -45,3 +45,12 @@ cp -r directoryfile /etc/whatever (copy all directory and subdirectories to..)
 gphoto2 --auto-detect
 gphoto2 -P (rip all camera photos to current folder)
 
+format usb:
+insert pendrive
+fdisk -l or dmesg | tail
+ex. /dev/sdb1
+sudo umount /dev/sdb1
+sudo mkfs.vfat -n 'toshiba' -l /dev/sdb1
+sudo mkfs.ntfs -n 'toshiba' -l /dev/sdb1
+
+
