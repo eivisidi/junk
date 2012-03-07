@@ -46,6 +46,7 @@ git commit -m 'first commit'
 git remote add origin git@github.com:username/junk.git
 git push origin master
 
-
+find SSH key fingerprints:
+ls ~/.ssh/*.pub | xargs -L 1 ssh-keygen -l -f
 
 
