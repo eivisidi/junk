@@ -48,5 +48,7 @@ git push origin master
 
 find SSH key fingerprints:
 ls ~/.ssh/*.pub | xargs -L 1 ssh-keygen -l -f
+or
+for i in ~/.ssh/*.pub; do ssh-keygen -l -f "$i"; done
 
 
