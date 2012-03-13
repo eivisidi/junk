@@ -54,4 +54,4 @@ sudo mkfs.vfat -n 'toshiba' -l /dev/sdb1
 sudo mkfs.ntfs -n 'toshiba' -l /dev/sdb1
 
 .bashrc:
-PS1='\[\033[1;32m\]-->\033[0m\] '
+PS1='\[\033[1;32m\]\w -->\033[0m\] '
