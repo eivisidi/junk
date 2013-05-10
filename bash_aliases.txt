@@ -1,0 +1,18 @@
+# .bash_aliases or .bashrc
+# PS1='\[\033[1;32m\]\w -->\033[0m\] '
+
+alias update='sudo aptitude update; sudo aptitude upgrade'
+alias install='sudo aptitude install'
+alias purge='sudo aptitude purge'
+alias search='aptitude search'
+alias show='aptitude show'
+alias clean='sudo aptitude clean'
+alias shutdown='sudo shutdown -h now'
+alias restart='sudo shutdown -r now'
+alias c='clear'
+alias e='exit' 
+alias ..='cd ..' 
+alias version='lsb_release -a; uname -a'
+alias one='git add'
+alias two='git commit -m 'reference''
+alias three='git push origin master'
