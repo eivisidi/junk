@@ -1,0 +1,19 @@
+sudo vim ~/.config/openbox/lubuntu-rc.xml
+
+change to:
+
+<!-- Keybindings for windows -->
+<keybind key="W-c">
+<action name="Close"/>
+
+<!-- Launch a terminal on Ctrl + Alt + T-->
+<keybind key="W-Return">
+
+<!-- Launch task manager on Ctrl + Alt + Del-->
+<keybind key="C-A-Delete">
+<action name="Execute">
+<command>lubuntu-logout</command>
+
+
+ZZ
+reboot
