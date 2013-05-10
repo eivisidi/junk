@@ -21,6 +21,7 @@ tail
 updatedb
 locate
 killall
+shift + insert (middle click)
 ctrl + alt + f1 (tty1)
 ctrl + alt + printscreen + reisub 
 ctrl + a (beginning of sentence)
@@ -102,6 +103,7 @@ aptitude search ~i (?installed)
 aptitude search ~o (?obsolete)
 add-apt-repository ppa:hotot-team
 ppa-purge ppa:hotot-team 
+dpkg-reconfigure keyboard-configuration
 shutdown -h now
 shutdown -r now
 ______________________________
