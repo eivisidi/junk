@@ -1,4 +1,4 @@
-/* See LICENSE file for copyright and license details. */
+/* See Licence file for copyright and license details. */
 
 /* appearance */
 static const char font[]            = "-*-terminus-medium-r-*-*-16-*-*-*-*-*-*-*";
