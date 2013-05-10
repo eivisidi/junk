@@ -1,8 +1,0 @@
-﻿dpkg-reconfigure keyboard-configuration
-
-or
-
-sudo vim /etc/default/keyboard
-XKBVARIANT=”intl”
-ZZ
-sudo reboot 

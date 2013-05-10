@@ -1,3 +1,0 @@
-﻿cd 
-scrot -q 100 -d 5 screenshot2.png -e 'mv $f ~/Pictures'
-
