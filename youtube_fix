@@ -1,0 +1,11 @@
+sudo vim /etc/X11/xorg.conf
+insert:
+
+Section "Device"
+        Identifier      "intel"
+        Driver          "intel"
+        Option          "AccelMethod"   "uxa"
+EndSection
+
+ZZ
+reboot
