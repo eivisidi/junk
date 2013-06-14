@@ -1,0 +1,401 @@
+BASIC
+ 
+cd
+cd ..
+ls
+ls -al
+cp
+cp -r
+mv
+rm
+rm -rf
+mkdir
+rmdir
+touch
+less
+cat
+grep
+echo
+tee
+head
+tail
+updatedb
+locate
+killall
+shift + insert (middle click)
+ctrl + alt + f1 (tty1)
+ctrl + alt + printscreen + reisub
+ctrl + a (beginning of sentence)
+ctrl + e (end of sentence)
+ctrl + c (stop operation)
+ctrl + u (cut whole sentence back)
+ctrl + k (cut whole sentence forward)
+ctrl + w (cut one word back)
+ctrl + y (paste)
+______________________________
+ 
+INFO
+ 
+date
+cal
+pwd
+fdisk -l
+lsb_release -a
+uname -a
+lspci
+lsusb
+iwconfig
+ifconfig
+top
+blkid (uuid)
+du -a file (file size)
+(hd0,1)=/dev/sda1 (1st hard drive, 1st partition)
+(hd1,3)=/dev/sdb3 (2nd hard drive, 3rd partition)
+_______________________________
+ 
+IMPORTANT DIRECTORIES
+ 
+/boot/grub/grub.cfg
+/etc/default/grub
+/etc/grub.d/40_custom
+/etc/apt/sources.list
+/etc/fstab
+/etc/init.d/'service' restart
+/var/log
+_______________________________
+ 
+IMPORTANT INSTALLS
+ 
+p7zip unzip unrar synaptic
+evince gdebi gthumb file-roller
+ufw gufw pyrenamer clamav clamtk
+vim vlc adobe-flashplugin ppa-purge
+gstreamer0.10-ffmpeg
+gstreamer0.10-fluendo-mp3
+gstreamer0.10-plugins-bad-multiverse
+gstreamer0.10-plugins-ugly
+_______________________________
+ 
+EXECUTION
+ 
+chmod ugo+-rwx file
+chmod +x file (executable)
+tar -xvfj file.tar.bz2
+tar -zxvf file.tar.gz
+tar -xvf file.tar
+ar x file.deb
+dd if=~/Desktop/file.iso of=/dev/sdx
+md5sum file.iso
+update-grub
+update-alternatives
+dpkg -i file.deb
+./file.bin (run/execute)
+cat file1 >> file2 (merge files)
+aptitude search
+aptitude show
+aptitude install
+aptitude purge
+aptitude upgrade
+aptitude update
+aptitude update; aptitude upgrade
+aptitude --help
+man aptitude
+aptitude search ~c (?configuration)
+aptitude search ~i (?installed)
+aptitude search ~o (?obsolete)
+add-apt-repository ppa:hotot-team
+ppa-purge ppa:hotot-team
+dpkg-reconfigure keyboard-configuration
+shutdown -h now
+shutdown -r now
+______________________________
+ 
+SOURCES LIST
+ 
+/etc/apt/sources.list
+ 
+## Debian
+deb http://ftp.us.debian.org/debian stable main contrib non-free
+deb-src http://ftp.us.debian.org/debian stable main contrib non-free
+ 
+## Security
+deb http://security.debian.org/ stable/updates main
+deb-src http://security.debian.org/ stable/updates main
+ 
+## Multimedia (http://deb-multimedia.org)
+## aptitude install deb-multimedia-keyring
+# deb http://www.deb-multimedia.org stable main non-free
+ 
+## Backports (http://backports.debian.org)
+## aptitude -t wheezy-backports install "package"
+## aptitude install package/wheezy-backports
+# deb http://ftp.us.debian.org/debian wheezy-backports main
+______________________________
+ 
+WPA-PSK/WPA2-PSK
+ 
+chmod 0600 /etc/network/interfaces
+vim /etc/network/interfaces
+auto wlan0
+iface wlan0 inet dhcp
+    wpa-ssid mynetworkname
+    wpa-psk mysecretpassphrase
+______________________________
+ 
+MISSING FIRMWARE
+ 
+needs iwlwifi-4965-2.ucode firmware
+in another computer-->
+search for it at
+http://www.debian.org/distrib/packages
+or using the word "firmware" at
+http://packages.debian.org/search?keywords=firmware
+put in usbstick
+insert (usbstick) when disk asks for firmware
+reboot
+vim /etc/apt/sources.list
+enable "non-free"
+aptitude update
+aptitude search iwlwifi-4965-2.ucode
+aptitude install firmware_iwlwifi
+______________________________
+ 
+SUDO
+ 
+su
+apt-get install sudo
+adduser vicom sudo (or echo 'vicom ALL=(ALL)ALL'>>/etc/sudoers)
+reboot
+______________________________
+ 
+SU
+ 
+sudo passwd
+enter password
+enter password
+enter new password
+su
+enter password
+______________________________
+ 
+FLASH PLUGIN
+ 
+download .tar.gz from http://get.adobe.com/flashplayer/?no_redirect
+tar -zxvf flash_player.tar.gz
+cp libflashplayer.so /usr/lib/chromium/plugins/
+______________________________
+ 
+JAVA
+ 
+download Linux (self-extracting file) from www.java.com to ~/Downloads
+cd /usr/local/bin
+sudo mkdir java
+cd java
+sudo mkdir 32
+sudo mv ~/Downloads/jre-6u31-linux-i586.bin /usr/local/bin/java/32
+sudo chmod 755 or a+x /usr/local/bin/java/32/jre-6u31-linux-i586.bin
+cd /usr/local/bin/java/32
+sudo ./jre-6u31-linux-i586.bin
+sudo update-alternatives --install "/usr/bin/java" "java" "/usr/local/bin/java/32/jre1.6.0_31/bin/java" 1
+when updating from previous removed java version then you'll need to execute the above command twice
+sudo update-alternatives --set java /usr/local/bin/java/32/jre1.6.0_31/bin/java
+sudo ln -s /usr/local/bin/java/32/jre1.6.0_31/lib/i386/libnpjp2.so /usr/lib/chromium/plugins
+/usr/local/bin/java/32/jre1.6.0_31/bin/ControlPanel (optional control panel)
+ 
+uninstall:
+sudo rm /usr/lib/chromium/plugins/libnpjp2.so
+sudo rm -rf /usr/local/bin/java
+______________________________
+ 
+STARTUP APPLICATIONS VISIBLE
+ 
+cd /etc/xdg/autostart/
+sudo sed --in-place 's/NoDisplay=true/NoDisplay=false/g' *.desktop
+______________________________
+ 
+NO NOTIFICATIONS FOR ERRORS
+ 
+sudo vim /etc/default/apport
+enabled=0
+______________________________
+ 
+CHANGE CURSOR
+ 
+sudo update-alternatives --config x-cursor-theme
+choose number
+open dconf-tools
+org --> gnome --> desktop --> interface
+cursor-theme: Chameleon-Anthracite-Small
+reboot
+______________________________
+ 
+COMPILE FROM SOURCE
+ 
+aptitude install checkinstall
+mkdir Build
+download test.tar.gz to Build
+cd Build
+tar -zvxf test.tar.gz
+cd test
+read "README" and "INSTALL"
+./configure --prefix=/usr/local
+make
+sudo checkinstall (or make install)
+sudo aptitude hold test
+ 
+make uninstall
+make clean
+________________________________
+ 
+MOUNT/UMOUNT
+ 
+fdisk -l
+mkdir /media/usb
+mount (-t vfat) /dev/sdb1 /media/usb (-o uid=1000,gid=1000,utf8,dmask=027,fmask=137)
+mount (-t ntfs-3g) /dev/sdb1 /media/usb
+umount /media/usb
+________________________________
+ 
+FORMAT USB
+ 
+fdisk -l
+umount /dev/sdc1
+mkfs -t vfat -I /dev/sdc1
+mkfs -t ext2 -I /dev/sdc1
+________________________________
+ 
+FIX GRUB BOOTLOADER
+ 
+boot with livecd
+fdisk -l
+mount /dev/sda1 /mnt
+grub-install --root-directory=/mnt/ /dev/sda
+update-grub
+reboot
+________________________________
+ 
+GRUB> (OR GRUB RESCUE>)
+ 
+ls (hdX,Y)/
+set prefix=(hdX,Y)/boot/grub
+set root=(hdX,Y)
+insmod (hdX,Y)/boot/grub/linux.mod
+linux /vmlinuz root=/dev/sdaY ro
+initrd /initrd.img
+boot
+apt-get --purge-remove grub2
+apt-get install grub2
+ 
+example:
+ls
+ls (hd0,3)/
+error: unknown filesystem.
+ls (hd0,2)/
+error: unknown filesystem.
+ls (hd0,1)/
+./ ../ lost+found/ etc/ media/ ...img.old vmlinuz.old
+set prefix=(hd0,1)/boot/grub
+set root=(hd0,1)
+insmod (hd0,1)/boot/grub/linux.mod
+linux /vmlinuz root=/dev/sda1 ro
+initrd /initrd.img
+boot
+terminal
+aptitude purge grub2 (or apt-get --purge-remove grub2)
+aptitude install grub2 (or apt-get install grub2)
+________________________________
+ 
+REMOTE ACCESS  
+ 
+on both computers: sudo aptitude install ssh
+sudo ufw allow 22
+ifconfig for ip
+sudo ssh vasago@ip
+________________________________
+ 
+DUAL BOOT
+ 
+1st distro install:
+/dev/sda (install grub on master boot record)
+ /dev/sda1 /
+ /dev/sda2 /home
+ /dev/sda3 swap
+2nd distro install:
+/dev/sdb
+ /dev/sdb1 / (install grub on root partition)
+ /dev/sdb2 /home
+ /dev/sdb3 swap
+ 
+reboot to master boot record distro
+terminal
+update-grub
+or
+less /boot/grub/grub.cfg (on 2nd distro)
+search for:
+menuentry "Some title here" {
+<Some data>
+}
+copy in paper
+reboot to master boot record distro
+terminal
+sudo vim /etc/grub.d/40_custom
+write what copied on paper
+ZZ
+update-grub
+reboot
+_________________________________
+ 
+REINSTALL PROGRAMS FROM ONE COMPUTER TO ANOTHER
+ 
+dpkg --get-selections >packages (1st computer)
+transfer "packages" to the 2nd computer
+cd to "packages"
+dpkg --set-selections <packages (2nd computer)
+aptitude update; aptitude upgrade
+_________________________________
+
+MODULES
+
+lsmod
+rmmod modulename 
+modprobe modulename (insert module to kernel)
+/etc/modules (insert module manually)
+_________________________________
+
+HANDLE METAPACKAGES
+
+apt-get -s remove empathy
+aptitude unmarkauto programnames
+apt-get remove empathy
+_________________________________
+ 
+VIM
+ 
+i (one letter to the left insert mode)
+a (one letter to the right insert mode)
+ctrl + [ (command mode)
+h (left)
+j (down)
+k (up)
+l (right)
+r (replace)
+x (erase forward)
+X (erase backward)
+0 (beginning sentence)
+$ (end sentence)
+b (one word backward)
+w (one word forward)
+db (erase one word backward)
+dw (erase one word forward)
+u (undo)
+dd (delete sentence, cut)
+p (paste)
+yy (copy)
+o (next line insert mode)
+gg (beginning of everything)
+GG (end of everything)
+:q (quit)
+:q! (force quit)
+:wq (save and quit)
+ZZ (save and quit)
+__________________________________

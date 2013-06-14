@@ -1,0 +1,108 @@
+1.
+netinstall non-free debian (system-utilities, laptop)
+
+2.
+su
+vi /etc/network/interfaces
+auto wlan0
+iface wlan0 inet dhcp
+    wpa-ssid essid
+    wpa-psk password
+ZZ
+chmod 600 /etc/network
+
+3.
+vi /etc/apt/sources.list
+change:
+wheezy to testing
+wheezy security to stable
+ZZ
+
+4.
+dpkg-reconfigure keyboard-configuration
+reboot
+
+5.
+su
+aptitude update; aptitude upgrade
+aptitude install alsa-utils clamav flashplugin-nonfree p7zip-full sudo synaptic ufw unrar unzip xorg
+
+6.
+GNOME:
+aptitude install abiword audacious chromium chameleon-cursor-theme file-roller gdebi gdm3 gedit gimp gnome-core gnome-tweak-tool nautilus-gtkhash nautilus-image-converter pyrenamer transmission-gtk vlc
+
+XFCE:
+aptitude install abiword audacious chromium chameleon-cursor-theme gimp leafpad lightdm network-manager-gnome pulseaudio transmission-gtk vlc xarchiver xfce4 xfce4-power-manager xfce4-screenshooter xfce4-terminal
+
+KDE:
+aptitude install abiword ark chromium clementine gimp gwenview kdenetwork kde-plasma-desktop kmix konsole ktorrent network-config network-manager plasma-widget-networkmanagement tumbler vlc
+
+7.
+adduser username sudo
+update-alternatives --config x-cursor-theme
+freshclam
+ufw enable
+
+8.
+su
+vi /etc/network/interfaces
+comment out everything:
+#auto wlan0
+#iface wlan0 inet dhcp
+#    wpa-ssid essid
+#    wpa-psk password
+ZZ
+reboot
+
+9.
+vi /etc/default/pulseaudio
+PULSEAUDIO_SYSTEM_START=1
+vi /etc/default/bluetooth
+BLUETOOTH_ENABLED=0
+
+10.
+keyboard shortcuts:
+gnome-terminal = ctrl + esc
+close window = super + c
+log out = ctrl + x
+sound and media = disable all
+xfce4-session-logout --halt = ctrl + x
+
+11.
+dconf-tools
+org
+gnome
+gnome-screenshot
+auto-save-directory:
+file:///home/vicom/Desktop/
+
+12.
+www.gnome-look.com
+download faenza theme to Desktop
+create "faenza" folder
+extract .tar.gz to "faenza" folder
+terminal
+cd Desktop
+mv faenza /opt
+cd /opt/faenza
+./INSTALL (./UNINSTALL)
+glitch:
+./UNINSTALL
+./INSTALL again
+advanced settings (gnome-tweak-tool)
+theme
+icon theme
+faenza
+
+13.
+http://font.ubuntu.com/
+download ubuntu-font-family to Desktop
+extract
+change folder name to "tff-ubuntu"
+terminal
+cd Desktop
+mv tff-ubuntu /usr/share/fonts/truetype
+advanced settings (gnome-tweak-tool)
+fonts
+change fonts
+ubuntu
