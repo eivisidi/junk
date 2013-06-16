@@ -14,7 +14,6 @@ aptitude install git xclip
 git config --global user.name "John Doe"
 git config --global user.email johndoe@gmail.com
 git config --global core.editor vim
-git config --global merge.tool vimdiff
 
 generate ssh key:
 cd ~/.ssh
@@ -54,6 +53,8 @@ add ssh key --> paste key --> add key -->
 enter password
 ssh -T git@github.com
 yes
+git config --global user.name "John Doe"
+git config --global user.email johndoe@gmail.com
 
 mkdir Build
 cd Build 
@@ -69,4 +70,3 @@ remove file:
 git rm filename
 git commit -m 'first commit'
 git push origin master
-_______________________________________

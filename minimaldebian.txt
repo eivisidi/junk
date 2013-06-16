@@ -29,10 +29,10 @@ aptitude install alsa-utils clamav flashplugin-nonfree p7zip-full sudo synaptic 
 
 6.
 GNOME:
-aptitude install abiword audacious chromium chameleon-cursor-theme file-roller gdebi gdm3 gedit gimp gnome-core gnome-tweak-tool nautilus-gtkhash nautilus-image-converter pyrenamer transmission-gtk vlc
+aptitude install abiword alacarte audacious chromium chameleon-cursor-theme file-roller gdebi gdm3 gedit gimp gnome-core gnome-tweak-tool gparted nautilus-gtkhash nautilus-image-converter pyrenamer transmission-gtk vlc
 
 XFCE:
-aptitude install abiword audacious chromium chameleon-cursor-theme gimp leafpad lightdm network-manager-gnome pulseaudio transmission-gtk vlc xarchiver xfce4 xfce4-power-manager xfce4-screenshooter xfce4-terminal
+aptitude install abiword audacious chromium chameleon-cursor-theme evince gimp leafpad lightdm network-manager-gnome pulseaudio transmission-gtk vlc xarchiver xfce4 xfce4-power-manager xfce4-screenshooter xfce4-terminal
 
 KDE:
 aptitude install abiword ark chromium clementine gimp gwenview kdenetwork kde-plasma-desktop kmix konsole ktorrent network-config network-manager plasma-widget-networkmanagement tumbler vlc
@@ -44,7 +44,6 @@ freshclam
 ufw enable
 
 8.
-su
 vi /etc/network/interfaces
 comment out everything:
 #auto wlan0
@@ -57,8 +56,16 @@ reboot
 9.
 vi /etc/default/pulseaudio
 PULSEAUDIO_SYSTEM_START=1
+ZZ
 vi /etc/default/bluetooth
 BLUETOOTH_ENABLED=0
+ZZ
+cd /usr/share/alacarte/Alacarte
+cp util.py util.py.backup
+vi util.py
+# XXX: look into pygobject error marshalling
+from gi.repository.GLib import GError
+ZZ
 
 10.
 keyboard shortcuts:
