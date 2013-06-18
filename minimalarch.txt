@@ -77,7 +77,7 @@ wifi-menu
 ping -c 3 www.google.com
 iwconfig
 systemctl enable netctl-auto@wlp1s2.service
-reboot 
+reboot
 
 15.
 useradd -m -g users -G audio,disk,games,locate,lp,network,optical,power,scanner,storage,sys,users,uucp,video,
@@ -123,7 +123,7 @@ Server = http://repo.archlinux.fr/$arch
 ZZ
 pacman --sync --refresh yaourt
 pacman -Syy
-pacman -S mate mate-extras audacious chromium clamav faenza-icon-theme flashplugin gimp gtk-engine-murrine libcanberra-pulse pavucontrol abiword lsb-release p7zip unzip unrar skype transmission-gtk ttf-ubuntu-font-family ufw vlc 
+pacman -S mate mate-extras audacious chromium clamav faenza-icon-theme flashplugin gimp gtk-engine-murrine libcanberra-pulse pavucontrol abiword lsb-release p7zip truecrypt unzip unrar skype transmission-gtk ttf-ubuntu-font-family ufw vlc 
 yaourt -S xcursor-chameleon-anthracite
 
 21,
@@ -157,3 +157,4 @@ LocalSocket /var/lib/clamav/clamd.sock
 ZZ
 freshclam (update)
 clamscan myfile (scan for virus)
+systemctl stop transmission
