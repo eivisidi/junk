@@ -25,11 +25,11 @@ reboot
 5.
 su
 aptitude update; aptitude upgrade
-aptitude install alsa-utils clamav flashplugin-nonfree p7zip-full sudo synaptic ufw unrar unzip xorg
+aptitude install alsa-utils clamav flashplugin-nonfree gstreamer0.10-ffmpeg gstreamer0.10-fluendo-mp3 gstreamer0.10-plugins-bad gstreamer0.10-plugins-ugly libavcodec53 libmp4v2-2 p7zip-full sudo synaptic ufw unrar unzip xorg
 
 6.
 GNOME:
-aptitude install abiword audacious chameleon-cursor-theme chromium file-roller gdebi gedit gimp gnome-core gnome-tweak-tool gparted nautilus-gtkhash pyrenamer totem-plugins transmission-gtk vlc
+aptitude install abiword audacious chameleon-cursor-theme file-roller gdebi gedit gimp gnome-core gnome-tweak-tool gparted nautilus-gtkhash pyrenamer totem-plugins transmission-gtk
 
 XFCE:
 aptitude install abiword audacious chameleon-cursor-theme chromium evince gimp leafpad lightdm network-manager-gnome pulseaudio ristretto thunar-gtkhash transmission-gtk vlc xarchiver xfce4 xfce4-power-manager xfce4-screenshooter xfce4-terminal
