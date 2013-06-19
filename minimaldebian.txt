@@ -29,10 +29,10 @@ aptitude install alsa-utils clamav flashplugin-nonfree p7zip-full sudo synaptic 
 
 6.
 GNOME:
-aptitude install abiword alacarte audacious chromium chameleon-cursor-theme file-roller gdebi gdm3 gedit gimp gnome-core gnome-tweak-tool gparted nautilus-gtkhash nautilus-image-converter pyrenamer transmission-gtk vlc
+aptitude install abiword audacious chameleon-cursor-theme chromium file-roller gdebi gedit gimp gnome-core gnome-tweak-tool gparted nautilus-gtkhash pyrenamer totem-plugins transmission-gtk vlc
 
 XFCE:
-aptitude install abiword audacious chromium chameleon-cursor-theme evince gimp leafpad lightdm network-manager-gnome pulseaudio ristretto thunar-gtkhash transmission-gtk vlc xarchiver xfce4 xfce4-power-manager xfce4-screenshooter xfce4-terminal
+aptitude install abiword audacious chameleon-cursor-theme chromium evince gimp leafpad lightdm network-manager-gnome pulseaudio ristretto thunar-gtkhash transmission-gtk vlc xarchiver xfce4 xfce4-power-manager xfce4-screenshooter xfce4-terminal
 
 KDE:
 aptitude install abiword ark chromium clementine gimp gwenview kdenetwork kde-plasma-desktop kmix konsole ktorrent network-config network-manager plasma-widget-networkmanagement tumbler vlc
