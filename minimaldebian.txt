@@ -25,17 +25,17 @@ reboot
 5.
 su
 aptitude update; aptitude upgrade
-aptitude install alsa-utils clamav flashplugin-nonfree gstreamer0.10-ffmpeg gstreamer0.10-fluendo-mp3 gstreamer0.10-plugins-bad gstreamer0.10-plugins-ugly libavcodec53 libmp4v2-2 p7zip-full sudo synaptic ufw unrar unzip xorg
+aptitude install abiword alsa-utils chromium clamav flashplugin-nonfree gimp gstreamer0.10-ffmpeg gstreamer0.10-fluendo-mp3 gstreamer0.10-plugins-bad gstreamer0.10-plugins-ugly libavcodec53 libmp4v2-2 p7zip-full sudo synaptic ufw unrar unzip xorg
 
 6.
 GNOME:
-aptitude install abiword audacious chameleon-cursor-theme file-roller gdebi gedit gimp gnome-core gnome-tweak-tool gparted nautilus-gtkhash pyrenamer totem-plugins transmission-gtk
+aptitude install audacious chameleon-cursor-theme file-roller gdebi gedit gnome-core gnome-tweak-tool gparted nautilus-gtkhash pyrenamer totem-plugins transmission-gtk
 
 XFCE:
-aptitude install abiword audacious chameleon-cursor-theme chromium evince gimp leafpad lightdm network-manager-gnome pulseaudio ristretto thunar-gtkhash transmission-gtk vlc xarchiver xfce4 xfce4-power-manager xfce4-screenshooter xfce4-terminal
+aptitude install audacious chameleon-cursor-theme evince gtk3-engines-xfce leafpad lightdm network-manager-gnome pulseaudio ristretto thunar-archive-plugin thunar-gtkhash thunar-media-tags-plugin transmission-gtk vlc xarchiver xfce4 xfce4-artwork xfce4-power-manager xfce4-screenshooter xfce4-taskmanager xfce4-terminal
 
 KDE:
-aptitude install abiword ark chromium clementine gimp gwenview kdenetwork kde-plasma-desktop kmix konsole ktorrent network-config network-manager plasma-widget-networkmanagement tumbler vlc
+aptitude install ark clementine gwenview kdenetwork kde-plasma-desktop kmix konsole ktorrent network-config network-manager plasma-widget-networkmanagement tumbler vlc
 
 7.
 adduser username sudo
