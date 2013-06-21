@@ -28,46 +28,52 @@ aptitude update; aptitude upgrade
 aptitude install abiword alsa-utils chromium clamav flashplugin-nonfree gimp gstreamer0.10-ffmpeg gstreamer0.10-fluendo-mp3 gstreamer0.10-plugins-bad gstreamer0.10-plugins-ugly libavcodec53 libmp4v2-2 p7zip-full sudo synaptic ufw unrar unzip xorg
 
 6.
+intel toshiba: aptitude install firmware-realtek intel-microcode
+intel eeepc: aptitude install intel-microcode
+intel dell: aptitude install firmware-linux-nonfree intel-microcode
+
+7.
 GNOME:
 aptitude install audacious chameleon-cursor-theme file-roller gdebi gedit gnome-core gnome-tweak-tool gparted nautilus-gtkhash pyrenamer totem-plugins transmission-gtk
 
 XFCE:
-aptitude install audacious chameleon-cursor-theme evince gtk3-engines-xfce leafpad lightdm network-manager-gnome pulseaudio ristretto thunar-archive-plugin thunar-gtkhash thunar-media-tags-plugin transmission-gtk vlc xarchiver xfce4 xfce4-artwork xfce4-power-manager xfce4-screenshooter xfce4-taskmanager xfce4-terminal
+aptitude install audacious chameleon-cursor-theme evince gtk3-engines-xfce lightdm mousepad network-manager-gnome parole pulseaudio ristretto thunar-archive-plugin thunar-gtkhash thunar-media-tags-plugin transmission-gtk xarchiver xfce4 xfce4-artwork xfce4-power-manager xfce4-screenshooter xfce4-taskmanager xfce4-terminal
 
 KDE:
-aptitude install ark clementine gwenview kdenetwork kde-plasma-desktop kmix konsole ktorrent network-config network-manager plasma-widget-networkmanagement tumbler vlc
+aptitude install ark clementine gwenview kaffeine kdenetwork kde-plasma-desktop kmix konsole ktorrent network-config network-manager plasma-widget-networkmanagement tumbler
 
-7.
+8.
 adduser username sudo
 update-alternatives --config x-cursor-theme
 freshclam
 ufw enable
 
-8.
+9.
 vi /etc/network/interfaces
 comment out everything:
-#auto wlan0
-#iface wlan0 inet dhcp
+# auto wlan0
+# iface wlan0 inet dhcp
 #    wpa-ssid essid
 #    wpa-psk password
 ZZ
 reboot
 
-9.
+10.
 vi /etc/default/pulseaudio
 PULSEAUDIO_SYSTEM_START=1
 ZZ
 vi /etc/default/bluetooth
 BLUETOOTH_ENABLED=0
 ZZ
-cd /usr/share/alacarte/Alacarte
-cp util.py util.py.backup
-vi util.py
+vi /usr/share/alacarte/Alacarte/util.py
 # XXX: look into pygobject error marshalling
 from gi.repository.GLib import GError
 ZZ
+vi /etc/lightdm/lightdm.conf
+greeter-hide-users=false
+ZZ
 
-10.
+11.
 keyboard shortcuts:
 gnome-terminal = ctrl + esc
 close window = super + c
@@ -75,7 +81,7 @@ log out = ctrl + x
 sound and media = disable all
 xfce4-session-logout --halt = ctrl + x
 
-11.
+12.
 dconf-tools
 org
 gnome
@@ -83,7 +89,7 @@ gnome-screenshot
 auto-save-directory:
 file:///home/vicom/Desktop/
 
-12.
+13.
 www.gnome-look.com
 download faenza theme to Desktop
 create "faenza" folder
@@ -101,7 +107,7 @@ theme
 icon theme
 faenza
 
-13.
+14.
 http://font.ubuntu.com/
 download ubuntu-font-family to Desktop
 extract
