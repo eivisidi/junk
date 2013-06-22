@@ -40,7 +40,7 @@ XFCE:
 aptitude install audacious chameleon-cursor-theme evince gtk3-engines-xfce lightdm mousepad network-manager-gnome parole pulseaudio ristretto thunar-archive-plugin thunar-gtkhash thunar-media-tags-plugin transmission-gtk xarchiver xfce4 xfce4-artwork xfce4-power-manager xfce4-screenshooter xfce4-taskmanager xfce4-terminal
 
 KDE:
-aptitude install ark clementine gwenview kaffeine kdenetwork kde-plasma-desktop kmix konsole ktorrent network-config network-manager plasma-widget-networkmanagement tumbler
+aptitude install ark clementine gdebi-kde gwenview kdenetwork kde-plasma-desktop kmix konsole ktorrent network-config mplayerthumbs network-manager plasma-widget-networkmanagement tumbler-plugins-extra vlc
 
 8.
 adduser username sudo
