@@ -18,8 +18,10 @@ vi /etc/pacman.d/mirrorlist
 	
 5.
 pacstrap -i /mnt base base-devel grub-bios
+
+if corrupted message appears:
 pacman-key --init && pacman-key --populate archlinux 
-(if corrupted message appears)
+
 pacman -Syy
 pacman -Syu --ignore filesystem,bash
 pacman -S bash
@@ -87,12 +89,6 @@ passwd vicom
 16.
 su
 adduser vicom sudo
-or
-sudo chmod u+w /etc/sudoers
-vi /etc/sudoers
-vicom ALL=(ALL) ALL
-ZZ
-sudo chmod u-w /etc/sudoers
 
 17.
 pacman -S xorg-server xorg-server-utils xorg-xinit xorg-twm xorg-xclock xterm mesa xf86-video-vesa xf86-video-intel xf86-input-synaptics ttf-dejavu 
@@ -108,22 +104,25 @@ Section "InputClass"
 EndSection
 
 19.
-rm ~/.xinitrc
+rm ~/.xinitrc (if .xinitrc exists)
 startx
 exit, exit, exit
 
 20.
 vi /etc/pacman.conf
+
 [mate]
 SigLevel = Optional TrustAll
 Server = http://repo.mate-desktop.org/archlinux/$arch
+
 [archlinuxfr]
 SigLevel = Never
 Server = http://repo.archlinux.fr/$arch
 ZZ
+
 pacman --sync --refresh yaourt
 pacman -Syy
-pacman -S mate mate-extras audacious chromium clamav faenza-icon-theme flashplugin gimp gtk-engine-murrine libcanberra-pulse pavucontrol abiword lsb-release p7zip truecrypt unzip unrar skype transmission-gtk ttf-ubuntu-font-family ufw vlc 
+pacman -S abiword audacious chromium clamav faenza-icon-theme flashplugin gimp gtk-engine-murrine libcanberra-pulse lsb-release mate mate-extras pavucontrol p7zip skype transmission-gtk truecrypt ttf-ubuntu-font-family ufw unrar unzip vlc 
 yaourt -S xcursor-chameleon-anthracite
 
 21,
@@ -131,20 +130,29 @@ vi ~/.xinitrc
 exec mate-session
 ZZ
 startx
+
 or
+
 pacman -S lightdm lightdm-gtk3-greeter
+optional:
 groupadd autologin
 gpasswd -a username autologin
 vi /etc/lightdm/lightdm.conf
 autologin-user=<your_username>
 autologin-user-timeout=0
 ZZ
+
 systemctl enable lightdm
 
 22.
 systemctl start ufw
 systemctl enable ufw
+
+23.
 vi /etc/clamav/freshclam.conf
+comment Example: 
+# Example
+ZZ
 vi /etc/clamav/clamd.conf 
 comment Example: 
 # Example
@@ -157,4 +165,15 @@ LocalSocket /var/lib/clamav/clamd.sock
 ZZ
 freshclam (update)
 clamscan myfile (scan for virus)
+
+24.
 systemctl stop transmission
+
+25.
+modprobe loop
+tee /etc/modules-load.d/truecrypt.conf <<< "loop"
+
+26.
+fsck long boot time:
+check that blkid = /etc/fstab
+

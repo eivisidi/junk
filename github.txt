@@ -1,33 +1,18 @@
-INFO
-
-git config --list
-git status
-git help <verb>
-git <verb> --help
-man git-<verb>
-git help config (man pages)
-_____________________________________
-
-FIRST TIME PROCESS ONLY
-
 aptitude install git xclip
 git config --global user.name "John Doe"
 git config --global user.email johndoe@gmail.com
-git config --global core.editor vim
-
-generate ssh key:
+ssh key:
 cd ~/.ssh
 ssh-keygen -t rsa -C "johndoe@gmail.com"
 xclip -sel clip < ~/.ssh/id_rsa.pub
 or vim ~/.ssh/id_rsa.pub 
 copy key (begins with ssh-rsa.. ends with username.com)
 github.com --> account settings --> ssh keys -->
-add ssh key --> paste key --> add key --> 
-enter password
+add ssh key --> paste key --> add key
 ssh -T git@github.com
 yes
 
-create local directory:
+First time:
 mkdir junk
 cd junk
 git init
@@ -36,37 +21,19 @@ git add filename
 git commit -m 'first commit'
 git remote add origin git@github.com:username/junk.git
 git push origin master
-_____________________________________
 
-REST OF THE TIMES PROCESS ON NEW COMPUTER
-
-aptitude install git xclip
-
-generate ssh key:
-cd ~/.ssh
-ssh-keygen -t rsa -C "johndoe@gmail.com"
-xclip -sel clip < ~/.ssh/id_rsa.pub
-or vim ~/.ssh/id_rsa.pub 
-copy key (begins with ssh-rsa.. ends with username.com)
-github.com --> account settings --> ssh keys -->
-add ssh key --> paste key --> add key --> 
-enter password
-ssh -T git@github.com
-yes
-git config --global user.name "John Doe"
-git config --global user.email johndoe@gmail.com
-
+Rest of the times:
 mkdir Build
 cd Build 
 git init
 git clone git@github.com:username/junk.git
 cd junk
 edit file
-git add editedfile
-git commit -m 'first commit'
-git push origin master
+git add editedfile (one)
+git commit -m 'first commit' (two)
+git push origin master (three)
 
-remove file:
+Remove file:
 git rm filename
-git commit -m 'first commit'
-git push origin master
+git commit -m 'first commit' (two)
+git push origin master (three)
