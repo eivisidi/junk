@@ -25,7 +25,7 @@ reboot
 5.
 su
 aptitude update; aptitude upgrade
-aptitude install abiword alsa-utils chromium clamav flashplugin-nonfree gimp gstreamer0.10-ffmpeg gstreamer0.10-fluendo-mp3 gstreamer0.10-plugins-bad gstreamer0.10-plugins-ugly libavcodec53 libmp4v2-2 p7zip-full sudo synaptic ufw unrar unzip xorg
+aptitude install abiword alsa-utils apt-listbugs chromium clamav flashplugin-nonfree gimp gstreamer0.10-ffmpeg gstreamer0.10-fluendo-mp3 gstreamer0.10-plugins-bad gstreamer0.10-plugins-ugly libavcodec53 libmp4v2-2 p7zip-full sudo synaptic ufw unrar unzip xorg
 
 6.
 intel toshiba: aptitude install firmware-realtek intel-microcode
