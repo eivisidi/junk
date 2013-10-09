@@ -1,0 +1,46 @@
+#hammer
+alias update='sudo pacman -Syu'
+alias search='pacman -Ss'
+alias ysearch='yaourt -Ss'
+alias installed='pacman -Qs | less'
+alias info='pacman -Si'
+alias install='sudo pacman -S'
+alias yinstall='sudo yaourt -S'
+alias purge='sudo pacman -Rsn'
+alias orphan='pacman -Qdt'
+
+#smooth sailing
+alias log='cd /var/log; ls'
+alias version='lsb_release -a; uname -a'
+alias d='date'
+alias h='history'
+alias ..='cd ..'
+alias c='clear'
+alias e='exit'
+
+#whip
+alias locate='sudo updatedb; locate'
+alias check='sudo md5sum'
+alias delete='sudo rm -rf'
+alias kill='sudo killall'
+
+#extract
+alias tar='sudo tar -xvf'
+alias targz='sudo tar -zxvf'
+alias tarbz='sudo bzip -cd'
+alias tarbz2='sudo tar -jxvf'
+alias gzip='sudo gzip -d'
+alias unrar='sudo unrar'
+alias unzip='sudo unzip'
+
+#format
+alias disk='sudo fdisk -l'
+alias usbsdb='sudo umount /dev/sdb; sudo mkfs.vfat -n "pendrive" -I /dev/sdb'
+alias usbsdb1='sudo umount /dev/sdb1; sudo mkfs.vfat -n "pendrive" -I /dev/sdb1'
+alias usbsdb2='sudo umount /dev/sdb2; sudo mkfs.vfat -n "pendrive" -I /dev/sdb2'
+alias usbsdb3='sudo umount /dev/sdb3; sudo mkfs.vfat -n "pendrive" -I /dev/sdb3'
+alias usbsdc='sudo umount /dev/sdc; sudo mkfs.vfat -n "pendrive" -I /dev/sdc'
+alias usbsdc1='sudo umount /dev/sdc1; sudo mkfs.vfat -n "pendrive" -I /dev/sdc1'
+alias usbsdc2='sudo umount /dev/sdc2; sudo mkfs.vfat -n "pendrive" -I /dev/sdc2'
+alias usbsdc3='sudo umount /dev/sdc3; sudo mkfs.vfat -n "pendrive" -I /dev/sdc3'
+
