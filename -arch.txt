@@ -1,0 +1,213 @@
+1. 
+gparted
+
+2. 
+wifi-menu
+ping -c 3 www.google.com
+
+3.
+lsblk /dev/sdb
+mount /dev/sdb1 /mnt
+mkdir /mnt/home
+mount /dev/sdb2 /mnt/home
+swapon /dev/sdb3
+
+4.
+vi /etc/pacman.d/mirrorlist
+(choose first u.s. one from top to bottom)
+	
+5.
+pacstrap -i /mnt base base-devel grub-bios
+
+if corrupted message appears:
+pacman-key --init && pacman-key --populate archlinux 
+
+pacman -Syy
+pacman -Syu --ignore filesystem,bash
+pacman -S bash
+pacman -Su
+
+6.
+genfstab -U -p /mnt >> /mnt/etc/fstab
+
+7.
+arch-chroot /mnt
+
+8.
+vi /etc/locale.gen
+uncomment: 
+en_US.UTF-8 UTF-8 
+en_US ISO-8859-1  
+echo LANG=en_US.UTF-8 > /etc/locale.conf
+export LANG=en_US.UTF-8
+
+9.
+setfont Lat2-Terminus16
+vi /etc/vconsole.conf
+KEYMAP=us
+FONT=Lat2-Terminus16
+
+10.
+ln -s /usr/share/zoneinfo/US/Eastern /etc/localtime
+
+11.
+echo jurasik > /etc/hostname
+passwd
+
+12.
+grub-install --recheck /dev/sdb
+grub-mkconfig -o /boot/grub/grub.cfg
+cp /usr/share/locale/en\@quot/LC_MESSAGES/grub.mo /boot/grub/locale/en.mo
+exit (exit chroot)
+umount /mnt/home
+umount /mnt
+reboot
+boot from usb
+
+13.
+do #{2,3,4}
+arch-chroot /mnt
+pacman -S iw wireless_tools wpa_supplicant wpa_actiond dialog
+exit
+umount /mnt/home
+umount /mnt
+reboot
+take usb out
+
+14.
+wifi-menu
+ping -c 3 www.google.com
+iwconfig
+systemctl enable netctl-auto@wlp1s2.service
+reboot
+
+15.
+useradd -m -g users -G audio,disk,games,locate,lp,network,optical,power,scanner,storage,sys,users,uucp,video,wheel -s /bin/bash vicom
+passwd vicom
+
+16.
+su
+chmod ugo+w /etc/sudoers
+vi /etc/sudoers
+## User privilege specification
+root ALL=(ALL) ALL
+username ALL=(ALL) ALL
+ZZ
+chmod ugo-w /etc/sudoers
+
+17.
+sudo pacman -S xorg-server xorg-server-utils xorg-xinit xorg-twm xorg-xclock xterm mesa xf86-video-vesa xf86-video-intel xf86-input-synaptics ttf-dejavu 
+
+18.
+less /usr/share/X11/xkb/rules/base.lst (choose layout)
+sudo vi /etc/X11/xorg.conf.d/10-keyboard.conf
+Section "InputClass"
+    Identifier "Keyboard Defaults"
+    MatchIsKeyboard "yes"
+    Option "XkbLayout" "us"
+    Option "XkbVariant" "intl"
+EndSection
+ZZ
+
+19.
+sudo rm ~/.xinitrc (if .xinitrc exists)
+startx
+exit, exit, exit
+
+20.
+sudo vi /etc/pacman.conf
+
+[mate]
+SigLevel = Optional TrustAll
+Server = http://repo.mate-desktop.org/archlinux/$arch
+
+[archlinuxfr]
+SigLevel = Never
+Server = http://repo.archlinux.fr/$arch
+ZZ
+
+sudo pacman --sync --refresh yaourt
+sudo pacman -Syy
+sudo pacman -Syu
+
+sudo pacman -S audacious clamav faenza-icon-theme gimp kupfer libreoffice-calc libreoffice-en-US libreoffice-gnome libreoffice-writer lsb-release mate mate-extras mlocate pavucontrol p7zip skype totem transmission-gtk truecrypt ttf-ubuntu-font-family ufw unrar unzip
+
+sudo yaourt -S xcursor-chameleon-anthracite google-talkplugin chromium-pepper-flash-stable
+
+21,
+sudo vi ~/.xinitrc
+exec mate-session
+ZZ
+startx
+
+or
+
+sudo pacman -S lightdm lightdm-gtk3-greeter
+sudo vi /etc/lightdm/lightdm.conf
+uncomment:
+greeter-user=lightdm
+greeter-hide-users=false
+ZZ
+sudo vi /etc/lightdm/lightdm-gtk-greeter.conf
+uncomment:
+background=/usr/share/pixmaps/arch.png
+theme-name=Menta
+icon-theme-name=Faenza
+font-name=Ubuntu
+xft-antialias=true
+xft-dpi=96
+xft-hintstyle=full
+xft-rgba=rgb
+show-language-selector=true
+show-clock=true
+clock-format=%H:%M
+ZZ
+sudo systemctl enable lightdm
+
+22.
+sudo systemctl start ufw
+sudo systemctl enable ufw
+sudo updatedb
+sudo vi /etc/clamav/freshclam.conf
+comment Example: 
+# Example
+ZZ
+sudo vi /etc/clamav/clamd.conf 
+comment Example: 
+# Example
+ZZ
+touch /var/lib/clamav/clamd.sock
+sudo chown clamav:clamav /var/lib/clamav/clamd.sock
+sudo vi /etc/clamav/clamd.conf
+uncomment:
+LocalSocket /var/lib/clamav/clamd.sock
+ZZ
+sudo freshclam (update)
+sudo clamscan myfile (scan for virus)
+
+23.
+modprobe loop
+tee /etc/modules-load.d/truecrypt.conf <<< "loop"
+__________________________________
+
+TROUBLESHOOTING:
+
+-for bad screen resolution, create:
+sudo vi /etc/X11/xorg.conf.d/20-intel.conf
+Section "Device"
+   Identifier  "Intel Graphics"
+   Driver      "intel"
+   Option      "AccelMethod"  "uxa"
+EndSection
+ZZ
+reboot
+
+-dconf-editor
+org
+mate
+caja
+desktop
+uncheck home, computer, trash
+
+-fsck long boot time:
+check that blkid = /etc/fstab
