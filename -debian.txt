@@ -1,0 +1,166 @@
+1.
+netinstall non-free debian (system-utilities, laptop)
+
+2.
+su
+vi /etc/network/interfaces
+auto wlan0
+iface wlan0 inet dhcp
+    wpa-ssid essid
+    wpa-psk password
+ZZ
+chmod 600 /etc/network
+
+3.
+vi /etc/apt/sources.list
+#stable/wheezy:
+deb http://ftp.us.debian.org/debian/ wheezy main contrib non-free
+deb-src http://ftp.us.debian.org/debian/ wheezy main contrib non-free
+deb http://security.debian.org/ wheezy/updates main contrib non-free
+deb-src http://security.debian.org/ wheezy/updates main contrib non-free
+
+#testing/jessie:
+deb http://ftp.us.debian.org/debian/ jessie main contrib non-free
+deb-src http://ftp.us.debian.org/debian/ jessie main contrib non-free
+deb http://security.debian.org/ jessie/updates main contrib non-free
+deb-src http://security.debian.org/ jessie/updates main contrib non-free
+ZZ
+
+4.
+dpkg-reconfigure keyboard-configuration
+reboot
+
+5.
+su
+aptitude update; aptitude upgrade
+aptitude install alsa-utils apt-listbugs chromium clamav flashplugin-nonfree gimp gparted gstreamer0.10-ffmpeg gstreamer0.10-fluendo-mp3 gstreamer0.10-plugins-bad gstreamer0.10-plugins-ugly libavcodec53 libmp4v2-2 libreoffice p7zip-full sudo synaptic transmission-gtk ufw unrar unzip vlc xorg
+
+6.
+intel toshiba: aptitude install firmware-realtek intel-microcode
+intel eeepc: aptitude install intel-microcode
+intel dell: aptitude install firmware-linux-nonfree intel-microcode
+
+7.
+GNOME:
+aptitude install alacarte audacious chameleon-cursor-theme file-roller gdebi gedit gnome-core gnome-tweak-tool nautilus-gtkhash pyrenamer shotwell totem-plugins 
+
+XFCE:
+aptitude install audacious chameleon-cursor-theme evince lightdm pulseaudio xarchiver xfce4 xfce4-goodies
+
+8.
+download and install manually:
+faenza-icon-theme
+google-talkplugin 
+skype
+truecrypt
+
+9.
+adduser username sudo
+update-alternatives --config x-cursor-theme
+freshclam
+ufw enable
+
+10.
+vi /etc/network/interfaces
+comment out everything:
+# auto wlan0
+# iface wlan0 inet dhcp
+#    wpa-ssid essid
+#    wpa-psk password
+ZZ
+reboot
+
+11.
+sudo vi /etc/default/pulseaudio
+PULSEAUDIO_SYSTEM_START=1
+ZZ
+sudo vi /etc/default/bluetooth
+BLUETOOTH_ENABLED=0
+ZZ
+sudo vi /usr/share/alacarte/Alacarte/util.py
+# XXX: look into pygobject error marshalling
+from gi.repository.GLib import GError
+ZZ
+lightdm (xfce):
+sudo vi /etc/lightdm/lightdm.conf
+greeter-hide-users=false
+ZZ
+sudo vi /etc/lightdm/lightdm-gtk-greeter.conf
+background=/usr/share/pixmaps/arch.png (<--has to be png)
+ZZ
+gdm3 (gnome):
+sudo vi /etc/gdm3/greeter.gsettings
+[org.gnome.desktop.background]
+picture-uri='file:///home/vicom/Pictures/bluemoon.jpg'
+[org.gnome.desktop.session]
+session-name='gdm-shell'
+ZZ
+sudo dpkg-reconfigure gdm3
+
+12.
+keyboard shortcuts:
+gnome-terminal = ctrl + esc
+close window = super + c
+log out = ctrl + x
+sound and media = disable all
+xfce4-session-logout = ctrl + x
+
+13.
+dconf-tools
+org
+gnome
+gnome-screenshot
+auto-save-directory:
+file:///home/vicom/Desktop/
+
+14.
+extract "faenza-icon-theme" folder
+change folder name to "faenza"
+terminal
+cd Desktop
+sudo mv faenza /opt
+cd /opt/faenza
+./INSTALL (./UNINSTALL)
+glitch:
+./UNINSTALL
+./INSTALL again
+advanced settings (gnome-tweak-tool)
+theme
+icon theme
+faenza
+
+15.
+extract "ubuntu-font-family" folder
+change folder name to "tff-ubuntu"
+terminal
+cd Desktop
+sudo mv tff-ubuntu /usr/share/fonts/truetype
+advanced settings (gnome-tweak-tool)
+fonts
+change fonts
+ubuntu
+___________________________________
+
+TROUBLESHOOTING:
+
+-missing firmware
+search "iwlwifi" in another computer at:
+http://www.debian.org/distrib/packages
+http://packages.debian.org/search?keywords=firmware
+put found "firmware-iwlwifi" in usbstick
+insert usbstick when installation disk asks for firmware
+
+-su 
+sudo passwd
+enter password
+enter new password
+su
+enter password
+
+-change cursor
+sudo update-alternatives --config x-cursor-theme
+choose number
+open dconf-tools
+org --> gnome --> desktop --> interface
+cursor-theme: Chameleon-Anthracite-Small
+reboot
