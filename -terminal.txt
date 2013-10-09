@@ -1,3 +1,17 @@
+MOST USED
+
+chmod ugo+-rwx file
+chmod +x file (executable)
+tar -zxvf file.tar.gz
+dd if=~/Desktop/file.iso of=/dev/sdx
+md5sum file.iso
+dpkg -i file.deb
+fdisk -l
+mkfs.vfat -n "toshiba" -I /dev/sdc1
+sudo thunar
+sudo nautilus
+________________________________
+
 BASIC
  
 cd
@@ -51,41 +65,16 @@ blkid (uuid)
 du -a file (file size)
 (hd0,1)=/dev/sda1 (1st hard drive, 1st partition)
 (hd1,3)=/dev/sdb3 (2nd hard drive, 3rd partition)
-_______________________________
- 
-IMPORTANT DIRECTORIES
- 
-/boot/grub/grub.cfg
-/etc/default/grub
-/etc/grub.d/40_custom
-/etc/apt/sources.list
-/etc/fstab
-/etc/init.d/'service' restart
-/var/log
 ______________________________
   
 EXECUTION
  
-chmod ugo+-rwx file
-chmod +x file (executable)
 tar -xvfj file.tar.bz2
-tar -zxvf file.tar.gz
 tar -xvf file.tar
 ar x file.deb
-dd if=~/Desktop/file.iso of=/dev/sdx
-md5sum file.iso
 update-grub
-update-alternatives
-dpkg -i file.deb
 ./file.bin (run/execute)
 cat file1 >> file2 (merge files)
-aptitude search
-aptitude show
-aptitude install
-aptitude purge
-aptitude upgrade
-aptitude update
-aptitude update; aptitude upgrade
 aptitude --help
 man aptitude
 aptitude search ~c (?configuration)
@@ -93,70 +82,11 @@ aptitude search ~i (?installed)
 aptitude search ~o (?obsolete)
 add-apt-repository ppa:hotot-team
 ppa-purge ppa:hotot-team
-dpkg-reconfigure keyboard-configuration
 shutdown -h now
 shutdown -r now
-______________________________
- 
-SOURCES LIST
- 
-vi /etc/apt/sources.list
- 
-## Debian
-deb http://ftp.us.debian.org/debian testing main contrib non-free
-deb-src http://ftp.us.debian.org/debian testing main contrib non-free
- 
-## Security
-deb http://security.debian.org/ stable/updates main
-deb-src http://security.debian.org/ stable/updates main
- 
-## Multimedia (http://deb-multimedia.org)
-## aptitude install deb-multimedia-keyring
-# deb http://www.deb-multimedia.org stable main non-free
- 
-## Backports (http://backports.debian.org)
-## aptitude -t wheezy-backports install "package"
-## aptitude install package/wheezy-backports
-# deb http://ftp.us.debian.org/debian wheezy-backports main
-______________________________
- 
-WPA-PSK/WPA2-PSK
-
-vi /etc/network/interfaces
-auto wlan0
-iface wlan0 inet dhcp
-    wpa-ssid mynetworkname
-    wpa-psk mysecretpassphrase
-ZZ
-chmod 0600 /etc/network/interfaces
-______________________________
- 
-MISSING FIRMWARE
- 
-needs iwlwifi-4965-2.ucode firmware
-search in another computer-->
-http://www.debian.org/distrib/packages
-http://packages.debian.org/search?keywords=firmware
-put found "firmware_iwlwifi" in usbstick
-insert usbstick when disk asks for firmware
-______________________________
- 
-SUDO
- 
-su
-apt-get install sudo
-adduser vicom sudo
+ctrl+alt+printsc+reisub
 reboot
-______________________________
- 
-SU
- 
-sudo passwd
-enter password
-enter password
-enter new password
-su
-enter password
+halt
 ______________________________
  
 FLASH PLUGIN
@@ -184,8 +114,8 @@ sudo ln -s /usr/local/bin/java/32/jre1.6.0_31/lib/i386/libnpjp2.so /usr/lib/chro
 /usr/local/bin/java/32/jre1.6.0_31/bin/ControlPanel (optional control panel)
  
 uninstall:
-sudo rm /usr/lib/chromium/plugins/libnpjp2.so
-sudo rm -rf /usr/local/bin/java
+rm /usr/lib/chromium/plugins/libnpjp2.so
+rm -rf /usr/local/bin/java
 ______________________________
  
 STARTUP APPLICATIONS VISIBLE
@@ -196,18 +126,8 @@ ______________________________
  
 NO NOTIFICATIONS FOR ERRORS
  
-sudo vim /etc/default/apport
+sudo vi /etc/default/apport
 enabled=0
-______________________________
- 
-CHANGE CURSOR
- 
-sudo update-alternatives --config x-cursor-theme
-choose number
-open dconf-tools
-org --> gnome --> desktop --> interface
-cursor-theme: Chameleon-Anthracite-Small
-reboot
 ______________________________
  
 COMPILE FROM SOURCE
@@ -241,10 +161,10 @@ FORMAT USB
  
 fdisk -l
 umount /dev/sdc1
-mkfs -t vfat -I /dev/sdc1
-mkfs -t ext2 -I /dev/sdc1
+mkfs. (press tab for completion options)
+mkfs.vfat -n "toshiba" -I /dev/sdc1
 ________________________________
- 
+
 FIX GRUB BOOTLOADER
  
 boot with livecd
@@ -324,15 +244,6 @@ write what copied on paper
 ZZ
 update-grub
 reboot
-_________________________________
- 
-REINSTALL PROGRAMS FROM ONE COMPUTER TO ANOTHER
- 
-dpkg --get-selections >packages (1st computer)
-transfer "packages" to the 2nd computer
-cd to "packages"
-dpkg --set-selections <packages (2nd computer)
-aptitude update; aptitude upgrade
 _________________________________
 
 MODULES
