@@ -11,6 +11,7 @@ alias orphan='pacman -Qdt'
 
 #smooth sailing
 alias log='cd /var/log; ls'
+alias sources='sudo vi /etc/apt/sources.list'
 alias version='lsb_release -a; uname -a'
 alias d='date'
 alias h='history'
@@ -27,11 +28,14 @@ alias kill='sudo killall'
 #extract
 alias tar='sudo tar -xvf'
 alias targz='sudo tar -zxvf'
-alias tarbz='sudo bzip -cd'
+alias tgz='sudo tar -zxvf'
+alias tarxz='sudo tar -xJf'
 alias tarbz2='sudo tar -jxvf'
-alias gzip='sudo gzip -d'
-alias unrar='sudo unrar'
-alias unzip='sudo unzip'
+alias tarbz='sudo tar -jxvf'
+alias tbz='sudo tar -jxvf'
+alias gz='sudo gzip -d'
+alias rar='sudo unrar e'
+alias zip='unzip'
 
 #format
 alias disk='sudo fdisk -l'
@@ -44,3 +48,7 @@ alias usbsdc1='sudo umount /dev/sdc1; sudo mkfs.vfat -n "pendrive" -I /dev/sdc1'
 alias usbsdc2='sudo umount /dev/sdc2; sudo mkfs.vfat -n "pendrive" -I /dev/sdc2'
 alias usbsdc3='sudo umount /dev/sdc3; sudo mkfs.vfat -n "pendrive" -I /dev/sdc3'
 
+#circle of life
+alias shell='DISPLAY=:0 gnome-shell --replace'
+alias gdm='sudo /etc/init.d/gdm3 restart'
+alias ldm='sudo /etc/init.d/lightdm restart'
