@@ -13,17 +13,11 @@ chmod 600 /etc/network
 
 3.
 vi /etc/apt/sources.list
-#stable/wheezy:
-deb http://ftp.us.debian.org/debian/ wheezy main contrib non-free
-deb-src http://ftp.us.debian.org/debian/ wheezy main contrib non-free
-deb http://security.debian.org/ wheezy/updates main contrib non-free
-deb-src http://security.debian.org/ wheezy/updates main contrib non-free
-
-#testing/jessie:
-deb http://ftp.us.debian.org/debian/ jessie main contrib non-free
-deb-src http://ftp.us.debian.org/debian/ jessie main contrib non-free
-deb http://security.debian.org/ jessie/updates main contrib non-free
-deb-src http://security.debian.org/ jessie/updates main contrib non-free
+#stable/testing
+deb http://ftp.us.debian.org/debian/ stable main contrib non-free
+deb-src http://ftp.us.debian.org/debian/ stable main contrib non-free
+deb http://security.debian.org/ stable/updates main contrib non-free
+deb-src http://security.debian.org/ stable/updates main contrib non-free
 ZZ
 
 4.
@@ -42,25 +36,18 @@ intel dell: aptitude install firmware-linux-nonfree intel-microcode
 
 7.
 GNOME:
-aptitude install alacarte audacious chameleon-cursor-theme file-roller gdebi gedit gnome-core gnome-tweak-tool nautilus-gtkhash pyrenamer shotwell totem-plugins 
+aptitude install alacarte audacious chameleon-cursor-theme file-roller gdebi gedit gnome-core gnome-tweak-tool nautilus-image-converter pyrenamer shotwell totem-plugins 
 
 XFCE:
 aptitude install audacious chameleon-cursor-theme evince lightdm pulseaudio xarchiver xfce4 xfce4-goodies
 
 8.
-download and install manually:
-faenza-icon-theme
-google-talkplugin 
-skype
-truecrypt
-
-9.
 adduser username sudo
 update-alternatives --config x-cursor-theme
 freshclam
 ufw enable
 
-10.
+9.
 vi /etc/network/interfaces
 comment out everything:
 # auto wlan0
@@ -70,7 +57,7 @@ comment out everything:
 ZZ
 reboot
 
-11.
+10.
 sudo vi /etc/default/pulseaudio
 PULSEAUDIO_SYSTEM_START=1
 ZZ
@@ -97,7 +84,7 @@ session-name='gdm-shell'
 ZZ
 sudo dpkg-reconfigure gdm3
 
-12.
+11.
 keyboard shortcuts:
 gnome-terminal = ctrl + esc
 close window = super + c
@@ -105,13 +92,20 @@ log out = ctrl + x
 sound and media = disable all
 xfce4-session-logout = ctrl + x
 
-13.
+12.
 dconf-tools
 org
 gnome
 gnome-screenshot
 auto-save-directory:
 file:///home/vicom/Desktop/
+
+13.
+download and install manually:
+faenza-icon-theme
+google-talkplugin 
+skype
+truecrypt
 
 14.
 extract "faenza-icon-theme" folder
@@ -164,3 +158,12 @@ open dconf-tools
 org --> gnome --> desktop --> interface
 cursor-theme: Chameleon-Anthracite-Small
 reboot
+
+-gnome-shell freeze
+tty1 (ctrl + alt + f1)
+w
+DISPLAY=:0 gnome-shell --replace
+tty7 (ctrl + alt + f7)
+
+-restart gdm3
+sudo /etc/init.d/gdm3 restart or sudo service gdm3 restart
