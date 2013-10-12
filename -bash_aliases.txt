@@ -49,6 +49,5 @@ alias usbsdc2='sudo umount /dev/sdc2; sudo mkfs.vfat -n "pendrive" -I /dev/sdc2'
 alias usbsdc3='sudo umount /dev/sdc3; sudo mkfs.vfat -n "pendrive" -I /dev/sdc3'
 
 #circle of life
-alias shell='DISPLAY=:0 gnome-shell --replace'
 alias gdm='sudo /etc/init.d/gdm3 restart'
 alias ldm='sudo /etc/init.d/lightdm restart'
