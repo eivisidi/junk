@@ -27,12 +27,11 @@ reboot
 5.
 su
 aptitude update; aptitude upgrade
-aptitude install alsa-utils apt-listbugs chromium clamav flashplugin-nonfree gimp gparted gstreamer0.10-ffmpeg gstreamer0.10-fluendo-mp3 gstreamer0.10-plugins-bad gstreamer0.10-plugins-ugly libavcodec53 libmp4v2-2 libreoffice p7zip-full sudo synaptic transmission-gtk ufw unrar unzip vlc xorg
+aptitude install alsa-utils apt-listbugs chromium clamav flashplugin-nonfree gimp gparted gstreamer0.10-ffmpeg gstreamer0.10-fluendo-mp3 gstreamer0.10-plugins-bad gstreamer0.10-plugins-ugly intel-microcode libavcodec53 libmp4v2-2 libreoffice p7zip-full sudo synaptic transmission-gtk ufw unrar unzip vlc xorg
 
 6.
-intel toshiba: aptitude install firmware-realtek intel-microcode
-intel eeepc: aptitude install intel-microcode
-intel dell: aptitude install firmware-linux-nonfree intel-microcode
+intel toshiba: aptitude install firmware-realtek 
+intel dell: aptitude install firmware-linux-nonfree
 
 7.
 GNOME:
@@ -61,13 +60,11 @@ reboot
 sudo vi /etc/default/pulseaudio
 PULSEAUDIO_SYSTEM_START=1
 ZZ
+
 sudo vi /etc/default/bluetooth
 BLUETOOTH_ENABLED=0
 ZZ
-sudo vi /usr/share/alacarte/Alacarte/util.py
-# XXX: look into pygobject error marshalling
-from gi.repository.GLib import GError
-ZZ
+
 lightdm (xfce):
 sudo vi /etc/lightdm/lightdm.conf
 greeter-hide-users=false
@@ -75,6 +72,7 @@ ZZ
 sudo vi /etc/lightdm/lightdm-gtk-greeter.conf
 background=/usr/share/pixmaps/arch.png (<--has to be png)
 ZZ
+
 gdm3 (gnome):
 sudo vi /etc/gdm3/greeter.gsettings
 [org.gnome.desktop.background]
@@ -159,11 +157,11 @@ org --> gnome --> desktop --> interface
 cursor-theme: Chameleon-Anthracite-Small
 reboot
 
--gnome-shell freeze
-tty1 (ctrl + alt + f1)
-w
-DISPLAY=:0 gnome-shell --replace
-tty7 (ctrl + alt + f7)
-
 -restart gdm3
-sudo /etc/init.d/gdm3 restart or sudo service gdm3 restart
+sudo /etc/init.d/gdm3 restart
+
+-alacarte doesn't load
+sudo vi /usr/share/alacarte/Alacarte/util.py
+# XXX: look into pygobject error marshalling
+from gi.repository.GLib import GError
+ZZ
