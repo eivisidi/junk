@@ -2,14 +2,8 @@ MOST USED
 
 chmod ugo+-rwx file
 chmod +x file (executable)
-tar -zxvf file.tar.gz
 dd if=~/Desktop/file.iso of=/dev/sdx
-md5sum file.iso
 dpkg -i file.deb
-fdisk -l
-mkfs.vfat -n "toshiba" -I /dev/sdc1
-sudo thunar
-sudo nautilus
 ________________________________
 
 BASIC
@@ -69,17 +63,11 @@ ______________________________
   
 EXECUTION
  
-tar -xvfj file.tar.bz2
-tar -xvf file.tar
 ar x file.deb
-update-grub
 ./file.bin (run/execute)
 cat file1 >> file2 (merge files)
 aptitude --help
 man aptitude
-aptitude search ~c (?configuration)
-aptitude search ~i (?installed)
-aptitude search ~o (?obsolete)
 add-apt-repository ppa:hotot-team
 ppa-purge ppa:hotot-team
 shutdown -h now
@@ -284,3 +272,44 @@ GG (end of everything)
 :wq (save and quit)
 ZZ (save and quit)
 __________________________________
+
+CLONEZILLA
+
+-backup:
+boot from clonezilla disk
+start clonezilla
+device_image
+local_dev
+enter
+choose place to mount /home/partimag (sda2, sdb2)
+/Top_directory
+enter
+expert
+saveparts
+input a name (OCT-10-2012-BACKUP)
+choose partition to save (sda1)
+-q2
+-c, -j2
+-z1
+1000000
+skip checking
+yes, check the saved item
+-p reboot
+enter
+yes
+
+-restore:
+boot from clonezilla disk
+start clonezilla
+device_image
+local_dev
+enter
+choose place to mount /home/partimag (sda2, sdb2)
+/Top_directory
+enter
+expert
+restoreparts
+choose image file
+choose destination
+-e1, -c, -r, -j2
+-k
