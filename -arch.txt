@@ -132,7 +132,7 @@ sudo pacman -Syu
 
 sudo pacman -S audacious clamav faenza-icon-theme gimp kupfer libreoffice-calc libreoffice-en-US libreoffice-gnome libreoffice-writer lsb-release mate mate-extras mlocate pavucontrol p7zip skype totem transmission-gtk truecrypt ttf-ubuntu-font-family ufw unrar unzip
 
-sudo yaourt -S xcursor-chameleon-anthracite google-talkplugin chromium-pepper-flash-stable
+sudo yaourt -S xcursor-chameleon-anthracite google-talkplugin chromium-pepper-flash-stable netmon-git
 
 21,
 sudo vi ~/.xinitrc
@@ -188,6 +188,15 @@ sudo clamscan myfile (scan for virus)
 23.
 modprobe loop
 tee /etc/modules-load.d/truecrypt.conf <<< "loop"
+
+24.
+system
+startup applications
+add
+   netmon
+   /usr/bin/netmon
+   Netctl Tray Icon
+save   
 __________________________________
 
 TROUBLESHOOTING:
