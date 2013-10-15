@@ -11,8 +11,9 @@ alias orphan='pacman -Qdt'
 
 #smooth sailing
 alias log='cd /var/log; ls'
-alias sources='sudo vi /etc/apt/sources.list'
+alias ls='ls --color=auto'
 alias version='lsb_release -a; uname -a'
+alias id='sudo blkid'
 alias d='date'
 alias h='history'
 alias ..='cd ..'
