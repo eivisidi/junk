@@ -100,14 +100,15 @@ file:///home/vicom/Desktop/
 
 13.
 download and install manually:
+ubuntu-font-family
 faenza-icon-theme
 google-talkplugin 
 skype
 truecrypt
 
 14.
-extract "faenza-icon-theme" folder
-change folder name to "faenza"
+extract "faenza-icon-theme" to Desktop
+change extracted folder name to "faenza"
 terminal
 cd Desktop
 sudo mv faenza /opt
@@ -122,15 +123,26 @@ icon theme
 faenza
 
 15.
-extract "ubuntu-font-family" folder
-change folder name to "tff-ubuntu"
+extract "ubuntu-font-family" to Desktop
 terminal
-cd Desktop
-sudo mv tff-ubuntu /usr/share/fonts/truetype
+mkdir ~/.fonts
+cd ~/Desktop/ubuntu-font-family
+sudo mv *.ttf ~/.fonts
 advanced settings (gnome-tweak-tool)
 fonts
 change fonts
 ubuntu
+
+16.
+advanced settings (gnome-tweak-tool)
+fonts
+0.9
+ubuntu 11
+sans 11
+monospace 11
+ubuntu 12
+none
+grayscale
 ___________________________________
 
 TROUBLESHOOTING:
