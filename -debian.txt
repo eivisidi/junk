@@ -154,6 +154,12 @@ http://packages.debian.org/search?keywords=firmware
 put found "firmware-iwlwifi" in usbstick
 insert usbstick when installation disk asks for firmware
 
+-exim paniclog /var/log/exim4/paniclog has non-zero size
+su
+rm /var/log/exim4/paniclog (all accumulated paniclogs too)
+exit
+sudo /etc/intid.d/exim4 restart 
+
 -su 
 sudo passwd
 enter password
