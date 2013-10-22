@@ -99,50 +99,38 @@ auto-save-directory:
 file:///home/vicom/Desktop/
 
 13.
-download and install manually:
-ubuntu-font-family
-faenza-icon-theme
-google-talkplugin 
+download/install manually:
 skype
 truecrypt
 
 14.
-extract "faenza-icon-theme" to Desktop
-change extracted folder name to "faenza"
+eyecandy (gnome):
+https://extensions.gnome.org/
+install "user themes" extension
 terminal
+mkdir .fonts .themes .icons
+
 cd Desktop
-sudo mv faenza /opt
-cd /opt/faenza
-./INSTALL (./UNINSTALL)
-glitch:
-./UNINSTALL
-./INSTALL again
-advanced settings (gnome-tweak-tool)
-theme
-icon theme
-faenza
+sudo tar -zxvf gnome-shell-theme-elegance-2.3.tar.gz
+cd gnome-shell-theme-elegance-2.3
+sudo mv Elegance ~/.themes
 
-15.
-extract "ubuntu-font-family" to Desktop
-terminal
-mkdir ~/.fonts
-cd ~/Desktop/ubuntu-font-family
+cd ..
+unzip ubuntu-font-family-0.80.zip
+cd ubuntu-font-family-0.80
 sudo mv *.ttf ~/.fonts
-advanced settings (gnome-tweak-tool)
-fonts
-change fonts
-ubuntu
 
-16.
-advanced settings (gnome-tweak-tool)
-fonts
-0.9
-ubuntu 11
-sans 11
-monospace 11
-ubuntu 12
-none
-grayscale
+cd ..
+unzip faience-icon-theme_0.5.zip
+cd faience-icon-theme_0.5
+sudo tar -zxvf faience.tar.gz
+sudo tar -zxvf faience-azur.tar.gz
+sudo tar -zxvf faience-claire.tar.gz
+sudo tar -zxvf faience-ocre.tar.gz
+sudo mv faience faience-azur faience-claire faience-ocre ~/.icons
+
+gnome-tweak-tool
+choose
 ___________________________________
 
 TROUBLESHOOTING:
