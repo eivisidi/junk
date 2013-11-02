@@ -140,20 +140,7 @@ search "iwlwifi" in another computer at:
 http://www.debian.org/distrib/packages
 http://packages.debian.org/search?keywords=firmware
 put found "firmware-iwlwifi" in usbstick
-insert usbstick when installation disk asks for firmware
-
--exim paniclog /var/log/exim4/paniclog has non-zero size
-su
-rm /var/log/exim4/paniclog (all accumulated paniclogs too)
-exit
-sudo /etc/intid.d/exim4 restart 
-
--su 
-sudo passwd
-enter password
-enter new password
-su
-enter password
+insert usbstick when installation disk asks for firmware 
 
 -change cursor
 sudo update-alternatives --config x-cursor-theme
@@ -166,8 +153,16 @@ reboot
 -restart gdm3
 sudo /etc/init.d/gdm3 restart
 
--alacarte doesn't load
-sudo vi /usr/share/alacarte/Alacarte/util.py
-# XXX: look into pygobject error marshalling
-from gi.repository.GLib import GError
-ZZ
+-downgrade package
+apt-cache showpkg pkg (available versions)
+sudo aptitude purge pkg
+sudo aptitude install pkg=version
+
+-install packages from one computer to another
+sudo dpkg --get-selections >pkg-list
+transfer "pkg-list" to the other computer
+sudo dpkg --set-selections <pkg-list
+sudo apt-get dselect-upgrade
+sudo dpkg --set-selections <pkg-list
+install programs that come up on warnings
+sudo aptitude purge ~c
