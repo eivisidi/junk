@@ -11,7 +11,7 @@ alias orphan='pacman -Qdt'
 
 #smooth sailing
 alias log='cd /var/log; ls'
-alias ls='ls --color=auto'
+alias sources='sudo vi /etc/pacman.d/mirrorlist'
 alias version='lsb_release -a; uname -a'
 alias id='sudo blkid'
 alias d='date'
@@ -19,6 +19,7 @@ alias h='history'
 alias ..='cd ..'
 alias c='clear'
 alias e='exit'
+alias ls='ls --color=auto'
 
 #whip
 alias locate='sudo updatedb; locate'
