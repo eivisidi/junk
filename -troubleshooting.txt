@@ -1,12 +1,7 @@
-MOST USED
+SYSTEM
+_________
 
-chmod ugo+-rwx file
-chmod +x file (executable)
-dd if=~/Desktop/file.iso of=/dev/sdx
-dpkg -i file.deb
-________________________________
-
-BASIC
+Command Line:
  
 cd
 cd ..
@@ -40,9 +35,17 @@ ctrl + u (cut whole sentence back)
 ctrl + k (cut whole sentence forward)
 ctrl + w (cut one word back)
 ctrl + y (paste)
-______________________________
+________________________________
+
+Most Used:
+
+sudo chmod ugo+-rwx file
+sudo chmod +x file (executable)
+sudo dd if=~/Desktop/file.iso of=/dev/sdx
+sudo dpkg -i file.deb (debian)
+_______________________________
  
-INFO
+Info:
  
 date
 cal
@@ -57,19 +60,17 @@ ifconfig
 top
 blkid (uuid)
 du -a file (file size)
+aptitude --help
+man aptitude
 (hd0,1)=/dev/sda1 (1st hard drive, 1st partition)
 (hd1,3)=/dev/sdb3 (2nd hard drive, 3rd partition)
 ______________________________
   
-EXECUTION
+Execution:
  
 ar x file.deb
 ./file.bin (run/execute)
 cat file1 >> file2 (merge files)
-aptitude --help
-man aptitude
-add-apt-repository ppa:hotot-team
-ppa-purge ppa:hotot-team
 shutdown -h now
 shutdown -r now
 ctrl+alt+printsc+reisub
@@ -77,14 +78,14 @@ reboot
 halt
 ______________________________
  
-FLASH PLUGIN
+Flash Plugin:
  
 download .tar.gz from http://get.adobe.com/flashplayer/?no_redirect
 tar -zxvf flash_player.tar.gz
 cp libflashplayer.so /usr/lib/chromium/plugins/
 ______________________________
  
-JAVA
+Java:
  
 download Linux (self-extracting file) from www.java.com to ~/Downloads
 cd /usr/local/bin
@@ -106,37 +107,7 @@ rm /usr/lib/chromium/plugins/libnpjp2.so
 rm -rf /usr/local/bin/java
 ______________________________
  
-STARTUP APPLICATIONS VISIBLE
- 
-cd /etc/xdg/autostart/
-sudo sed --in-place 's/NoDisplay=true/NoDisplay=false/g' *.desktop
-______________________________
- 
-NO NOTIFICATIONS FOR ERRORS
- 
-sudo vi /etc/default/apport
-enabled=0
-______________________________
- 
-COMPILE FROM SOURCE
- 
-aptitude install checkinstall
-mkdir Build
-download test.tar.gz to Build
-cd Build
-tar -zvxf test.tar.gz
-cd test
-read "README" and "INSTALL"
-./configure --prefix=/usr/local
-make
-sudo checkinstall (or make install)
-sudo aptitude hold test
- 
-make uninstall
-make clean
-________________________________
- 
-MOUNT/UMOUNT
+Mount/Umount:
  
 fdisk -l
 mkdir /media/usb
@@ -145,7 +116,7 @@ mount (-t ntfs-3g) /dev/sdb1 /media/usb
 umount /media/usb
 ________________________________
  
-FORMAT USB
+Format Usb:
  
 fdisk -l
 umount /dev/sdc1
@@ -153,7 +124,7 @@ mkfs. (press tab for completion options)
 mkfs.vfat -n "toshiba" -I /dev/sdc1
 ________________________________
 
-FIX GRUB BOOTLOADER
+Fix Grub Bootloader:
  
 boot with livecd
 fdisk -l
@@ -163,7 +134,7 @@ update-grub
 reboot
 ________________________________
  
-GRUB> (OR GRUB RESCUE>)
+Grub> (Or Grub Rescue>):
  
 ls (hdX,Y)/
 set prefix=(hdX,Y)/boot/grub
@@ -194,15 +165,7 @@ aptitude purge grub2 (or apt-get --purge-remove grub2)
 aptitude install grub2 (or apt-get install grub2)
 ________________________________
  
-REMOTE ACCESS  
- 
-on both computers: sudo aptitude install ssh
-sudo ufw allow 22
-ifconfig for ip
-sudo ssh vasago@ip
-________________________________
- 
-DUAL BOOT
+Dual Boot:
  
 1st distro install:
 /dev/sda (install grub on master boot record)
@@ -234,7 +197,7 @@ update-grub
 reboot
 _________________________________
 
-MODULES
+Modules:
 
 lsmod
 rmmod modulename 
@@ -242,7 +205,7 @@ modprobe modulename (insert module to kernel)
 /etc/modules (insert module manually)
 _________________________________
  
-VIM
+Vi/Vim:
  
 i (one letter to the left insert mode)
 a (one letter to the right insert mode)
@@ -273,7 +236,7 @@ GG (end of everything)
 ZZ (save and quit)
 __________________________________
 
-CLONEZILLA
+Clonezilla:
 
 -backup:
 boot from clonezilla disk
@@ -313,3 +276,137 @@ choose image file
 choose destination
 -e1, -c, -r, -j2
 -k
+___________________________
+
+Bad Screen Resolution Fix:
+
+sudo vi /usr/share/X11/xorg.conf.d/20-intel.conf (lubuntu)
+sudo vi /etc/X11/xorg.conf.d/20-intel.conf (arch) 
+Section "Device"
+   Identifier  "Intel Graphics"
+   Driver      "intel"
+   Option      "AccelMethod"  "uxa"
+EndSection
+ZZ
+reboot
+___________________________
+
+Long Boot Time:
+
+sudo blkid
+less /etc/fstab
+check that blkid=/etc/fstab
+___________________________
+
+
+
+
+
+DEBIAN
+________
+
+Install Packages Computer #1-->Computer #2:
+
+sudo dpkg --get-selections >pkg-list
+transfer "pkg-list" to the other computer
+sudo dpkg --set-selections <pkg-list
+sudo apt-get dselect-upgrade
+sudo dpkg --set-selections <pkg-list
+install programs that come up on warnings
+sudo aptitude purge ~c
+_______________________________
+
+Downgrade Package:
+
+apt-cache showpkg pkg (available versions)
+sudo aptitude purge pkg
+sudo aptitude install pkg=version
+_______________________________
+
+Missing Firmware:
+
+search "iwlwifi" in another computer at:
+http://www.debian.org/distrib/packages
+http://packages.debian.org/search?keywords=firmware
+put found "firmware-iwlwifi" in usbstick
+insert usbstick when installation disk asks for firmware
+______________________________ 
+
+Change Cursor:
+
+sudo update-alternatives --config x-cursor-theme
+choose number
+open dconf-tools
+org --> gnome --> desktop --> interface
+cursor-theme: Chameleon-Anthracite-Small
+reboot
+______________________________
+
+Compile From Source:
+ 
+aptitude install checkinstall
+mkdir Build
+download test.tar.gz to Build
+cd Build
+tar -zvxf test.tar.gz
+cd test
+read "README" and "INSTALL"
+./configure --prefix=/usr/local
+make
+sudo checkinstall (or make install)
+sudo aptitude hold test
+ 
+make uninstall
+make clean
+_______________________________
+
+
+
+
+
+UBUNTU
+________
+
+Startup Applications Visibile:
+ 
+cd /etc/xdg/autostart/
+sudo sed --in-place 's/NoDisplay=true/NoDisplay=false/g' *.desktop
+______________________________
+ 
+No Notifications For Errors:
+ 
+sudo vi /etc/default/apport
+enabled=0
+______________________________
+
+Add/Purge Ppa:
+
+add-apt-repository ppa:hotot-team
+ppa-purge ppa:hotot-team
+______________________________
+
+
+
+
+
+LUBUNTU/CRUNCHBANG
+_______________________
+
+Openbox Keyboard Shortcuts:
+
+sudo ~/.config/openbox/lubuntu-rc.xml (lubuntu)
+sudo ~/.config/openbox/rc.xml (crunchbang)
+<!-- Keybindings for windows -->
+    <keybind key="W-c">
+     <action name="Close"/>
+<!-- Keybindings for running applications -->
+    <keybind key="C-space">
+      <name>dmenu-bind</name>
+<keybind key="C-Return">
+       <enabled>true</enabled>
+        <name>Terminal</name>
+<keybind key="C-x">
+       <name>Logout</name>
+ZZ
+sudo openbox --reconfigure
+___________________________
