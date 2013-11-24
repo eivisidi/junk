@@ -196,27 +196,4 @@ add
    netmon
    /usr/bin/netmon
    Netctl Tray Icon
-save   
-__________________________________
-
-TROUBLESHOOTING:
-
--for bad screen resolution, create:
-sudo vi /etc/X11/xorg.conf.d/20-intel.conf
-Section "Device"
-   Identifier  "Intel Graphics"
-   Driver      "intel"
-   Option      "AccelMethod"  "uxa"
-EndSection
-ZZ
-reboot
-
--dconf-editor
-org
-mate
-caja
-desktop
-uncheck home, computer, trash
-
--fsck long boot time:
-check that blkid = /etc/fstab
+save
