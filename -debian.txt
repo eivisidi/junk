@@ -84,7 +84,7 @@ sudo dpkg-reconfigure gdm3
 
 11.
 keyboard shortcuts:
-gnome-terminal = ctrl + esc
+gnome-terminal = ctrl + return
 close window = super + c
 log out = ctrl + x
 sound and media = disable all
@@ -131,38 +131,8 @@ sudo mv faience faience-azur faience-claire faience-ocre ~/.icons
 
 gnome-tweak-tool
 choose
-___________________________________
 
-TROUBLESHOOTING:
-
--missing firmware
-search "iwlwifi" in another computer at:
-http://www.debian.org/distrib/packages
-http://packages.debian.org/search?keywords=firmware
-put found "firmware-iwlwifi" in usbstick
-insert usbstick when installation disk asks for firmware 
-
--change cursor
-sudo update-alternatives --config x-cursor-theme
-choose number
-open dconf-tools
-org --> gnome --> desktop --> interface
-cursor-theme: Chameleon-Anthracite-Small
-reboot
-
--restart gdm3
-sudo /etc/init.d/gdm3 restart
-
--downgrade package
-apt-cache showpkg pkg (available versions)
-sudo aptitude purge pkg
-sudo aptitude install pkg=version
-
--install packages from one computer to another
-sudo dpkg --get-selections >pkg-list
-transfer "pkg-list" to the other computer
-sudo dpkg --set-selections <pkg-list
-sudo apt-get dselect-upgrade
-sudo dpkg --set-selections <pkg-list
-install programs that come up on warnings
-sudo aptitude purge ~c
+change folder icons:
+right click folder
+properties
+vicom/.icons/Faenza/places/48
