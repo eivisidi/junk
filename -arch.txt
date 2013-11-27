@@ -100,7 +100,7 @@ ZZ
 
 sudo vi /etc/lightdm/lightdm-gtk-greeter.conf
 uncomment:
-background=/home/vicom/.cinnamon/backgrounds/triangle.png
+background=/usr/share/pixmaps/triangle.png
 theme-name=Void
 icon-theme-name=Faenza
 font-name=Ubuntu
