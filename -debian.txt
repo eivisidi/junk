@@ -27,7 +27,7 @@ reboot
 5.
 su
 aptitude update; aptitude upgrade
-aptitude install alsa-utils apt-listbugs chromium clamav flashplugin-nonfree gimp gparted gstreamer0.10-ffmpeg gstreamer0.10-fluendo-mp3 gstreamer0.10-plugins-bad gstreamer0.10-plugins-ugly intel-microcode libavcodec53 libmp4v2-2 libreoffice p7zip-full sudo synaptic transmission-gtk ufw unrar unzip vlc xorg
+aptitude install alsa-utils apt-listbugs audacious chameleon-cursor-theme chromium clamav flashplugin-nonfree gimp gparted gstreamer0.10-ffmpeg gstreamer0.10-fluendo-mp3 gstreamer0.10-plugins-bad gstreamer0.10-plugins-ugly intel-microcode libavcodec53 libmp4v2-2 libreoffice p7zip-full sudo synaptic transmission-gtk ufw unrar unzip vlc xorg 
 
 6.
 intel toshiba: aptitude install firmware-realtek 
@@ -35,10 +35,10 @@ intel dell: aptitude install firmware-linux-nonfree
 
 7.
 GNOME:
-aptitude install alacarte audacious chameleon-cursor-theme file-roller gdebi gedit gnome-core gnome-tweak-tool nautilus-image-converter pyrenamer shotwell totem-plugins 
+aptitude install alacarte file-roller gdebi gedit gnome-core gnome-tweak-tool nautilus-image-converter pyrenamer shotwell totem-plugins 
 
 XFCE:
-aptitude install audacious chameleon-cursor-theme evince lightdm pulseaudio xarchiver xfce4 xfce4-goodies
+aptitude install evince lightdm pulseaudio xarchiver xfce4 xfce4-goodies
 
 8.
 adduser username sudo
@@ -84,11 +84,10 @@ sudo dpkg-reconfigure gdm3
 
 11.
 keyboard shortcuts:
-gnome-terminal = ctrl + return
-close window = super + c
-log out = ctrl + x
-sound and media = disable all
-xfce4-session-logout = ctrl + x
+gnome-terminal=ctrl+return
+close window=super+c
+log out=ctrl+x
+sound and media=backspace (disable all)
 
 12.
 dconf-tools
@@ -135,4 +134,4 @@ choose
 change folder icons:
 right click folder
 properties
-vicom/.icons/Faenza/places/48
+~/.icons/Faenza/places/48
