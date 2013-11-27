@@ -42,7 +42,9 @@ KEYMAP=us
 FONT=Lat2-Terminus16
 
 8.
-ln -s /usr/share/zoneinfo/US/Eastern /etc/localtime
+timedatectl status
+timedatectl list-timezones
+timedatectl set-timezone America/Puerto_Rico
 
 9.
 grub-install --recheck /dev/sdb
@@ -63,6 +65,14 @@ Section "InputClass"
     MatchIsKeyboard "yes"
     Option "XkbLayout" "us"
     Option "XkbVariant" "intl"
+EndSection
+ZZ
+
+sudo vi /etc/X11/xorg.conf.d/20-intel.conf 
+Section "Device"
+   Identifier  "Intel Graphics"
+   Driver      "intel"
+   Option      "AccelMethod"  "uxa"
 EndSection
 ZZ
 
@@ -133,18 +143,13 @@ sudo freshclam (update)
 sudo clamscan myfile (scan for virus)
 
 17.
-modprobe loop
-tee /etc/modules-load.d/truecrypt.conf <<< "loop"
-reboot
-
-18.
 terminal
 wifi-menu
 iwconfig
 systemctl enable netctl-auto@wlp1s2.service
 reboot
 
-19.
+18.
 cinnamon system settings
 applets
 get more online
