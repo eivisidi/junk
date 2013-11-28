@@ -12,22 +12,21 @@ mkdir /mnt/home
 mount /dev/sdb2 /mnt/home
 swapon /dev/sdb3
 	
-3.
+4.
 pacstrap -i /mnt base base-devel grub-bios
 
 if corrupted message appears:
 pacman-key --init && pacman-key --populate archlinux 
 
-pacman -Syy
-pacman -Syu
-
-4.
-genfstab -U -p /mnt >> /mnt/etc/fstab
+pacman -Syy; pacman -Syu
 
 5.
-arch-chroot /mnt
+genfstab -U -p /mnt >> /mnt/etc/fstab
 
 6.
+arch-chroot /mnt
+
+7.
 vi /etc/locale.gen
 uncomment: 
 en_US.UTF-8 UTF-8 
@@ -35,21 +34,16 @@ en_US ISO-8859-1
 echo LANG=en_US.UTF-8 > /etc/locale.conf
 export LANG=en_US.UTF-8
 
-7.
+8.
 setfont Lat2-Terminus16
 vi /etc/vconsole.conf
 KEYMAP=us
 FONT=Lat2-Terminus16
 
-8.
-timedatectl status
-timedatectl list-timezones
-timedatectl set-timezone America/Puerto_Rico
-
 9.
-grub-install --recheck /dev/sdb
-grub-mkconfig -o /boot/grub/grub.cfg
-cp /usr/share/locale/en\@quot/LC_MESSAGES/grub.mo /boot/grub/locale/en.mo
+ls /usr/share/zoneinfo
+ls /usr/share/zoneinfo/America
+ln -s /usr/share/zoneinfo/America/Puerto_Rico /etc/localtime
 
 10.
 echo jurasik > /etc/hostname
@@ -58,6 +52,28 @@ useradd -m -g users -G audio,disk,games,locate,lp,network,optical,power,scanner,
 passwd vicom
 
 11.
+grub-install --recheck /dev/sdb
+grub-mkconfig -o /boot/grub/grub.cfg
+
+12.
+pacman -S alsa-utils audacious cinnamon chromium clamav dialog evince faenza-icon-theme flashplugin gedit gimp gparted intel-ucode iw libreoffice-en-US libreoffice-gnome libreoffice-writer lightdm lightdm-gtk3-greeter lsb-release mesa mlocate nemo-fileroller p7zip pidgin shotwell skype terminator transmission-gtk truecrypt ttf-dejavu ttf-ubuntu-font-family ufw unrar unzip viewnior vlc wireless_tools wpa_actiond wpa_supplicant xf86-input-synaptics xf86-video-intel xf86-video-vesa xorg-server xorg-server-utils xorg-xclock xorg-xinit xorg-twm
+
+13.
+exit
+umount -R /mnt
+reboot
+
+14.
+su
+chmod ugo+w /etc/sudoers
+vi /etc/sudoers
+## User privilege specification
+root ALL=(ALL) ALL
+username ALL=(ALL) ALL
+ZZ
+chmod ugo-w /etc/sudoers
+
+15.
 less /usr/share/X11/xkb/rules/base.lst (choose layout)
 sudo vi /etc/X11/xorg.conf.d/10-keyboard.conf
 Section "InputClass"
@@ -76,32 +92,7 @@ Section "Device"
 EndSection
 ZZ
 
-12.
-pacman -S alsa-utils audacious cinnamon clamav dialog evince faenza-icon-theme gedit gimp gparted intel-ucode iw libreoffice-en-US libreoffice-gnome libreoffice-writer lightdm lightdm-gtk3-greeter lsb-release mesa mlocate nemo-fileroller p7zip pidgin shotwell skype terminator transmission-gtk truecrypt ttf-dejavu ttf-ubuntu-font-family ufw unrar unzip viewnior vlc wireless_tools wpa_actiond wpa_supplicant xf86-input-synaptics xf86-video-intel xf86-video-vesa xorg-server xorg-server-utils xorg-xclock xorg-xinit xorg-twm
-
-13.
-su
-chmod ugo+w /etc/sudoers
-vi /etc/sudoers
-## User privilege specification
-root ALL=(ALL) ALL
-username ALL=(ALL) ALL
-ZZ
-chmod ugo-w /etc/sudoers
-
-14.
-sudo vi /etc/pacman.conf
-
-[archlinuxfr]
-SigLevel = Never
-Server = http://repo.archlinux.fr/$arch
-ZZ
-
-sudo pacman -Syu
-sudo pacman -S yaourt
-sudo yaourt -S google-musicmanager xcursor-chameleon-anthracite
-
-15.
+16.
 sudo vi /etc/lightdm/lightdm.conf
 uncomment:
 greeter-user=lightdm
@@ -125,12 +116,32 @@ ZZ
 
 sudo systemctl enable lightdm
 
-16.
+17.
+sudo wifi-menu
+iwconfig
+systemctl enable netctl-auto@wlp1s2.service
+
+18.
+sudo vi /etc/pacman.conf
+
+[archlinuxfr]
+SigLevel = Never
+Server = http://repo.archlinux.fr/$arch
+ZZ
+
+sudo pacman -Syu
+sudo pacman -S yaourt
+sudo yaourt -S google-musicmanager xcursor-chameleon-anthracite
+
+19.
 sudo ufw enable
 sudo systemctl enable ufw
 
 sudo updatedb
 
+cd /etc/clamav
+sudo mv clamav.conf.sample clamav.conf
+sudo mv freshclam.conf.sample freshclam.conf
 sudo vi /etc/clamav/freshclam.conf
 comment Example: 
 # Example
@@ -142,15 +153,12 @@ ZZ
 sudo freshclam (update)
 sudo clamscan myfile (scan for virus)
 
-17.
-terminal
-wifi-menu
-iwconfig
-systemctl enable netctl-auto@wlp1s2.service
-reboot
-
-18.
+20.
 cinnamon system settings
 applets
 get more online
 netctl systray menu
+
+keyboard shortcuts
+/usr/bin/cinnamon-session-quit --power-off
+ctrl-x
