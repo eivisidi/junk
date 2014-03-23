@@ -1,5 +1,5 @@
 1.
-netinstall non-free debian (system-utilities, laptop)
+netinstall non-free debian (system-utilities)
 
 2.
 su
@@ -27,26 +27,20 @@ reboot
 5.
 su
 aptitude update; aptitude upgrade
-aptitude install alsa-utils apt-listbugs audacious chameleon-cursor-theme chromium clamav flashplugin-nonfree gimp gparted gstreamer0.10-ffmpeg gstreamer0.10-fluendo-mp3 gstreamer0.10-plugins-bad gstreamer0.10-plugins-ugly intel-microcode libavcodec53 libmp4v2-2 libreoffice p7zip-full sudo synaptic transmission-gtk ufw unrar unzip vlc xorg 
+(gnome)
+aptitude -P install alacarte alsa-base alsa-utils apt-listbugs audacious chameleon-cursor-theme chromium clamav file-roller flashplugin-nonfree gdebi gedit gimp gnome-core gnome-tweak-tool gparted gstreamer0.10-ffmpeg gstreamer0.10-fluendo-mp3 gstreamer0.10-plugins-bad gstreamer0.10-plugins-ugly intel-microcode libavcodec53 libmp4v2-2 libmtp-runtime libreoffice-gnome libreoffice-writer nautilus-image-converter network-manager-gnome ntfs-3g pyrenamer p7zip-full shotwell sudo synaptic telepathy-gabble totem-plugins transmission-gtk ufw unrar unzip vlc xorg --without-recommends
 
 6.
 intel toshiba: aptitude install firmware-realtek 
 intel dell: aptitude install firmware-linux-nonfree
 
 7.
-GNOME:
-aptitude install alacarte file-roller gdebi gedit gnome-core gnome-tweak-tool nautilus-image-converter pyrenamer shotwell totem-plugins 
-
-XFCE:
-aptitude install evince lightdm pulseaudio xarchiver xfce4 xfce4-goodies
-
-8.
 adduser username sudo
 update-alternatives --config x-cursor-theme
 freshclam
 ufw enable
 
-9.
+8.
 vi /etc/network/interfaces
 comment out everything:
 # auto wlan0
@@ -56,7 +50,7 @@ comment out everything:
 ZZ
 reboot
 
-10.
+9.
 sudo vi /etc/default/pulseaudio
 PULSEAUDIO_SYSTEM_START=1
 ZZ
@@ -65,31 +59,25 @@ sudo vi /etc/default/bluetooth
 BLUETOOTH_ENABLED=0
 ZZ
 
-lightdm (xfce):
-sudo vi /etc/lightdm/lightdm.conf
-greeter-hide-users=false
-ZZ
-sudo vi /etc/lightdm/lightdm-gtk-greeter.conf
-background=/usr/share/pixmaps/arch.png (<--has to be png)
-ZZ
-
-gdm3 (gnome):
+cd Pictures/wallpapers
+sudo cp bluemoon.jpg /usr/share/backgrounds/gnome
 sudo vi /etc/gdm3/greeter.gsettings
 [org.gnome.desktop.background]
-picture-uri='file:///home/vicom/Pictures/bluemoon.jpg'
+picture-uri='file:///usr/share/backgrounds/gnome/bluemoon.jpg'
+picture-options='zoom'
 [org.gnome.desktop.session]
 session-name='gdm-shell'
 ZZ
 sudo dpkg-reconfigure gdm3
 
-11.
+10.
 keyboard shortcuts:
 gnome-terminal=ctrl+return
 close window=super+c
 log out=ctrl+x
 sound and media=backspace (disable all)
 
-12.
+11.
 dconf-tools
 org
 gnome
@@ -97,16 +85,15 @@ gnome-screenshot
 auto-save-directory:
 file:///home/vicom/Desktop/
 
-13.
+12.
 download/install manually:
 skype
 truecrypt
 
-14.
-eyecandy (gnome):
+13.
+eyecandy:
 https://extensions.gnome.org/
 install "user themes" extension
-terminal
 mkdir .fonts .themes .icons
 
 cd Desktop
@@ -116,17 +103,16 @@ sudo mv Elegance ~/.themes
 
 cd ..
 unzip ubuntu-font-family-0.80.zip
-cd ubuntu-font-family-0.80
-sudo mv *.ttf ~/.fonts
+sudo mv ubuntu-font-family-0.80 ~/.fonts
 
 cd ..
-unzip faience-icon-theme_0.5.zip
-cd faience-icon-theme_0.5
-sudo tar -zxvf faience.tar.gz
-sudo tar -zxvf faience-azur.tar.gz
-sudo tar -zxvf faience-claire.tar.gz
-sudo tar -zxvf faience-ocre.tar.gz
-sudo mv faience faience-azur faience-claire faience-ocre ~/.icons
+sudo tar -zxvf numix-icon-theme.tar.gz
+cd numix-icon-theme
+sudo mv Numix ~/.icons
+cd..
+sudo unzip numix-icon-theme-circle-master.zip
+cd numix-icon-theme-circle
+sudo mv Numix-Circle ~/.icons
 
 gnome-tweak-tool
 choose
@@ -134,4 +120,4 @@ choose
 change folder icons:
 right click folder
 properties
-~/.icons/Faenza/places/48
+~/.icons/Numix/48/places
