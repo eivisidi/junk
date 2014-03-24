@@ -4,11 +4,12 @@ alias config='sudo aptitude -P purge ~c'
 alias grub='sudo update-grub'
 alias info='aptitude show'
 alias installed='aptitude search ~i | less'
-alias install='sudo aptitude -P install'
+alias install='sudo aptitude -P install --without-recommends'
 alias purge='sudo aptitude -P purge'
 alias search='aptitude search'
 alias sources='sudo vi /etc/apt/sources.list'
 alias update='sudo aptitude update; sudo aptitude upgrade'
+alias upgrade='sudo apt-get dist-upgrade'
 
 #arch
 #alias info='pacman -Si'
