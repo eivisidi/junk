@@ -1,0 +1,858 @@
+
+apt-get - is a simple command line interface for downloading and installing packages
+-----------------------------------------------------------------------------------------------------------------------------
+
+apt-get -h (help)
+man apt-get (help)
+apt-get [options] command packagename
+  		 -h This help text.
+ 		 -q  Loggable output - no progress indicator
+  		 -qq No output except for errors
+  		 -d  Download only - do NOT install or unpack archives
+  		 -s  No-act. Perform ordering simulation
+  		 -y  Assume Yes to all queries and do not prompt
+  		 -f  Attempt to correct a system with broken dependencies in place
+  		 -m  Attempt to continue if archives are unlocatable
+  		 -u  Show a list of upgraded packages as well
+  		 -b  Build the source package after fetching it
+  		 -V  Show verbose version numbers
+  		 -c=? Read this configuration file
+  		 -o=? Set an arbitrary configuration option, eg -o dir::cache=/tmp
+                                 update - Retrieve new lists of packages
+                                 upgrade - Perform an upgrade
+                                 install - Install new packages (pkg is libc6 not libc6.deb)
+                                 remove - Remove packages
+                                 autoremove - Remove automatically all unused packages
+                                 purge - Remove packages and config files
+                                 source - Download source archives
+                                 build-dep - Configure build-dependencies for source packages
+                                dist-upgrade - Distribution upgrade, see apt-get(8)
+                                dselect-upgrade - Follow dselect selections
+                                clean - Erase downloaded archive files
+                                autoclean - Erase old downloaded archive files
+                                check - Verify that there are no broken dependencies
+                                changelog - Download and display the changelog for the given package
+                                download - Download the binary package into the current directory
+
+
+aptitude - is a simple command line interface for downloading and installing packages
+------------------------------------------------------------------------------------------------------------------------------
+
+aptitude -h (help)
+man aptitude (help)
+aptitude [options] command packagename
+ 		  -h - This help text.
+                  --no-gui - Do not use the GTK GUI even if available
+                  -s - Simulate actions, but do not actually perform them
+                  -d - Only download packages, do not install or remove anything
+                  -P - Always prompt for confirmation of actions
+                  -y - Assume that the answer to simple yes/no questions is 'yes'
+                  -F format - Specify a format for displaying search results; see the manual
+                  -O order - Specify how search results should be sorted; see the manual
+                  -w width - Specify the display width for formatting search results
+                  -f - Aggressively try to fix broken packages
+                  -V - Show which versions of packages are to be installed
+                  -D - Show the dependencies of automatically changed packages
+                  -Z - Show the change in installed size of each package
+                  -v - Display extra information. (may be supplied multiple times)
+                  -t [release] - Set the release from which packages should be installed
+                  -q - In command-line mode, suppress the incremental progress indicators
+                  -o key=val - Directly set the configuration option named 'key'
+                  --with(out)-recommends - Specify whether or not to treat recommends as strong dependencies
+                  -S fname - Read the aptitude extended status info from fname
+                  -u - Download new package lists on startup
+                   -i - Perform an install run on startup
+                                   install - Install/upgrade packages
+                                   remove - Remove packages
+                                   purge - Remove packages and their configuration files
+                                   hold - Place packages on hold
+                                   unhold - Cancel a hold command for a package
+                                   markauto - Mark packages as having been automatically installed
+                                   unmarkauto - Mark packages as having been manually installed
+                                   forbid-version - Forbid aptitude from upgrading to a specific package version
+                                   update - Download lists of new/upgradable packages
+                                   safe-upgrade - Perform a safe upgrade
+                                   full-upgrade - Perform an upgrade, possibly installing and removing packages
+                                   build-dep - Install the build-dependencies of packages
+                                   forget-new - Forget what packages are "new"
+                                   search - Search for a package by name and/or expression
+                                   show - Display detailed information about a package
+                                   versions - Displays the versions of specified packages
+                                   clean - Erase downloaded package files
+                                   autoclean - Erase old downloaded package files
+                                   changelog - View a package's changelog
+                                   download - Download the .deb file for a package
+                                   reinstall - Download and (possibly) reinstall a currently installed package
+                                   why - Show the manually installed packages that require a package, or
+                                   why one or more packages would require the given package
+                                   why-not - Show the manually installed packages that lead to a conflict
+                                   with the given package, or why one or more packages would
+                                   lead to a conflict with the given package if installed
+
+remove whole metapackage:
+vicom@toshiba:~$ sudo aptitude purge `dpkg --get-selections | grep gnome | cut -f 1`
+vicom@toshiba:~$ sudo aptitude -f install
+vicom@toshiba:~$ sudo aptitude purge `dpkg --get-selections | grep deinstall | cut -f 1`
+vicom@toshiba:~$ sudo aptitude -f install
+
+downgrade package:
+vicom@toshiba:~$ apt-cache showpkg pkg (available versions)
+vicom@toshiba:~$ sudo aptitude purge pkg
+vicom@toshiba:~$ sudo aptitude install pkg=version
+
+
+ar - create, modify, and extract from archives
+------------------------------------------------------------------
+
+vicom@toshiba:~$ ar x file.deb
+
+
+blkidb - locate/print block device attributes
+----------------------------------------------------------------
+
+vicom@toshiba:~$ sudo blkid
+/dev/sda3: UUID="35ff9e96-bd23-4bc6-a385-15042d4cf71e" TYPE="swap" 
+/dev/sda1: UUID="ecd853bd-cd9a-42ac-adc6-dc39ae2be6a3" TYPE="ext4" 
+/dev/sda2: UUID="e54db75b-3259-4d03-917c-2c26a6cdb95f" TYPE="ext4" 
+vicom@toshiba:~$ 
+
+
+boot - 
+---------
+
+sudo blkid
+less /etc/fstab
+check that blkid=/etc/fstab
+
+
+cal - displays a calendar and the date
+------------------------------------------------------
+
+vicom@toshiba:~$ cal
+     March 2014       
+Su Mo Tu We Th Fr Sa  
+                   1  
+ 2  3  4  5  6  7  8  
+ 9 10 11 12 13 14 15  
+16 17 18 19 20 21 22  
+23 24 25 26 27 28 29  
+30 31                 
+vicom@toshiba:~$ 
+
+
+cat - concatenate files and print on the standard output
+---------------------------------------------------------------------------------
+
+vicom@toshiba:~$ vi test
+vicom@toshiba:~$ cat test
+hi
+vicom@toshiba:~$ cat file1 >> file2 (merge files)
+
+
+cd - change directory
+-------------------------------
+
+vicom@toshiba:~$ 
+vicom@toshiba:~$ cd /usr/share
+vicom@toshiba:/usr/share$ 
+vicom@toshiba:/usr/share$ cd -
+/home/vicom
+vicom@toshiba:~$ 
+vicom@toshiba:~$ cd /usr/share
+vicom@toshiba:/usr/share$ 
+vicom@toshiba:/usr/share$ cd ..
+vicom@toshiba:/usr$ 
+vicom@toshiba:/usr$ cd /etc
+vicom@toshiba:/etc$ 
+
+
+chmod - change file mode bits
+--------------------------------------------
+
+vicom@toshiba:~$ sudo chmod ugo+-rwx filename (change permissions)
+vicom@toshiba:~$ sudo chmod +x filename (make executable)
+
+
+compile -
+-------------
+ 
+vicom@toshiba:~$ sudo aptitude install checkinstall
+mkdir Build
+download test.tar.gz to Build
+cd Build
+tar -zvxf test.tar.gz
+cd test
+read "README" and "INSTALL"
+./configure --prefix=/usr/local
+make
+sudo checkinstall (or make install)
+sudo aptitude hold test
+make uninstall
+make clean
+
+
+cp - copy files and directories
+-------------------------------------------
+
+vicom@toshiba:~/test1$ ls
+one.txt
+vicom@toshiba:~/test1$ cp one.txt one.text.backup
+vicom@toshiba:~/test1$ ls
+one.text.backup  one.txt
+vicom@toshiba:~/test1$ cp one.txt ~/test2
+vicom@toshiba:~/test1$ cd ~/test2
+vicom@toshiba:~/test2$ ls
+one.txt
+vicom@toshiba:~/test2$ cd
+vicom@toshiba:~$
+vicom@toshiba:~$ ls
+Desktop  Documents  Downloads  Music  Pictures  test1  test2  Videos
+vicom@toshiba:~$ cp -r test1 ~/test2
+vicom@toshiba:~$ cd test2
+vicom@toshiba:~/test2$ ls
+one.txt  test1
+
+
+date - print or set the system date and time
+---------------------------------------------------------------
+
+vicom@toshiba:~$ date
+Thu Mar 27 12:01:06 AST 2014
+vicom@toshiba:~$ 
+
+
+dd - convert and copy a file
+----------------------------------------
+
+vicom@toshiba:~$ sudo dd if=~/Desktop/file.iso of=/dev/sdx
+
+
+debian - 
+------------
+
+missing firmware:
+search "iwlwifi" in another computer at:
+http://www.debian.org/distrib/packages
+http://packages.debian.org/search?keywords=firmware
+put found "firmware-iwlwifi" in usbstick
+insert usbstick when installation disk asks for firmware
+
+
+dpkg - package manager for Debian
+-----------------------------------------------------
+
+vicom@toshiba:~$ sudo dpkg -i packagename.deb (install .deb package)
+vicom@toshiba:~$ sudo dpkg-reconfigure keyboard-configuration
+vicom@toshiba:~$ sudo dpkg-reconfigure gdm3
+
+install packages computer #1 --> computer #2:
+vicom@toshiba:~$ sudo dpkg --get-selections >pkg-list
+transfer "pkg-list" to the other computer (usb)
+vicom@eeepc:~$ sudo dpkg --set-selections <pkg-list
+vicom@toshiba:~$ sudo apt-get dselect-upgrade
+vicom@toshiba:~$ sudo dpkg --set-selections <pkg-list
+install programs that come up on warnings
+sudo aptitude purge ~c
+
+
+du -a - estimate file space usage
+-----------------------------------------------
+
+vicom@toshiba:~/Downloads$ du -a
+4	.
+vicom@toshiba:~/Downloads$ 
+
+
+echo - display a line of text
+----------------------------------------
+
+vicom@toshiba:~$ echo "hey you, are you talking to me?"
+hey you, are you talking to me?
+vicom@toshiba:~$ 
+
+
+fdisk -l - manipulate disk partition table
+----------------------------------------------------------
+
+vicom@toshiba:~$ sudo fdisk -l
+[sudo] password for vicom: 
+
+Disk /dev/sda: 250.1 GB, 250059350016 bytes
+255 heads, 63 sectors/track, 30401 cylinders, total 488397168 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk identifier: 0x00089476
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sda1   *        2048    39063551    19530752   83  Linux
+/dev/sda2        39063552   476676095   218806272   83  Linux
+/dev/sda3       476676096   488396799     5860352   82  Linux swap / Solaris
+vicom@toshiba:~$ 
+
+
+find - search for files in a directory hierarchy
+----------------------------------------------------------------
+
+vicom@toshiba:~$ sudo find / -iname sasha.jpg
+
+
+flash plugin - 
+------------------
+ 
+download .tar.gz from http://get.adobe.com/flashplayer/?no_redirect
+tar -zxvf flash_player.tar.gz
+cp libflashplayer.so /usr/lib/chromium/plugins/
+
+
+grep - print lines matching a pattern
+-----------------------------------------------------
+
+vicom@toshiba:~$ vi test 
+vicom@toshiba:~$ cat test
+hi
+my
+hi
+name
+hi
+is
+hi
+teddy
+hi
+roxpin
+vicom@toshiba:~$ grep hi test
+hi
+hi
+hi
+hi
+hi
+vicom@toshiba:~$ 
+
+
+grub - 
+--------
+ 
+boot with livecd
+fdisk -l
+mount /dev/sda1 /mnt
+grub-install --root-directory=/mnt/ /dev/sda
+update-grub
+reboot
+ 
+grub> (or grub rescue>) - 
+ ls (hdX,Y)/
+set prefix=(hdX,Y)/boot/grub
+set root=(hdX,Y)
+insmod (hdX,Y)/boot/grub/linux.mod
+linux /vmlinuz root=/dev/sdaY ro
+initrd /initrd.img
+boot
+apt-get --purge-remove grub2
+apt-get install grub2
+ example:
+ls
+ls (hd0,3)/
+error: unknown filesystem.
+ls (hd0,2)/
+error: unknown filesystem.
+ls (hd0,1)/
+./ ../ lost+found/ etc/ media/ ...img.old vmlinuz.old
+set prefix=(hd0,1)/boot/grub
+set root=(hd0,1)
+insmod (hd0,1)/boot/grub/linux.mod
+linux /vmlinuz root=/dev/sda1 ro
+initrd /initrd.img
+boot
+terminal
+aptitude purge grub2 (or apt-get --purge-remove grub2)
+aptitude install grub2 (or apt-get install grub2)
+
+vicom@toshiba:~$ sudo update-grub
+
+
+gzip - compress or expand files
+----------------------------------------------
+
+vicom@toshiba:~$ sudo gzip -d file.gz
+
+
+history - command history
+--------------------------------------
+
+vicom@toshiba:~$ history
+    1  su
+    2  clear
+    3  su
+    4  sudo vi /etc/default/pulseaudio 
+    5  sudo vi /etc/default/bluetooth 
+    6  cd Pictures
+    7  ls
+    8  clear
+    9  ls
+   10  clear
+   11  cd wallpapers/
+   12  ls
+   13  sudo cp bluemoon.jpg /usr/share/backgrounds/gnome/
+   14  clear
+   15  sudo vi /etc/gdm3/greeter.gsettings 
+   16  clear
+vicom@toshiba:~$ !12 (choose history number)
+ls
+Desktop  Documents  Downloads  Music  Pictures  Videos
+vicom@toshiba:~$ 
+
+
+ifconfig - configure a network interface
+---------------------------------------------------------
+
+vicom@toshiba:~$ sudo ifconfig
+eth0      Link encap:Ethernet  HWaddr 00:1b:24:fe:99:93  
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+          Interrupt:44 Base address:0x4000 
+wlan0     Link encap:Ethernet  HWaddr 00:1d:e0:7d:40:2d  
+          inet addr:192.168.0.11  Bcast:192.168.0.255  Mask:255.255.255.0
+          inet6 addr: fe80::21d:e0ff:fe7d:402d/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:21417 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:14151 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:9381687 (8.9 MiB)  TX bytes:2842519 (2.7 MiB)
+vicom@toshiba:~$ 
+
+
+iwconfig - configure a wireless network interface
+-----------------------------------------------------------------------
+
+vicom@toshiba:~$ sudo iwconfig
+[sudo] password for vicom: 
+lo        no wireless extensions.
+wlan0     IEEE 802.11abgn  ESSID:"Whatever"  
+          Mode:Managed  Frequency:2.437 GHz  Access Point: 20:10:7A:E4:73:64   
+          Bit Rate=78 Mb/s   Tx-Power=14 dBm   
+          Retry  long limit:7   RTS thr:off   Fragment thr:off
+          Encryption key:off
+          Power Management:off
+          Link Quality=60/70  Signal level=-50 dBm  
+          Rx invalid nwid:0  Rx invalid crypt:0  Rx invalid frag:0
+          Tx excessive retries:1639  Invalid misc:37   Missed beacon:0
+eth0      no wireless extensions.
+vicom@toshiba:~$ 
+
+
+java -
+--------
+ 
+download Linux (self-extracting file) from www.java.com to ~/Downloads
+cd /usr/local/bin
+sudo mkdir java
+cd java
+sudo mkdir 32
+sudo mv ~/Downloads/jre-6u31-linux-i586.bin /usr/local/bin/java/32
+sudo chmod 755 or a+x /usr/local/bin/java/32/jre-6u31-linux-i586.bin
+cd /usr/local/bin/java/32
+sudo ./jre-6u31-linux-i586.bin
+sudo update-alternatives --install "/usr/bin/java" "java" "/usr/local/bin/java/32/jre1.6.0_31/bin/java" 1
+when updating from previous removed java version then you'll need to execute the above command twice
+sudo update-alternatives --set java /usr/local/bin/java/32/jre1.6.0_31/bin/java
+sudo ln -s /usr/local/bin/java/32/jre1.6.0_31/lib/i386/libnpjp2.so /usr/lib/chromium/plugins
+/usr/local/bin/java/32/jre1.6.0_31/bin/ControlPanel (optional control panel)
+ uninstall:
+rm /usr/lib/chromium/plugins/libnpjp2.so
+rm -rf /usr/local/bin/java 
+
+
+less - read file without editing
+--------------------------------------------
+
+vicom@toshiba:~$ vi test
+vicom@toshiba:~$ less test
+
+
+locate - find files by name
+--------------------------------------
+
+vicom@toshiba:~$ locate sasha
+/home/vicom/Pictures/wallpapers/sasha.jpg
+vicom@toshiba:~$ 
+
+
+ls - list directory contents
+-------------------------------------
+
+vicom@toshiba:~$ ls
+Desktop  Documents  Downloads  Music  Pictures  Videos
+vicom@toshiba:~$ ls -al
+total 24
+drwxr-xr-x 34 vicom vicom 4096 Mar 27 02:18 .
+drwxr-xr-x  4 root  root  4096 Mar 22 17:13 ..
+drwx------  3 vicom vicom 4096 Mar 22 18:37 .adobe
+drwx------  2 vicom vicom 4096 Mar 25 10:58 .aptitude
+
+
+lsb_release - print distribution-specific information
+--------------------------------------------------------------------------
+
+vicom@toshiba:~$ lsb_release
+No LSB modules are available.
+vicom@toshiba:~$
+
+
+lspci - list all PCI devices
+------------------------------------
+
+vicom@toshiba:~$ lspci
+00:00.0 Host bridge: Intel Corporation Mobile PM965/GM965/GL960 Memory Controller Hub (rev 03)
+00:02.0 VGA compatible controller: Intel Corporation Mobile GM965/GL960 Integrated Graphics Controller (primary) (rev 03)
+00:02.1 Display controller: Intel Corporation Mobile GM965/GL960 Integrated Graphics Controller (secondary) (rev 03)
+00:1a.0 USB controller: Intel Corporation 82801H (ICH8 Family) USB UHCI Controller #4 (rev 03)
+00:1a.1 USB controller: Intel Corporation 82801H (ICH8 Family) USB UHCI Controller #5 (rev 03)
+00:1a.7 USB controller: Intel Corporation 82801H (ICH8 Family) USB2 EHCI Controller #2 (rev 03)
+00:1b.0 Audio device: Intel Corporation 82801H (ICH8 Family) HD Audio Controller (rev 03)
+00:1c.0 PCI bridge: Intel Corporation 82801H (ICH8 Family) PCI Express Port 1 (rev 03)
+00:1c.1 PCI bridge: Intel Corporation 82801H (ICH8 Family) PCI Express Port 2 (rev 03)
+00:1c.2 PCI bridge: Intel Corporation 82801H (ICH8 Family) PCI Express Port 3 (rev 03)
+00:1c.3 PCI bridge: Intel Corporation 82801H (ICH8 Family) PCI Express Port 4 (rev 03)
+00:1d.0 USB controller: Intel Corporation 82801H (ICH8 Family) USB UHCI Controller #1 (rev 03)
+00:1d.1 USB controller: Intel Corporation 82801H (ICH8 Family) USB UHCI Controller #2 (rev 03)
+00:1d.2 USB controller: Intel Corporation 82801H (ICH8 Family) USB UHCI Controller #3 (rev 03)
+00:1d.7 USB controller: Intel Corporation 82801H (ICH8 Family) USB2 EHCI Controller #1 (rev 03)
+00:1e.0 PCI bridge: Intel Corporation 82801 Mobile PCI Bridge (rev f3)
+00:1f.0 ISA bridge: Intel Corporation 82801HM (ICH8M) LPC Interface Controller (rev 03)
+00:1f.1 IDE interface: Intel Corporation 82801HM/HEM (ICH8M/ICH8M-E) IDE Controller (rev 03)
+00:1f.2 SATA controller: Intel Corporation 82801HM/HEM (ICH8M/ICH8M-E) SATA Controller [AHCI mode] (rev 03)
+00:1f.3 SMBus: Intel Corporation 82801H (ICH8 Family) SMBus Controller (rev 03)
+03:00.0 Ethernet controller: Realtek Semiconductor Co., Ltd. RTL8101E/RTL8102E PCI Express Fast Ethernet controller (rev 01)
+04:00.0 Network controller: Intel Corporation PRO/Wireless 4965 AG or AGN [Kedron] Network Connection (rev 61)
+0a:01.0 FireWire (IEEE 1394): Ricoh Co Ltd R5C832 IEEE 1394 Controller (rev 05)
+0a:01.1 SD Host controller: Ricoh Co Ltd R5C822 SD/SDIO/MMC/MS/MSPro Host Adapter (rev 22)
+0a:01.2 System peripheral: Ricoh Co Ltd R5C592 Memory Stick Bus Host Adapter (rev 12)
+0a:01.3 System peripheral: Ricoh Co Ltd xD-Picture Card Controller (rev 12)
+vicom@toshiba:~$ 
+
+
+lsusb - list USB devices
+----------------------------------
+
+vicom@toshiba:~$ lsusb
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+Bus 002 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+Bus 003 Device 001: ID 1d6b:0001 Linux Foundation 1.1 root hub
+Bus 004 Device 001: ID 1d6b:0001 Linux Foundation 1.1 root hub
+Bus 005 Device 001: ID 1d6b:0001 Linux Foundation 1.1 root hub
+Bus 006 Device 001: ID 1d6b:0001 Linux Foundation 1.1 root hub
+Bus 007 Device 001: ID 1d6b:0001 Linux Foundation 1.1 root hub
+Bus 002 Device 002: ID 04f2:b008 Chicony Electronics Co., Ltd USB 2.0 Camera
+Bus 004 Device 002: ID 093a:2510 Pixart Imaging, Inc. Optical Mouse
+Bus 007 Device 002: ID 0483:2016 SGS Thomson Microelectronics Fingerprint Reader
+Bus 007 Device 003: ID 0930:0508 Toshiba Corp. Integrated Bluetooth HCI
+vicom@toshiba:~$  
+
+
+md5sum - compute and check MD5 message digest
+---------------------------------------------------------------------------
+
+vicom@toshiba:~$ sudo md5sum filename.iso
+
+
+mkdir - make directories
+------------------------------------
+
+vicom@toshiba:~$ ls
+Desktop  Documents  Downloads  Music  Pictures  Videos
+vicom@toshiba:~$ mkdir test
+vicom@toshiba:~$ ls
+Desktop  Documents  Downloads  Music  Pictures  test  Videos
+vicom@toshiba:~$ cd test
+vicom@toshiba:~/test$ 
+
+
+mkfs - build a Linux filesystem
+--------------------------------------------
+
+vicom@toshiba:~$ sudo fdisk -l
+[sudo] password for vicom: 
+Disk /dev/sda: 250.1 GB, 250059350016 bytes
+255 heads, 63 sectors/track, 30401 cylinders, total 488397168 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk identifier: 0x00089476
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sda1   *        2048    39063551    19530752   83  Linux
+/dev/sda2        39063552   476676095   218806272   83  Linux
+/dev/sda3       476676096   488396799     5860352   82  Linux swap / Solaris
+/dev/sdb          39063552   476676095   218806272   83  ntfs
+vicom@toshiba:~$ sudo mkfs. (press tab for completion options)
+vicom@toshiba:~$ sudo umount /dev/sdb; sudo mkfs.vfat -n "pendrive" -I /dev/sdb
+
+
+mount/umount - mount/unmount a filesystem
+-------------------------------------------------------------------
+
+vicom@toshiba:~$ sudo fdisk -l
+[sudo] password for vicom: 
+Disk /dev/sda: 250.1 GB, 250059350016 bytes
+255 heads, 63 sectors/track, 30401 cylinders, total 488397168 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk identifier: 0x00089476
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sda1   *        2048    39063551    19530752   83  Linux
+/dev/sda2        39063552   476676095   218806272   83  Linux
+/dev/sda3       476676096   488396799     5860352   82  Linux swap / Solaris
+/dev/sdb          39063552   476676095   218806272   83  ntfs
+vicom@toshiba:~$ mkdir /media/usb
+vicom@toshiba:~$ sudo mount (-t vfat) /dev/sdb /media/usb (-o uid=1000,gid=1000,utf8,dmask=027,fmask=137)
+or
+vicom@toshiba:~$ sudo mount (-t ntfs-3g) /dev/sdb /media/usb
+vicom@toshiba:~$ umount /media/usb
+
+
+mv - move (rename) files
+-------------------------------------
+
+vicom@toshiba:~$ ls
+Desktop  Documents  Downloads  Music  Pictures  test1  test2  Videos
+vicom@toshiba:~$ cd test1
+vicom@toshiba:~/test1$ ls
+one.text.backup  one.txt
+vicom@toshiba:~/test1$ mv one.txt two.txt
+vicom@toshiba:~/test1$ ls
+one.text.backup  two.txt
+vicom@toshiba:~/test1$ mv two.txt ~/test2
+vicom@toshiba:~/test1$ ls
+one.text.backup
+vicom@toshiba:~/test1$ cd ~/test2
+vicom@toshiba:~/test2$ ls
+one.txt  test1  two.txt
+
+
+on/off - 
+-----------
+
+ctrl - alt - printscreen - reisub (force shutdown)
+sudo shutdown -h now (halt)
+sudo shutdown -r now (reboot)
+killall - kill processes by name
+
+
+ping - 6 send ICMP ECHO_REQUEST to network hosts
+------------------------------------------------------------------------------
+
+vicom@toshiba:~$ ping -c 3 www.google.com
+PING www.google.com (74.125.131.104) 56(124) bytes of data.
+--- www.google.com ping statistics ---
+3 packets transmitted, 0 received, 100% packet loss, time 2016ms
+vicom@toshiba:~$
+
+
+pwd - print name of current/working directory
+--------------------------------------------------------------------
+
+vicom@toshiba:~$ pwd
+/home/vicom
+vicom@toshiba:~$
+
+
+reference - 
+----------------
+
+/etc/apt/sources.list
+/etc/network/interfaces
+/var/log
+(hd0,1)=/dev/sda1 (1st hard drive, 1st partition)
+(hd1,3)=/dev/sdb3 (2nd hard drive, 3rd partition) 
+
+
+rm - remove files or directories
+----------------------------------------------
+
+vicom@toshiba:~$ ls
+Desktop  Documents  Downloads  Music  Pictures  test1  test2  Videos
+vicom@toshiba:~$ cd test1
+vicom@toshiba:~/test1$ ls
+one.text.backup
+vicom@toshiba:~/test1$ rm one.text.backup 
+vicom@toshiba:~/test1$ ls
+vicom@toshiba:~/test1$ cd
+vicom@toshiba:~$ ls
+Desktop  Documents  Downloads  Music  Pictures  test1  test2  Videos
+vicom@toshiba:~$ rm -rf test1
+vicom@toshiba:~$ ls
+Desktop  Documents  Downloads  Music  Pictures  test2  Videos
+
+
+rmdir - remove empty directories
+-------------------------------------------------
+
+vicom@toshiba:~/test$ cd
+vicom@toshiba:~$ ls
+Desktop  Documents  Downloads  Music  Pictures  test  Videos
+vicom@toshiba:~$ rmdir test/
+vicom@toshiba:~$ ls
+Desktop  Documents  Downloads  Music  Pictures  Videos
+
+
+run/execute - 
+-------------------
+
+./filename.bin
+
+
+screen -
+-----------
+
+sudo vi /usr/share/X11/xorg.conf.d/20-intel.conf (lubuntu)
+sudo vi /etc/X11/xorg.conf.d/20-intel.conf (arch) 
+Section "Device"
+   Identifier  "Intel Graphics"
+   Driver      "intel"
+   Option      "AccelMethod"  "uxa"
+EndSection
+ZZ
+reboot
+
+
+tar - archiving utility
+-----------------------------
+
+vicom@toshiba:~$ sudo tar -jxvf file.tarbz2
+vicom@toshiba:~$ sudo tar -jxvf file.tarbz
+vicom@toshiba:~$ sudo tar -zxvf file.targz
+vicom@toshiba:~$ sudo tar -xvf file.tar
+vicom@toshiba:~$ sudo tar -xJf file.tarxz
+vicom@toshiba:~$ sudo tar -jxvf file.tbz
+vicom@toshiba:~$ sudo tar -zxvf file.tgz
+
+
+terminal shortcuts -
+----------------------------
+
+shift - insert (middle click)
+ctrl - alt - f1 (tty1)
+ctrl - a (beginning of sentence)
+ctrl - e (end of sentence)
+ctrl - c (stop operation)
+ctrl - u (cut whole sentence back)
+ctrl - k (cut whole sentence forward)
+ctrl - w (cut one word back)
+ctrl - y (paste)
+
+
+top - display Linux processes
+-------------------------------------------
+
+top - 14:40:12 up  3:10,  2 users,  load average: 0.24, 0.12, 0.07
+Tasks: 135 total,   1 running, 134 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  2.4 us,  0.7 sy,  0.0 ni, 96.4 id,  0.5 wa,  0.0 hi,  0.0 si,  0.0 st
+KiB Mem:   4137684 total,  1008132 used,  3129552 free,    45492 buffers
+KiB Swap:  5860348 total,        0 used,  5860348 free,   548408 cached
+PID USER      PR  NI  VIRT  RES  SHR S  %CPU %MEM    TIME+  COMMAND           
+3535 vicom     20   0  420m  87m  24m S   4.3  2.2   2:20.95 gnome-shell       
+2904 root      20   0 79436  17m 6400 S   2.7  0.4   1:19.18 Xorg              
+15047 vicom     20   0  132m  15m  10m S   2.7  0.4   0:05.50 gnome-terminal    
+530 root      20   0  2320  832  312 S   0.3  0.0   0:05.65 net.agent         
+3141 root      20   0 27376 3864 3236 S   0.3  0.1   0:01.24 upowerd           
+3718 vicom     20   0  713m  87m  42m S   0.3  2.2   2:55.17 chromium          
+7143 root      20   0     0    0    0 S   0.3  0.0   0:00.01 kworker/0:0       
+1 root      20   0  2284  748  644 S   0.0  0.0   0:01.09 init              
+2 root      20   0     0    0    0 S   0.0  0.0   0:00.00 kthreadd          
+3 root      20   0     0    0    0 S   0.0  0.0   0:00.71 ksoftirqd/0       
+6 root      rt   0     0    0    0 S   0.0  0.0   0:00.14 migration/0       
+7 root      rt   0     0    0    0 S   0.0  0.0   0:00.06 watchdog/0        
+8 root      rt   0     0    0    0 S   0.0  0.0   0:00.16 migration/1       
+10 root      20   0     0    0    0 S   0.0  0.0   0:00.65 ksoftirqd/1       
+12 root      rt   0     0    0    0 S   0.0  0.0   0:00.05 watchdog/1        
+13 root       0 -20     0    0    0 S   0.0  0.0   0:00.00 cpuset            
+14 root       0 -20     0    0    0 S   0.0  0.0   0:00.00 khelper           
+vicom@toshiba:~$ 
+
+
+touch - create file
+--------------------------
+
+vicom@toshiba:~$ ls
+Desktop  Documents  Downloads  Music  Pictures  Videos
+vicom@toshiba:~$ touch test
+vicom@toshiba:~$ ls
+Desktop  Documents  Downloads  Music  Pictures  test  Videos
+vicom@toshiba:~$ vi test
+
+
+truecrypt -
+---------------
+
+modprobe loop
+tee /etc/modules-load.d/truecrypt.conf <<< "loop"
+reboot
+
+
+uname - print system information
+-------------------------------------------------
+
+vicom@toshiba:~$ uname -a
+Linux toshiba 3.2.0-4-686-pae #1 SMP Debian 3.2.54-2 i686 GNU/Linux
+vicom@toshiba:~$ 
+
+
+unrar - extract files from rar archives
+------------------------------------------------------
+
+vicom@toshiba:~$ sudo unrar e file.rar
+
+
+update-alternatives - maintain symbolic links determining default commands
+----------------------------------------------------------------------------------------------------------------
+
+vicom@toshiba:~$ sudo update-alternatives --config x-cursor-theme
+
+
+updatedb - update a database for mlocate
+---------------------------------------------------------------
+
+vicom@toshiba:~$ sudo updatedb
+[sudo] password for vicom: 
+vicom@toshiba:~$
+
+
+unzip - list, test and extract compressed files in a ZIP archive
+----------------------------------------------------------------------------------------
+
+vicom@toshiba:~$ unzip file.zip
+
+
+vi - text editor
+---------------------
+
+i (one letter to the left insert mode)
+a (one letter to the right insert mode)
+ctrl - [ (command mode)
+h (left)
+j (down)
+k (up)
+l (right)
+r (replace)
+x (erase forward)
+X (erase backward)
+0 (beginning sentence)
+$ (end sentence)
+b (one word backward)
+w (one word forward)
+db (erase one word backward)
+dw (erase one word forward)
+u (undo)
+dd (delete sentence, cut)
+p (paste)
+yy (copy)
+o (next line insert mode)
+gg (beginning of everything)
+GG (end of everything)
+:q (quit)
+:q! (force quit)
+:wq (save and quit)
+ZZ (save and quit)
