@@ -8,8 +8,9 @@ alias install='sudo aptitude -P install --without-recommends'
 alias purge='sudo aptitude -P purge'
 alias search='aptitude search'
 alias sources='sudo vi /etc/apt/sources.list'
-alias update='sudo aptitude update; sudo aptitude upgrade'
-alias upgrade='sudo apt-get dist-upgrade'
+alias update='sudo aptitude update; sudo aptitude safe-upgrade'
+alias upgrade1='sudo apt-get update; sudo apt-get upgrade'
+alias upgrade2='sudo apt-get dist-upgrade'
 
 #arch
 #alias info='pacman -Si'
