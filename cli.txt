@@ -1,0 +1,690 @@
+
+apt-get
+-----------
+
+apt-get -h (help)
+man apt-get (help)
+apt-get [options] command packagename
+  		   -s - simulate action
+                   -d - only download
+		   -y - answer yes
+		   -V - extra information
+  		                 update
+                                 upgrade
+                                 install
+                                 remove
+                                 autoremove
+                                 purge
+                                 dist-upgrade
+                                 clean
+                                 autoclean
+                                 check
+                                
+
+
+aptitude
+------------
+
+aptitude -h (help)
+man aptitude (help)
+aptitude [options] command packagename
+                  -s - simulate action
+                  -d - only download
+                  -P - always prompt
+                  -y - answer yes
+                  -f - fix broken packages
+                  -V - versions of packages
+                  -D - dependencies
+                  -v - extra information
+                  -t [release] 
+                   --with(out)-recommends
+                                   install
+                                   remove
+                                   purge
+                                   update
+                                   safe-upgrade
+                                   full-upgrade
+                                   search
+                                   show
+                                   versions
+                                   clean
+                                   reinstall
+                                   
+remove whole metapackage:
+sudo aptitude purge `dpkg --get-selections | grep gnome | cut -f 1`
+sudo aptitude -f install
+sudo aptitude purge `dpkg --get-selections | grep deinstall | cut -f 1`
+sudo aptitude -f install
+
+downgrade package:
+apt-cache showpkg pkg (available versions)
+sudo aptitude purge pkg
+sudo aptitude install pkg=version
+
+
+ar
+---
+
+$ ar x file.deb
+
+
+blkid
+----------
+
+$ sudo blkid
+/dev/sda3: UUID="35ff9e96-bd23-4bc6-a385-15042d4cf71e" TYPE="swap" 
+/dev/sda1: UUID="ecd853bd-cd9a-42ac-adc6-dc39ae2be6a3" TYPE="ext4" 
+/dev/sda2: UUID="e54db75b-3259-4d03-917c-2c26a6cdb95f" TYPE="ext4" 
+
+
+
+boot
+--------
+
+$ sudo blkid
+less /etc/fstab
+check that blkid=/etc/fstab
+
+
+cal
+-----
+
+$ cal
+     March 2014       
+Su Mo Tu We Th Fr Sa  
+                   1  
+ 2  3  4  5  6  7  8  
+ 9 10 11 12 13 14 15  
+16 17 18 19 20 21 22  
+23 24 25 26 27 28 29  
+30 31                  
+
+
+cat
+-----
+
+$ vi test
+$ cat test
+hi
+$ cat file1 >> file2 (merge files)
+
+
+cd
+----
+
+$ 
+$ cd /usr/share
+/usr/share$ 
+/usr/share$ cd -
+$
+$ cd /usr/share
+/usr/share$ 
+/usr/share$ cd ..
+/usr$ 
+/usr$ cd /etc
+/etc$ 
+
+
+chmod
+----------
+
+$ sudo chmod ugo+-rwx filename (change permissions)
+$ sudo chmod +x filename (make executable)
+
+
+compile
+-------------
+ 
+$ sudo aptitude install checkinstall
+$ mkdir Build
+download test.tar.gz to Build
+$ cd Build
+$ tar -zvxf test.tar.gz
+$ cd test
+read "README" and "INSTALL"
+$ ./configure --prefix=/usr/local
+$ make
+$ sudo checkinstall (or make install)
+$ sudo aptitude hold test
+$ make uninstall
+$ make clean
+
+
+cp
+----
+
+/test1$ ls
+one.txt
+/test1$ cp one.txt one.text.backup
+/test1$ ls
+one.text.backup  one.txt
+/test1$ cp one.txt ~/test2
+/test1$ cd ~/test2
+/test2$ ls
+one.txt
+/test2$ cd
+$
+$ ls
+Desktop  Documents  Downloads  Music  Pictures  test1  test2  Videos
+$ cp -r test1 ~/test2
+$ cd test2
+/test2$ ls
+one.txt  test1
+
+
+date
+-------
+
+$ date
+Thu Mar 27 12:01:06 AST 2014
+$ 
+
+
+dd
+----
+
+$ sudo dd if=~/Desktop/file.iso of=/dev/sdx
+
+
+debian
+----------
+
+missing firmware:
+search "iwlwifi" in another computer:
+http://www.debian.org/distrib/packages
+http://packages.debian.org/search?keywords=firmware
+put found "firmware-iwlwifi" in usbstick
+insert usbstick when installation disk asks for firmware
+
+
+dpkg
+--------
+
+$ sudo dpkg -i packagename.deb (install .deb package)
+$ sudo dpkg-reconfigure keyboard-configuration
+$ sudo dpkg-reconfigure gdm3
+
+install packages computer #1 --> computer #2:
+$ sudo dpkg --get-selections >pkg-list
+transfer "pkg-list" to the other computer (usb)
+$ sudo dpkg --set-selections <pkg-list
+$ sudo apt-get dselect-upgrade
+$ sudo dpkg --set-selections <pkg-list
+install programs that come up on warnings
+$ sudo aptitude purge ~c
+
+
+du
+----
+
+/Downloads$ du -a
+4
+/Downloads$ 
+
+
+echo
+-------
+
+$ echo "hey you, are you talking to me?"
+hey you, are you talking to me?
+$ 
+
+
+fdisk
+-------
+
+$ sudo fdisk -l
+
+
+find
+------
+
+$ sudo find / -iname sasha.jpg
+
+
+flash plugin
+------------------
+ 
+download .tar.gz from http://get.adobe.com/flashplayer/?no_redirect
+tar -zxvf flash_player.tar.gz
+$ cp libflashplayer.so /usr/lib/chromium/plugins/
+
+
+grep
+-------
+
+$ vi test 
+$ cat test
+hi
+my
+hi
+name
+hi
+is
+hi
+teddy
+hi
+roxpin
+$ grep hi test
+hi
+hi
+hi
+hi
+hi
+$ 
+
+
+grub
+--------
+ 
+boot with livecd
+$ fdisk -l
+$ mount /dev/sda1 /mnt
+$ grub-install --root-directory=/mnt/ /dev/sda
+$ update-grub
+$ reboot
+ 
+grub> (or grub rescue>) - 
+ ls (hdX,Y)/
+set prefix=(hdX,Y)/boot/grub
+set root=(hdX,Y)
+insmod (hdX,Y)/boot/grub/linux.mod
+linux /vmlinuz root=/dev/sdaY ro
+initrd /initrd.img
+boot
+apt-get --purge-remove grub2
+apt-get install grub2
+ example:
+ls
+ls (hd0,3)/
+error: unknown filesystem.
+ls (hd0,2)/
+error: unknown filesystem.
+ls (hd0,1)/
+./ ../ lost+found/ etc/ media/ ...img.old vmlinuz.old
+set prefix=(hd0,1)/boot/grub
+set root=(hd0,1)
+insmod (hd0,1)/boot/grub/linux.mod
+linux /vmlinuz root=/dev/sda1 ro
+initrd /initrd.img
+boot
+terminal
+aptitude purge grub2 (or apt-get --purge-remove grub2)
+aptitude install grub2 (or apt-get install grub2)
+
+$ sudo update-grub
+
+
+gzip
+------
+
+$ sudo gzip -d file.gz
+
+
+history
+----------
+
+$ history
+    1  su
+    2  clear
+    3  su
+    4  sudo vi /etc/default/pulseaudio 
+    5  sudo vi /etc/default/bluetooth 
+    6  cd Pictures
+    7  ls
+    8  clear
+    9  ls
+   10  clear
+   11  cd wallpapers/
+   12  ls
+$ !12 (choose history number)
+ls
+Desktop  Documents  Downloads  Music  Pictures  Videos
+$ 
+
+
+ifconfig
+-----------
+
+$ sudo ifconfig
+
+
+iwconfig
+------------
+
+$ sudo iwconfig
+
+
+java
+------
+ 
+download Linux (self-extracting file) from www.java.com to ~/Downloads
+$ cd /usr/local/bin
+/usr/local/bin$ sudo mkdir java
+/usr/local/bin$ cd java
+/usr/local/bin/java$ sudo mkdir 32
+$ cd ~/Downloads
+$ sudo mv jre-6u31-linux-i586.bin /usr/local/bin/java/32
+$ sudo chmod 755 or a+x /usr/local/bin/java/32/jre-6u31-linux-i586.bin
+$ cd /usr/local/bin/java/32
+$ sudo ./jre-6u31-linux-i586.bin
+$ sudo update-alternatives --install "/usr/bin/java" "java" "/usr/local/bin/java/32/jre1.6.0_31/bin/java" 1
+when updating from previous removed java version then you'll need to execute the above command twice
+$ sudo update-alternatives --set java /usr/local/bin/java/32/jre1.6.0_31/bin/java
+$ sudo ln -s /usr/local/bin/java/32/jre1.6.0_31/lib/i386/libnpjp2.so /usr/lib/chromium/plugins
+/usr/local/bin/java/32/jre1.6.0_31/bin/ControlPanel (optional control panel)
+ uninstall:
+$ rm /usr/lib/chromium/plugins/libnpjp2.so
+$ rm -rf /usr/local/bin/java 
+
+
+less
+------
+
+$ vi test.txt
+$ less test.txt
+
+
+locate
+---------
+
+$ locate sasha
+/home/vicom/Pictures/wallpapers/sasha.jpg
+$ 
+
+
+ls
+---
+
+$ ls
+Desktop  Documents  Downloads  Music  Pictures  Videos
+$ ls -al
+total 24
+drwxr-xr-x 34 vicom vicom 4096 Mar 27 02:18 .
+drwxr-xr-x  4 root  root  4096 Mar 22 17:13 ..
+drwx------  3 vicom vicom 4096 Mar 22 18:37 .adobe
+drwx------  2 vicom vicom 4096 Mar 25 10:58 .aptitude
+
+
+lsb_release
+-----------------
+
+$ lsb_release
+No LSB modules are available.
+$
+
+
+lspci
+-------
+
+$ lspci
+
+
+lsusb
+--------
+
+$ lsusb
+
+
+md5sum
+-------------
+
+$ sudo md5sum filename.iso
+
+
+mkdir
+---------
+
+$ ls
+Desktop  Documents  Downloads  Music  Pictures  Videos
+$ mkdir test
+$ ls
+Desktop  Documents  Downloads  Music  Pictures  test  Videos
+$ cd test
+/test$ 
+
+
+mkfs
+-------
+
+$ sudo fdisk -l
+[sudo] password for vicom: 
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sda1   *        2048    39063551    19530752   83  Linux
+/dev/sda2        39063552   476676095   218806272   83  Linux
+/dev/sda3       476676096   488396799     5860352   82  Linux swap / Solaris
+/dev/sdb          39063552   476676095   218806272   83  ntfs
+$ sudo mkfs. (press tab for completion options)
+$ sudo umount /dev/sdb; sudo mkfs.vfat -n "pendrive" -I /dev/sdb
+
+
+mount/umount
+----------------------
+
+$ sudo fdisk -l
+[sudo] password for vicom: 
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sda1   *        2048    39063551    19530752   83  Linux
+/dev/sda2        39063552   476676095   218806272   83  Linux
+/dev/sda3       476676096   488396799     5860352   82  Linux swap / Solaris
+/dev/sdb          39063552   476676095   218806272   83  ntfs
+$ mkdir /media/usb
+$ sudo mount (-t vfat) /dev/sdb /media/usb (-o uid=1000,gid=1000,utf8,dmask=027,fmask=137)
+or
+$ sudo mount (-t ntfs-3g) /dev/sdb /media/usb
+$ umount /media/usb
+
+
+mv
+-----
+
+$ ls
+Desktop  Documents  Downloads  Music  Pictures  test1  test2  Videos
+$ cd test1
+/test1$ ls
+one.text.backup  one.txt
+/test1$ mv one.txt two.txt
+/test1$ ls
+one.text.backup  two.txt
+/test1$ mv two.txt ~/test2
+/test1$ ls
+one.text.backup
+/test1$ cd ~/test2
+/test2$ ls
+one.txt  test1  two.txt
+
+
+on/off
+-----------
+
+ctrl - alt - printscreen - reisub (force shutdown)
+sudo shutdown -h now (halt)
+sudo shutdown -r now (reboot)
+killall chromium
+
+
+ping
+------
+
+$ ping -c 3 www.google.com
+
+
+pwd
+-------
+
+$ pwd
+/home/vicom
+$
+
+
+reference
+----------------
+
+/etc/apt/sources.list
+/etc/network/interfaces
+/var/log
+(hd0,1)=/dev/sda1 (1st hard drive, 1st partition)
+(hd1,3)=/dev/sdb3 (2nd hard drive, 3rd partition) 
+
+
+rm
+----
+
+$ ls
+Desktop  Documents  Downloads  Music  Pictures  test1  test2  Videos
+$ cd test1
+/test1$ ls
+one.text.backup
+/test1$ rm one.text.backup 
+/test1$ ls
+/test1$ cd
+$ ls
+Desktop  Documents  Downloads  Music  Pictures  test1  test2  Videos
+$ rm -rf test1
+$ ls
+Desktop  Documents  Downloads  Music  Pictures  test2  Videos
+
+
+rmdir
+--------
+
+$ ls
+Desktop  Documents  Downloads  Music  Pictures  test  Videos
+$ rmdir test/
+$ ls
+Desktop  Documents  Downloads  Music  Pictures  Videos
+
+
+run/execute 
+------------------
+
+./filename.bin
+
+
+screen
+-----------
+
+$ sudo vi /usr/share/X11/xorg.conf.d/20-intel.conf (lubuntu)
+$ sudo vi /etc/X11/xorg.conf.d/20-intel.conf (arch) 
+Section "Device"
+   Identifier  "Intel Graphics"
+   Driver      "intel"
+   Option      "AccelMethod"  "uxa"
+EndSection
+ZZ
+$ reboot
+
+
+tar
+----
+
+$ sudo tar -jxvf file.tarbz2
+$ sudo tar -jxvf file.tarbz
+$ sudo tar -zxvf file.targz
+$ sudo tar -xvf file.tar
+$ sudo tar -xJf file.tarxz
+$ sudo tar -jxvf file.tbz
+$ sudo tar -zxvf file.tgz
+
+
+terminal shortcuts
+----------------------------
+
+shift - insert (middle click)
+ctrl - alt - f1 (tty1)
+ctrl - a (beginning of sentence)
+ctrl - e (end of sentence)
+ctrl - c (stop operation)
+ctrl - u (cut whole sentence back)
+ctrl - k (cut whole sentence forward)
+ctrl - w (cut one word back)
+ctrl - y (paste)
+
+
+top
+-----
+
+$ top
+
+
+touch
+--------
+
+$ ls
+Desktop  Documents  Downloads  Music  Pictures  Videos
+$ touch test
+$ ls
+Desktop  Documents  Downloads  Music  Pictures  test  Videos
+$ vi test
+
+
+truecrypt
+---------------
+
+$ modprobe loop
+$ tee /etc/modules-load.d/truecrypt.conf <<< "loop"
+$ reboot
+
+
+uname
+----------
+
+$ uname -a
+Linux toshiba 3.2.0-4-686-pae #1 SMP Debian 3.2.54-2 i686 GNU/Linux
+$ 
+
+
+unrar
+--------
+
+$ sudo unrar e file.rar
+
+
+update-alternatives
+-----------------------------
+
+$ sudo update-alternatives --config x-cursor-theme
+
+
+updatedb
+---------------
+
+$ sudo updatedb
+
+
+unzip
+--------
+
+$ unzip file.zip
+
+
+vi
+---
+
+i (one letter to the left insert mode)
+a (one letter to the right insert mode)
+ctrl - [ (command mode)
+h (left)
+j (down)
+k (up)
+l (right)
+r (replace)
+x (erase forward)
+X (erase backward)
+0 (beginning sentence)
+$ (end sentence)
+b (one word backward)
+w (one word forward)
+db (erase one word backward)
+dw (erase one word forward)
+u (undo)
+dd (delete sentence, cut)
+p (paste)
+yy (copy)
+o (next line insert mode)
+gg (beginning of everything)
+GG (end of everything)
+:q (quit)
+:q! (force quit)
+:wq (save and quit)
+ZZ (save and quit)
