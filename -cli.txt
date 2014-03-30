@@ -197,6 +197,12 @@ put found "firmware-iwlwifi" in usbstick
 insert usbstick when installation disk asks for firmware
 
 
+dmesg
+------
+
+$ dmesg | tail
+
+
 dpkg
 --------
 
@@ -206,12 +212,13 @@ $ sudo dpkg-reconfigure gdm3
 
 install packages computer #1 --> computer #2:
 $ sudo dpkg --get-selections >pkg-list
-transfer "pkg-list" to the other computer (usb)
-$ sudo dpkg --set-selections <pkg-list
-$ sudo apt-get dselect-upgrade
-$ sudo dpkg --set-selections <pkg-list
-install programs that come up on warnings
-$ sudo aptitude purge ~c
+transfer the pkg-list file on the computers you want to update
+$ avail=`mktemp`
+$ apt-cache dumpavail > "$avail"
+$ dpkg --merge-avail "$avail"
+$ rm -f "$avail"
+$ dpkg --set-selections < pkg-list
+$ apt-get dselect-upgrade
 
 
 du
