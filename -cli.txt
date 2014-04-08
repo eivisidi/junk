@@ -132,6 +132,18 @@ $ sudo chmod ugo+-rwx filename (change permissions)
 $ sudo chmod +x filename (make executable)
 
 
+chown
+---------
+
+$ cd /
+/$ ls -al
+drwxr-xr-x   4 vicom vicom 4.0K Mar 22 17:13 home
+$ sudo chown root:root home
+$ ls
+drwxr-xr-x   4 root root 4.0K Mar 22 17:13 home
+/$
+
+
 compile
 -------------
  
@@ -348,6 +360,17 @@ $ !12 (choose history number)
 ls
 Desktop  Documents  Downloads  Music  Pictures  Videos
 $ 
+
+
+.ICEauthority
+-------------------
+
+"can't log in" solution:
+ctrl-alt-F2
+$ sudo rm /var/lib/gdm3/.ICEauthority*
+$ cd
+$ sudo rm .ICEauthority
+$ sudo reboot
 
 
 ifconfig
