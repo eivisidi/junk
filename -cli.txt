@@ -539,6 +539,25 @@ ping
 $ ping -c 3 www.google.com
 
 
+ppa
+----
+
+ubuntu:
+$ sudo add-apt-repository ppa:tuxpoldo/btsync 
+$ sudo aptitude update
+
+debian:
+$ sudo add-apt-repository 'deb http://ppa.launchpad.net/shimmerproject/ppa/ubuntu quantal main'
+$ sudo aptitude update
+or
+'Technical details about this PPA':
+Signing key:
+1024R/685D1580 <-----
+$ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 685D1580 <-----
+$ echo 'deb http://ppa.launchpad.net/shimmerproject/ppa/ubuntu quantal main' >> /etc/apt/sources.list
+$ sudo aptitude update
+
+
 pwd
 -------
 
