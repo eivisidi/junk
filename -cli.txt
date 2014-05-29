@@ -269,6 +269,13 @@ tar -zxvf flash_player.tar.gz
 $ cp libflashplayer.so /usr/lib/chromium/plugins/
 
 
+gnugp
+------
+
+$ gpg -c --cipher-algo AES256 hola.txt (encrypt)
+$ gpg hola.txt.gpg (decrypt)
+
+
 grep
 -------
 
