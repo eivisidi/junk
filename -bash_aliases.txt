@@ -59,6 +59,7 @@ alias untarxz='sudo tar -xJf'
 alias untbz='sudo tar -jxvf'
 alias untgz='sudo tar -zxvf'
 alias unzip='unzip'
+alias tar='tar -cf'
 
 alias usbsdb1='sudo umount /dev/sdb1; sudo mkfs.vfat -n "pendrive" -I /dev/sdb1'
 alias usbsdb2='sudo umount /dev/sdb2; sudo mkfs.vfat -n "pendrive" -I /dev/sdb2'
