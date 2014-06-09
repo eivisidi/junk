@@ -28,7 +28,7 @@ reboot
 su
 aptitude update; aptitude upgrade
 (gnome)
-aptitude -P install --without-recommends alacarte alsa-base alsa-utils apt-listbugs audacious chameleon-cursor-theme clamav cups-pk-helper dosfstools file-roller flashplugin-nonfree gdebi gedit gimp gnome-core gnome-tweak-tool gparted gstreamer0.10-ffmpeg gstreamer0.10-fluendo-mp3 gstreamer0.10-plugins-ugly intel-microcode libmp4v2-2 libmtp-runtime libreoffice-gnome libreoffice-writer nautilus-image-converter network-manager-gnome ntfs-3g pulseaudio-module-x11 pyrenamer rtkit shotwell synaptic system-config-printer telepathy-gabble totem-plugins transmission-gtk ufw unrar vlc xorg  
+aptitude -P install --without-recommends alacarte alsa-base alsa-utils apt-listbugs audacious chameleon-cursor-theme clamav cups-pk-helper dosfstools file-roller flashplugin-nonfree gdebi gedit gimp gnome-core gnome-tweak-tool gparted gstreamer0.10-ffmpeg gstreamer0.10-fluendo-mp3 gstreamer0.10-plugins-ugly intel-microcode libmp4v2-2 libmtp-runtime libreoffice-gnome libreoffice-writer nautilus-image-converter network-manager-gnome ntfs-3g pulseaudio-module-x11 pyrenamer rtkit secure-delete shotwell synaptic system-config-printer telepathy-gabble totem-plugins transmission-gtk ufw unrar vlc xorg  
 
 6.
 intel toshiba: aptitude install firmware-realtek 
