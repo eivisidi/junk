@@ -25,6 +25,7 @@ alias u='sudo aptitude update; sudo aptitude safe-upgrade'
 
 #general
 alias bbc='du -ha --max-depth=1 | sort -h'
+alias bye='srm -r'
 alias c='clear'
 alias ..='cd ..'
 alias check='sudo md5sum'
@@ -61,6 +62,8 @@ alias untgz='sudo tar -zxvf'
 alias unzip='unzip'
 alias tar='tar -cf'
 
+alias mount1='sudo mount -t vfat'
+alias mount2='sudo mount -t ntfs-3g'
 alias usbsdb1='sudo umount /dev/sdb1; sudo mkfs.vfat -n "pendrive" -I /dev/sdb1'
 alias usbsdb2='sudo umount /dev/sdb2; sudo mkfs.vfat -n "pendrive" -I /dev/sdb2'
 alias usbsdb3='sudo umount /dev/sdb3; sudo mkfs.vfat -n "pendrive" -I /dev/sdb3'
