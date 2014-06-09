@@ -209,6 +209,16 @@ put found "firmware-iwlwifi" in usbstick
 insert usbstick when installation disk asks for firmware
 
 
+delete permanently
+------------------
+
+$ shred -u -z -n 38 test.txt
+
+$ sudo aptitude install secure-delete
+$ srm test.txt
+$ srm -r foldername
+
+
 dmesg
 ------
 
