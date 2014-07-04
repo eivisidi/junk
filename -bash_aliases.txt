@@ -2,7 +2,7 @@
 alias clean='sudo aptitude clean'
 alias config='sudo aptitude -P purge ~c'
 alias i='sudo aptitude -P install --without-recommends'
-alias ib='aptitude -t wheezy-backports install'
+alias ib='sudo aptitude -t wheezy-backports install'
 alias info='aptitude show'
 alias installed='aptitude search ~i | less'
 alias p='sudo aptitude -P purge'
