@@ -68,6 +68,17 @@ ar
 $ ar x file.deb
 
 
+backports
+----------
+
+$ sudo vi /etc/apt/sources.list
+deb http://ftp.debian.org/debian wheezy-backports main contrib non-free
+deb-src http://ftp.debian.org/debian wheezy-backports main contrib non-free
+ZZ
+$ sudo aptitude update
+$ sudo aptitude -t wheezy-backports install packagename
+
+
 blkid
 ----------
 
