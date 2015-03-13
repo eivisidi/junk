@@ -1,4 +1,3 @@
-
 apt-get
 -----------
 
@@ -436,6 +435,18 @@ $ rm /usr/lib/chromium/plugins/libnpjp2.so
 $ rm -rf /usr/local/bin/java 
 
 
+keepassx import from lastpass
+-----------------------------
+
+chmox +x lastpass2keepass.py
+
+python lastpass2keepass.py lastpassexport keepass.xml
+
+where "lastpassexport" is the file you've exported from LastPass
+
+now simply import the resulting .xml (keepass.xml in our example) file into KeePassX
+
+
 less
 ------
 
@@ -766,3 +777,183 @@ GG (end of everything)
 :q! (force quit)
 :wq (save and quit)
 ZZ (save and quit)
+
+short version fix:
+------------------
+
+gpg --keyserver hkp://subkeys.pgp.net --recv-keys A040830F7FAC5991
+gpg --export --armor 7FAC5991 | sudo apt-key add -
+
+
+long version fix:
+-----------------
+
+gpg --keyserver hkp://subkeys.pgp.net --recv-keys A040830F7FAC5991
+The A040830F7FAC5991 is from the warning shown before. You might want to change it if you have different repository. For the google repository, you should get this as the output
+
+gpg: requesting key 7FAC5991 from hkp server subkeys.pgp.net
+gpg: key 7FAC5991: public key "Google, Inc. Linux Package Signing Key " imported
+gpg: 3 marginal(s) needed, 1 complete(s) needed, PGP trust model
+gpg: depth: 0  valid:   1  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 1u
+gpg: Total number processed: 1
+gpg:               imported: 1
+
+After that, type
+
+gpg --export --armor 7FAC5991 | sudo apt-key add -
+Where the 7FAC5991 is from the output shown before.
+
+
+pyrenamer
+----------
+
+01 - Back Alley Uproar
+{1} S01E{num2}.avi
+01 - Back Alley Uproar S01E00.avi
+
+
+plex (add firewall rule gufw)
+------------------------------
+
+Simple
+Plex
+Allow
+In
+TCP
+32400
+
+
+syncthing
+---------------
+
+
+1- Grab the latest release of Syncthing for your operating system and unpack it. Create new folder called /home/vicom/Bin. Copy and paste the file "Syncthing" to /home/vicom/Bin. Double click "Syncthing." This will open the browser at http://localhost:8080/ and have created a folder called /home/vicom/Sync
+
+2- Create new folder /home/vicom/Sync/toshiba.eeepc
+
+3- Open gufw (firewall). Add port 22000/TCP and port 21025/UDP to the rules
+
+4- On the other computer that you want to sync with do exactly the same steps (1-3). 
+
+5- On the browser GUI page of the main computer "Add Device" (right side)
+Device ID: (number that appears on the other computer that you want to sync with in the "Show ID" section on the top right settings button)
+Device Name: eeepc
+Share Folders With Device: toshiba.eeepc
+
+6- On the browser GUI page of the main computer "Add Folder" (left side)
+Folder ID: toshiba.eeepc
+Folder Path: /home/vicom/Sync/toshiba.eeepc
+Share With Devices: eeepc
+
+7- On the other computer "Add Device" (right side)
+Device ID: (number from the main computer that appears on the "Show ID" section)
+Devide Name: toshiba
+Share Folders With Device: toshiba.eeepc
+
+8- On the other computer "Add Folder" (left side)
+Folder ID: eeepc.toshiba
+Folder Path: /home/vicom/Sync/toshiba.eeepc
+Share With Devices: toshiba
+
+9- Restart on both computers, and delete "default" folder, restart again.
+
+
+make transmission-gtk default to open torrent magnet:
+-----------------------------------------------------
+
+debian:
+terminal
+xdg-mime default transmission-gtk.desktop x-scheme-handler/magnet
+
+arch:
+sudo vi /usr/bin/xdg-open
+find-->
+open_xfce() 
+        { 
+            exo-open "$1" 
+
+            if [ $? -eq 0 ]; then 
+                exit_success 
+            else 
+                exit_failure_operation_failed 
+            fi 
+        }
+
+substitute with-->
+open_xfce() 
+        { 
+            if (echo "$1" | grep -q '^magnet:'); then 
+                transmission-gtk "$1" 
+            else 
+                exo-open "$1" 
+            fi 
+
+            if [ $? -eq 0 ]; then 
+                exit_success 
+            else 
+                exit_failure_operation_failed 
+            fi 
+        }
+
+
+
+openbox shortcuts:
+------------------
+
+sudo vi .config/openbox/lxde-rc.xml
+
+    <!-- Keybindings for windows -->
+    
+    <keybind key="W-c">
+      <action name="Close"/>
+
+    <!--keybindings for LXPanel -->
+    
+    <keybind key="C-space">
+      <action name="Execute">
+        <command>lxpanelctl run</command>
+
+    <keybind key="C-Escape">
+      <action name="Execute">
+        <command>/usr/bin/lxsession-logout</command>
+      
+    <!-- Launch Task Manager with Ctrl+Alt+Del -->
+    
+    <keybind key="C-Return">
+      <action name="Execute">
+        <command>/usr/bin/lxterminal</command>
+
+
+gnome
+------
+
+gnome-session-quit --power-off
+lxpolkit
+gvfs
+
+
+lxqt
+-----
+
+sudo vi /etc/apt/sources.list
+deb http://ppa.launchpad.net/lubuntu-dev/lubuntu-daily/ubuntu trusty main
+
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 20E36F2F
+
+Gpu Bug Temporary Fix
+----------------------
+
+always_flush_cache=true always_flush_batch=true /usr/bin/google-chrome-stable & exit
+
+Disable Chrome New Bookmarks
+-----------------------------
+
+chrome://flags
+enable enhanced bookmarks
+disable
+relaunch
+
+Ubuntu su
+---------------
+sudo su
+passwd
