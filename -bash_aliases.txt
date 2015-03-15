@@ -10,6 +10,28 @@
 #alias yi='sudo yaourt -S'
 #alias ys='yaourt -Ss'
 
+#compress/extract (tar folders.tar folder1 folder2)
+alias TAR='tar -cf'
+alias untar='tar -xf'
+
+alias GZ='gzip'
+alias ungz='gunzip'
+
+alias BZ='bzip2'
+alias unbz='bunzip2'
+
+alias TG='tar -zcf'
+alias untg='tar -zvxf'
+
+alias TB='tar -jcf'
+alias untb='tar -jvxf'
+
+alias RAR='rar a'
+alias unrar='unrar x'
+
+alias ZIP='zip -r'
+alias unzip='unzip'
+
 #debian
 alias backport='sudo aptitude -t jessie-backports install'
 alias clean='sudo aptitude clean'
@@ -44,12 +66,6 @@ alias locate='sudo updatedb; locate'
 alias md5='md5sum'
 alias ping='ping -c 3'
 alias sha1='sha1sum'
-
-#extract
-alias tar='tar -cf' #compress example: $ tar folders.tar folder1 folder2
-alias ungz='sudo gzip -d'
-alias unrar='sudo unrar e'
-alias untar='sudo tar -zxvf'
 
 #fedora
 #alias clean='sudo yum clean all'
