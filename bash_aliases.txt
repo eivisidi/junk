@@ -49,6 +49,11 @@ alias show='aptitude show'
 alias sources='sudo vi /etc/apt/sources.list'
 alias u='sudo aptitude update; sudo aptitude safe-upgrade'
 
+#downloads
+alias mix='wget https://github.com/numixproject/numix-icon-theme-circle/archive/master.zip'
+alias nu='wget https://github.com/numixproject/numix-icon-theme/archive/master.zip'
+alias zuki='wget https://github.com/lassekongo83/zuki-themes/archive/master.zip'
+
 #execute
 alias c='clear'
 alias ..='cd ..'
