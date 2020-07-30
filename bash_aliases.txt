@@ -1,3 +1,5 @@
+#source .bashrc on terminal to sync with .bash_aliases
+
 #arch
 #alias installed='pacman -Qs | less'
 #alias i='sudo pacman -S'
@@ -33,36 +35,28 @@ alias ZIP='zip -r'
 alias unzip='unzip'
 
 #debian
-alias backport='sudo aptitude -t jessie-backports install'
-alias clean='sudo aptitude clean'
+alias clean='sudo apt clean'
 alias config='sudo aptitude -P purge ~c'
-alias cursor='sudo update-alternatives --config x-cursor-theme'
 alias deb='sudo dpkg -i'
-alias dep='sudo apt-get update; sudo apt-get -f upgrade'
 alias installed='aptitude search ~i | less'
-alias i='sudo aptitude -P install --without-recommends'
-alias keyboard='sudo dpkg-reconfigure keyboard-configuration'
-alias p='sudo aptitude -P purge'
-alias regenerate='sudo apt-get update; sudo apt-get dist-upgrade'
-alias s='aptitude search'
-alias show='aptitude show'
+alias i='sudo apt install --no-install-recommends'
+alias p='sudo apt purge'
+alias regenerate='sudo apt dist-upgrade'
+alias s='apt search'
+alias show='apt show'
 alias sources='sudo vi /etc/apt/sources.list'
-alias u='sudo aptitude update; sudo aptitude safe-upgrade'
-
-#downloads
-alias junk='wget https://github.com/eivisidi/junk/archive/master.zip'
-alias mix='wget https://github.com/numixproject/numix-icon-theme-circle/archive/master.zip'
-alias nu='wget https://github.com/numixproject/numix-icon-theme/archive/master.zip'
-alias zuki='wget https://github.com/lassekongo83/zuki-themes/archive/master.zip'
+alias u='sudo apt update; sudo apt upgrade'
 
 #execute
+alias btoff='sudo systemctl disable bluetooth'
+alias bton='sudo systemctl enable bluetooth'
+alias btstatus='systemctl is-enabled bluetooth'
 alias c='clear'
 alias ..='cd ..'
-alias chrome='always_flush_cache=true always_flush_batch=true /usr/bin/google-chrome-stable & exit'
 alias decrypt='gpg'
 alias del='sudo rm -rf'
 alias e='exit'
-alias encrypt='gpg -c --cipher-algo AES256'
+alias encrypt='gpg -c --cipher-algo AES256 --no-symkey-cache'
 alias find='sudo find / -iname'
 alias grub='sudo update-grub'
 alias k='sudo killall'
@@ -94,8 +88,7 @@ alias sdc3='sudo umount /dev/sdc3; sudo mkfs.vfat -n "Pendrive" -I /dev/sdc3'
 alias sdc='sudo umount /dev/sdc; sudo mkfs.vfat -n "Pendrive" -I /dev/sdc'
 
 #info
-alias a='cat ~/.bash_aliases'
-#alias a='cat ~/.bashrc'
+alias ses='less ~/.bash_aliases'
 alias bbc='du -ha --max-depth=1 | sort -h'
 alias d='date'
 alias disk='sudo blkid; sudo fdisk -l'
