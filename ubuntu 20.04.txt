@@ -1,0 +1,50 @@
+1. Terminal:
+sudo apt install arc-theme chameleon-cursor-theme chrome-gnome-shell 
+dconf-editor gdebi gnome-multi-writer gnome-tweaks gparted gufw keepassx 
+mlocate nautilus-gtkhash nautilus-image-converter papirus-icon-theme 
+p7zip-full p7zip-rar rar seahorse-nautilus simple-scan synaptic timeshift 
+transmission-gtk unrar vlc
+
+2. Gnome Extensions (extensions.gnome.org):
+• user themes
+• drop down terminal
+• dash to panel
+• arc menu
+• clock override (%m.%d.%C        %H:%M)
+• open weather
+
+3. Install:
+• pia (https://www.privateinternetaccess.com/pages/download)
+• plex (https://www.plex.tv/pt/media-server-downloads/)
+
+4. Workarounds:
+• gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize' (click to minimize)
+• gnome-session-quit --power-off (keyboard shortcut)
+
+5. Notes:
+• Alt + PrtSc REISUB (reboot) or REISUO (shutdown)
+• sh pia-linux-2.1-04977 (install pia)
+• source ~/.bash_aliases (sync .bash_aliases with .bashrc)
+• sudo dpkg --list | egrep -i --color 'linux-image|linux-headers' (old kernels)
+
+6. Fixes:
+• Make the menu appear on grub during boot time
+sudo vi /etc/default/grub
+GRUB_TIMEOUT_STYLE=menu
+ZZ
+sudo update-grub
+
+• Enter into another HDD from a USB to fix a problem (chroot)
+Boot the Ubuntu Live USB.
+Press Ctrl-Alt-F1
+sudo mount /dev/sda1 (root location)  /mnt
+sudo chroot /mnt
+
+• Boot error that makes boot time last forever
+sudo vim /etc/default/grub
+from:
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
+to:
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash video=SVIDEO-1:d"
+ZZ
+sudo update-grub
