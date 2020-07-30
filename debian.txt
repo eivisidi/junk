@@ -79,11 +79,7 @@ gstreamer1.0-vaapi  intel-microcode libavcodec-extra p7zip-full p7zip-rar
 rar unrar wget
 
 12. Gnome
-sudo aptitude install arc-theme chameleon-cursor-theme cups dconf-editor 
-file-roller fonts-roboto gnome-multi-writer gdebi gnome-core gparted keepassx 
-nautilus-gtkhash nautilus-image-converter papirus-icon-theme seahorse-nautilus 
-shotwell simple-scan system-config-printer timeshift transmission-gtk vlc 
-xfonts-terminus
+sudo aptitude install arc-theme chameleon-cursor-theme cups dconf-editor file-roller fonts-roboto gnome-multi-writer gdebi gnome-core gparted hplip keepassx nautilus-gtkhash nautilus-image-converter papirus-icon-theme seahorse-nautilus shotwell simple-scan system-config-printer timeshift transmission-gtk vlc xfonts-terminus
 
 13. Transfer from network interfaces to network-manager
 su
@@ -122,7 +118,7 @@ Vi
 i	Switch to Insert mode.
 Esc	Switch to Command mode.
 :w	Save and continue editing.
-:ZZ Save and quit/exit vi.
+:ZZ     Save and quit/exit vi.
 :q!	Quit vi and do not save changes.
 yy	Yank (copy a line of text).
 p	Paste a line of yanked text below the current line.
