@@ -73,15 +73,16 @@ sudo apt install tlp
 reboot
 sudo systemctl status tlp
 
-11. Restricted extras packages plus extras
-sudo apt install aptitude gstreamer1.0-libav gstreamer1.0-plugins-ugly 
-gstreamer1.0-vaapi  intel-microcode libavcodec-extra p7zip-full p7zip-rar 
-rar unrar wget
+11. HP Printers
+sudo apt install hplip
 
-12. Gnome
-sudo aptitude install arc-theme chameleon-cursor-theme cups dconf-editor file-roller fonts-roboto gnome-multi-writer gdebi gnome-core gparted hplip keepassx nautilus-gtkhash nautilus-image-converter papirus-icon-theme seahorse-nautilus shotwell simple-scan system-config-printer timeshift transmission-gtk vlc xfonts-terminus
+12. Restricted extras packages plus extras
+sudo apt install aptitude gstreamer1.0-libav gstreamer1.0-plugins-ugly gstreamer1.0-vaapi  intel-microcode libavcodec-extra p7zip-full p7zip-rar rar unrar wget
 
-13. Transfer from network interfaces to network-manager
+13. Gnome
+sudo aptitude install arc-theme chameleon-cursor-theme cups dconf-editor file-roller fonts-roboto gnome-multi-writer gdebi gnome-core gparted keepassx nautilus-gtkhash nautilus-image-converter papirus-icon-theme seahorse-nautilus shotwell simple-scan system-config-printer timeshift transmission-gtk vlc xfonts-terminus
+
+14. Transfer from network interfaces to network-manager
 su
 vi /etc/network/interfaces
 comment out everything:
@@ -91,12 +92,12 @@ comment out everything:
 #    wpa-psk password
 ZZ
 
-14. Bluetooth
+15. Bluetooth
 sudo systemctl disable bluetooth
 systemctl is-enabled bluetooth
 sudo systemctl enable bluetooth
 
-15. Gnome extensions (extensions.gnome.org):
+16. Gnome extensions (extensions.gnome.org):
 • arc menu
 • dash to panel                  
 • clock override (%m.%d.%C        %H:%M)
@@ -104,14 +105,14 @@ sudo systemctl enable bluetooth
 • removable drive menu
 • user themes
 
-16. Manual install
+17. Manual install
 pia (https://www.privateinternetaccess.com/pages/download)
 sh pia-linux-2.1-04977
 plex (https://www.plex.tv/pt/media-server-downloads/)
 
-17. Shortcuts
+18. Shortcuts
 gnome-session-quit --power-off (Ctrl + Esc)
-gnome-terminal (Ctrl + Enter)
+gnome-terminal (Ctrl + ~)
 
 0. Reference
 Vi
