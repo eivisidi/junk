@@ -99,8 +99,10 @@ sudo systemctl enable bluetooth
 
 16. Gnome extensions (extensions.gnome.org):
 • arc menu
-• dash to panel                  
 • clock override (%m.%d.%C        %H:%M)
+• dash to panel
+• desktop icons (rastersoft)
+• drop down terminal
 • open weather
 • removable drive menu
 • user themes
@@ -119,7 +121,7 @@ Vi
 i	Switch to Insert mode.
 Esc	Switch to Command mode.
 :w	Save and continue editing.
-:ZZ     Save and quit/exit vi.
+:ZZ Save and quit/exit vi.
 :q!	Quit vi and do not save changes.
 yy	Yank (copy a line of text).
 p	Paste a line of yanked text below the current line.
