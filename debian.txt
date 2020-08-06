@@ -113,8 +113,7 @@ sh pia-linux-2.1-04977
 plex (https://www.plex.tv/pt/media-server-downloads/)
 
 18. Shortcuts
-gnome-session-quit --power-off (Ctrl + Esc)
-gnome-terminal (Ctrl + ~)
+Shutdown, gnome-session-quit --power-off (Ctrl + Esc)
 
 0. Reference
 Vi
