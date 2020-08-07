@@ -11,7 +11,6 @@ iface wlan0 inet dhcp
     wpa-ssid essid
     wpa-psk password
 ZZ
-chmod 600 /etc/network (if needed)
 reboot
 ping -c 3 google.com
 
@@ -76,28 +75,13 @@ sudo systemctl status tlp
 11. HP Printers
 sudo apt install hplip
 
-12. Restricted extras packages plus extras
-sudo apt install aptitude gstreamer1.0-libav gstreamer1.0-plugins-ugly gstreamer1.0-vaapi  intel-microcode libavcodec-extra p7zip-full p7zip-rar rar unrar wget
+12. Restricted extras plus extras
+sudo apt install adapta-gtk-theme aptitude arc-theme chameleon-cursor-theme cups firefox-esr fonts-roboto gparted gstreamer1.0-libav gstreamer1.0-plugins-ugly gstreamer1.0-vaapi intel-microcode keepassx libavcodec-extra network-manager network-manager-gnome p7zip-full p7zip-rar papirus-icon-theme pulseaudio rar simple-scan system-config-printer timeshift transmission-gtk unrar unzip vlc wget xfonts-terminus zip
 
 13. Gnome
-sudo aptitude install arc-theme chameleon-cursor-theme cups dconf-editor file-roller fonts-roboto gnome-multi-writer gdebi gnome-core gparted keepassx nautilus-gtkhash nautilus-image-converter papirus-icon-theme seahorse-nautilus shotwell simple-scan system-config-printer timeshift transmission-gtk vlc xfonts-terminus
+sudo apt install dconf-editor file-roller gnome-multi-writer gdebi gnome-core nautilus-gtkhash nautilus-image-converter seahorse-nautilus shotwell
 
-14. Transfer from network interfaces to network-manager
-su
-vi /etc/network/interfaces
-comment out everything:
-# auto wlan0
-# iface wlan0 inet dhcp
-#    wpa-ssid essid
-#    wpa-psk password
-ZZ
-
-15. Bluetooth
-sudo systemctl disable bluetooth
-systemctl is-enabled bluetooth
-sudo systemctl enable bluetooth
-
-16. Gnome extensions (extensions.gnome.org):
+14. Gnome extensions (extensions.gnome.org):
 • arc menu
 • clock override (%m.%d.%C        %H:%M)
 • dash to panel
@@ -107,13 +91,31 @@ sudo systemctl enable bluetooth
 • removable drive menu
 • user themes
 
-17. Manual install
+15. Shortcuts
+Shutdown, gnome-session-quit --power-off (Ctrl + Esc)
+
+16. Mate
+sudo apt install atril engrampa eom lightdm mate-applet appmenu mate-applets mate-backgrounds mate-calc mate-desktop-environment-core mate-indicator-applet mate-media mate-menu mate-notification-daemon mate-power-manager mate-sensors-applet mate-system-monitor mate-tweak mate-user-share mate-utils mate-utils-common mate-window-applets-common mate-window-buttons-applet mate-window-menu-applet mate-window-title-applet pluma tilda
+
+17. Transfer from network interfaces to network-manager
+su
+vi /etc/network/interfaces
+comment out everything:
+# auto wlan0
+# iface wlan0 inet dhcp
+#    wpa-ssid essid
+#    wpa-psk password
+ZZ
+
+18. Bluetooth
+sudo systemctl disable bluetooth
+sudo systemctl enable bluetooth
+systemctl is-enabled bluetooth
+
+19. Manual install
 pia (https://www.privateinternetaccess.com/pages/download)
 sh pia-linux-2.1-04977
 plex (https://www.plex.tv/pt/media-server-downloads/)
-
-18. Shortcuts
-Shutdown, gnome-session-quit --power-off (Ctrl + Esc)
 
 0. Reference
 Vi
