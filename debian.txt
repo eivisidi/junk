@@ -89,6 +89,7 @@ sudo apt install dconf-editor file-roller gnome-multi-writer gdebi gnome-core na
 • drop down terminal
 • open weather
 • removable drive menu
+• topicons plus 
 • user themes
 
 15. Shortcuts
