@@ -76,10 +76,10 @@ sudo systemctl status tlp
 sudo apt install hplip
 
 12. Restricted extras plus extras
-sudo apt install adapta-gtk-theme aptitude arc-theme chameleon-cursor-theme cups firefox-esr fonts-roboto gparted gstreamer1.0-libav gstreamer1.0-plugins-ugly gstreamer1.0-vaapi intel-microcode keepassx libavcodec-extra network-manager network-manager-gnome p7zip-full p7zip-rar papirus-icon-theme pulseaudio rar simple-scan system-config-printer timeshift transmission-gtk unrar unzip vlc wget xfonts-terminus zip
+sudo apt install adapta-gtk-theme aptitude arc-theme chameleon-cursor-theme cups dconf-editor firefox-esr fonts-roboto gdebi gnome-multi-writer gparted gstreamer1.0-libav gstreamer1.0-plugins-ugly gstreamer1.0-vaapi intel-microcode keepassx libavcodec-extra network-manager network-manager-gnome p7zip-full p7zip-rar papirus-icon-theme pulseaudio rar shotwell simple-scan system-config-printer timeshift transmission-gtk ttf-ubuntu-font-family unrar unzip vlc wget xfonts-terminus zip
 
 13. Gnome
-sudo apt install dconf-editor file-roller gnome-multi-writer gdebi gnome-core nautilus-gtkhash nautilus-image-converter seahorse-nautilus shotwell
+sudo apt install file-roller gnome-core nautilus-gtkhash nautilus-image-converter seahorse-nautilus
 
 14. Gnome extensions (extensions.gnome.org):
 • arc menu
@@ -96,7 +96,7 @@ sudo apt install dconf-editor file-roller gnome-multi-writer gdebi gnome-core na
 Shutdown, gnome-session-quit --power-off (Ctrl + Esc)
 
 16. Mate
-sudo apt install atril engrampa eom lightdm mate-applet appmenu mate-applets mate-backgrounds mate-calc mate-desktop-environment-core mate-indicator-applet mate-media mate-menu mate-notification-daemon mate-power-manager mate-sensors-applet mate-system-monitor mate-tweak mate-user-share mate-utils mate-utils-common mate-window-applets-common mate-window-buttons-applet mate-window-menu-applet mate-window-title-applet pluma tilda
+sudo apt install atril engrampa eom lightdm lightdm-gtk-greeter-settings mate-applet appmenu mate-applets mate-backgrounds mate-calc mate-desktop-environment-core mate-indicator-applet mate-media mate-menu mate-notification-daemon mate-power-manager mate-sensors-applet mate-system-monitor mate-tweak mate-user-share mate-utils mate-utils-common mate-window-applets-common mate-window-buttons-applet mate-window-menu-applet mate-window-title-applet pluma tilda
 
 17. Transfer from network interfaces to network-manager
 su
