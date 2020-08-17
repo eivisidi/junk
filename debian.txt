@@ -76,12 +76,15 @@ sudo systemctl status tlp
 sudo apt install hplip
 
 12. Restricted extras plus extras
-sudo apt install adapta-gtk-theme aptitude arc-theme chameleon-cursor-theme cups dconf-editor firefox-esr fonts-roboto gdebi gnome-multi-writer gparted gstreamer1.0-libav gstreamer1.0-plugins-ugly gstreamer1.0-vaapi intel-microcode keepassx libavcodec-extra network-manager network-manager-gnome p7zip-full p7zip-rar papirus-icon-theme pulseaudio rar shotwell simple-scan system-config-printer timeshift transmission-gtk ttf-ubuntu-font-family unrar unzip vlc wget xfonts-terminus zip
+sudo apt install aptitude cups gstreamer1.0-libav gstreamer1.0-plugins-ugly gstreamer1.0-vaapi intel-microcode libavcodec-extra network-manager network-manager-gnome p7zip-full p7zip-rar pulseaudio rar unrar unzip wget zip
 
 13. Gnome
-sudo apt install file-roller gnome-core nautilus-gtkhash nautilus-image-converter seahorse-nautilus
+sudo apt install dconf-editor file-roller firefox-esr gdebi gnome-core gnome-multi-writer gnome-screenshot gparted keepassx nautilus-gtkhash nautilus-image-converter seahorse-nautilus shotwell simple-scan system-config-printer timeshift transmission-gtk vlc
 
-14. Gnome extensions (extensions.gnome.org):
+14. Eyecandy
+sudo apt install adapta-gtk-theme arc-theme chameleon-cursor-theme fonts-roboto papirus-icon-theme ttf-ubuntu-font-family xfonts-terminus
+
+15. Gnome extensions (extensions.gnome.org):
 • arc menu
 • clock override (%m.%d.%C        %H:%M)
 • dash to panel
@@ -92,17 +95,14 @@ sudo apt install file-roller gnome-core nautilus-gtkhash nautilus-image-converte
 • topicons plus 
 • user themes
 
-15. Fonts
+16. Fonts
 Roboto Regular 11
 Roboto Regular 11
 Monospace Bold 11
 Roboto Bold 11
 
-16. Shortcuts
+17. Shortcuts
 Shutdown, gnome-session-quit --power-off (Ctrl + Esc)
-
-17. Mate
-sudo apt install atril engrampa eom lightdm lightdm-gtk-greeter-settings mate-applet appmenu mate-applets mate-backgrounds mate-calc mate-desktop-environment-core mate-indicator-applet mate-media mate-menu mate-notification-daemon mate-power-manager mate-sensors-applet mate-system-monitor mate-tweak mate-user-share mate-utils mate-utils-common mate-window-applets-common mate-window-buttons-applet mate-window-menu-applet mate-window-title-applet pluma tilda
 
 18. Transfer from network interfaces to network-manager
 su
@@ -127,9 +127,9 @@ plex (https://www.plex.tv/pt/media-server-downloads/)
 0. Reference
 Vi
 i	Switch to Insert mode.
-Esc	Switch to Command mode.
+Esc  Switch to Command mode.
 :w	Save and continue editing.
-:ZZ Save and quit/exit vi.
+:ZZ  Save and quit/exit vi.
 :q!	Quit vi and do not save changes.
 yy	Yank (copy a line of text).
 p	Paste a line of yanked text below the current line.
@@ -142,12 +142,8 @@ b	Go to the beginning of the word.
 e	Go to the end of the word.
 x	Delete a single character.
 dd	Delete an entire line.
-Xdd Delete X number of lines.
-Xyy	Yank X number of lines.
 G	Go to the last line in a file.
-XG	Go to line X in a file.
 gg	Go to the first line in a file.
-:numDisplay the current line's line number.
 h	Move left one character.
 j	Move down one line.
 k	Move up one line.
