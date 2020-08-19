@@ -79,7 +79,7 @@ sudo apt install hplip
 sudo apt install aptitude cups gstreamer1.0-libav gstreamer1.0-plugins-ugly gstreamer1.0-vaapi intel-microcode libavcodec-extra network-manager network-manager-gnome p7zip-full p7zip-rar pulseaudio rar unrar unzip wget zip
 
 13. Gnome
-sudo apt install dconf-editor file-roller firefox-esr gdebi gnome-core gnome-multi-writer gnome-screenshot gparted keepassx nautilus-gtkhash nautilus-image-converter seahorse-nautilus shotwell simple-scan system-config-printer timeshift transmission-gtk vlc
+sudo apt install cheese dconf-editor file-roller firefox-esr gdebi gnome-core gnome-multi-writer gnome-photos gnome-screenshot gnome-sound-recorder gparted gtkhash handbrake keepassx libreoffice libreoffice-gnome nautilus-image-converter rhythmbox rhythmbox-plugins seahorse-nautilus simple-scan system-config-printer timeshift transmission-gtk vlc
 
 14. Eyecandy
 sudo apt install adapta-gtk-theme arc-theme chameleon-cursor-theme fonts-roboto papirus-icon-theme ttf-ubuntu-font-family xfonts-terminus
