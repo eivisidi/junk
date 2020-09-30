@@ -1,5 +1,8 @@
 1. Terminal:
-sudo apt install chameleon-cursor-theme cheese chrome-gnome-shell dconf-editor gdebi gnome-multi-writer gnome-photos gnome-screenshot gnome-tweaks gtkhash gufw handbrake keepassx libreoffice libreoffice-gnome mlocate nautilus-image-converter p7zip-full p7zip-rar papirus-icon-theme rar rhythmbox rhythmbox-plugins seahorse-nautilus simple-scan synaptic timeshift transmission-gtk ubuntu-restricted-extras vlc
+sudo apt install chameleon-cursor-theme cheese chrome-gnome-shell dconf-editor gdebi gnome-multi-writer 
+gnome-photos gnome-screenshot gnome-tweaks gtkhash gufw handbrake keepassx libreoffice libreoffice-gnome 
+mlocate nautilus-image-converter p7zip-full p7zip-rar papirus-icon-theme rar rhythmbox rhythmbox-plugins 
+seahorse-nautilus simple-scan synaptic timeshift transmission-gtk ubuntu-restricted-extras vlc
 
 2. Snap free ubuntu:
 • snap list
